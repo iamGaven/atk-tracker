@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-18T02:06:40.103Z",
+  "updatedAt": "2026-11-18T02:07:13.676Z",
   "usage": {
     "CAD85:50T": 1,
     "CAD85:50T(B)": 1,
@@ -58,16 +58,6 @@
       "descriptorIcon": null,
       "url": "https://colors.autokotesystems.com/formula/marketcolor/Automotive/ATK/370/5dcbd198-85ef-e611-80f0-0050568d4c1c/1",
       "addedAt": 1794966458071
-    },
-    "28ec069c-7cb5-e311-b816-005056945ff1": {
-      "marketColorId": "28ec069c-7cb5-e311-b816-005056945ff1",
-      "variantNumber": null,
-      "manufacturer": "Chevrolet",
-      "name": "CHE85:50T (Summit White)",
-      "imageUrl": null,
-      "descriptorIcon": null,
-      "url": "https://colors.autokotesystems.com/formula/marketcolor/Automotive/ATK/370/28ec069c-7cb5-e311-b816-005056945ff1/1",
-      "addedAt": 1794967566221
     }
   },
   "formulas": {
