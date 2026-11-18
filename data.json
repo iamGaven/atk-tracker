@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-18T01:40:40.915Z",
+  "updatedAt": "2026-11-18T01:40:54.884Z",
   "usage": {
     "CAD85:50T": 1
   },
@@ -18,6 +18,16 @@
       "descriptorIcon": null,
       "url": "https://colors.autokotesystems.com/formula/marketcolor/Automotive/ATK/370/5dcbd198-85ef-e611-80f0-0050568d4c1c/1",
       "addedAt": 1794965677779
+    },
+    "34581133-7db5-e311-b816-005056945ff1": {
+      "marketColorId": "34581133-7db5-e311-b816-005056945ff1",
+      "variantNumber": null,
+      "manufacturer": "Cadillac",
+      "name": "CAD85:50T (Summit White)",
+      "imageUrl": null,
+      "descriptorIcon": null,
+      "url": "https://colors.autokotesystems.com/formula/marketcolor/Automotive/ATK/370/34581133-7db5-e311-b816-005056945ff1/1",
+      "addedAt": 1794966053382
     }
   }
 }
