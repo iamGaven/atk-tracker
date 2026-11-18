@@ -1,32 +1,9 @@
 {
-  "updatedAt": "2026-11-18T04:26:43.448Z",
-  "usage": {
-    "SUBM1Y (Crimson Red Pearl)": 2,
-    "CHE85:50T (Summit White)": 2
-  },
-  "daily": {
-    "2026-11-17": {
-      "SUBM1Y (Crimson Red Pearl)": 2,
-      "CHE85:50T (Summit White)": 2
-    }
-  },
+  "updatedAt": "2026-11-18T04:27:39.515Z",
+  "usage": {},
+  "daily": {},
   "favorites": {},
-  "colorMeta": {
-    "SUBM1Y (Crimson Red Pearl)": {
-      "marketColorId": "5dcbd198-85ef-e611-80f0-0050568d4c1c",
-      "name": "SUBM1Y (Crimson Red Pearl)",
-      "manufacturer": "Subaru/Fuji",
-      "imageUrl": "https://colors.autokotesystems.com/apim/frontend/cod/2025.4.0/cod/market-color-id/5dcbd198-85ef-e611-80f0-0050568d4c1c/medium/tube?variantNumber=1",
-      "descriptorIcon": null
-    },
-    "CHE85:50T (Summit White)": {
-      "marketColorId": "28ec069c-7cb5-e311-b816-005056945ff1",
-      "name": "CHE85:50T (Summit White)",
-      "manufacturer": "Chevrolet",
-      "imageUrl": "https://colors.autokotesystems.com/apim/frontend/cod/2025.4.0/cod/market-color-id/28ec069c-7cb5-e311-b816-005056945ff1/medium/tube?variantNumber=1",
-      "descriptorIcon": null
-    }
-  },
-  "resetId": "1794975570119",
+  "colorMeta": {},
+  "resetId": "1794976059515",
   "resetFavs": false
 }
