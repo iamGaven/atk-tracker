@@ -1,7 +1,13 @@
 {
-  "updatedAt": "2026-11-18T01:40:39.403Z",
-  "usage": {},
-  "daily": {},
+  "updatedAt": "2026-11-18T01:40:40.915Z",
+  "usage": {
+    "CAD85:50T": 1
+  },
+  "daily": {
+    "2026-11-17": {
+      "CAD85:50T": 1
+    }
+  },
   "favorites": {
     "5dcbd198-85ef-e611-80f0-0050568d4c1c": {
       "marketColorId": "5dcbd198-85ef-e611-80f0-0050568d4c1c",
