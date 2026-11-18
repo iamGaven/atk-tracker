@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-18T02:03:53.718Z",
+  "updatedAt": "2026-11-18T02:06:07.726Z",
   "usage": {
     "CAD85:50T": 1,
     "CAD85:50T(B)": 1,
@@ -9,7 +9,8 @@
     "RS9718(L)": 1,
     "SUBM1Y (Crimson Red)": 1,
     "CAD85:50T (Summit White)": 2,
-    "CAD85:50T(Y)": 1
+    "CAD85:50T(Y)": 1,
+    "CHE85:50T (Summit White)": 1
   },
   "daily": {
     "2026-11-17": {
@@ -21,7 +22,8 @@
       "RS9718(L)": 1,
       "SUBM1Y (Crimson Red)": 1,
       "CAD85:50T (Summit White)": 2,
-      "CAD85:50T(Y)": 1
+      "CAD85:50T(Y)": 1,
+      "CHE85:50T (Summit White)": 1
     }
   },
   "favorites": {
@@ -54,7 +56,56 @@
       "descriptorIcon": null,
       "url": "https://colors.autokotesystems.com/formula/marketcolor/Automotive/ATK/370/5dcbd198-85ef-e611-80f0-0050568d4c1c/1",
       "addedAt": 1794966458071
+    },
+    "28ec069c-7cb5-e311-b816-005056945ff1": {
+      "marketColorId": "28ec069c-7cb5-e311-b816-005056945ff1",
+      "variantNumber": null,
+      "manufacturer": "Chevrolet",
+      "name": "CHE85:50T (Summit White)",
+      "imageUrl": null,
+      "descriptorIcon": null,
+      "url": "https://colors.autokotesystems.com/formula/marketcolor/Automotive/ATK/370/28ec069c-7cb5-e311-b816-005056945ff1/1",
+      "addedAt": 1794967566221
     }
   },
-  "formulas": {}
+  "formulas": {
+    "34581133-7db5-e311-b816-005056945ff1_1": {
+      "layers": {
+        "layer1": [
+          {
+            "code": "100",
+            "absoluteValue": 1179.360656438111,
+            "cumulativeValue": 1179.360656438111,
+            "density": 1.189,
+            "tonerDescription": "High Hiding White (for Solids)",
+            "sequenceNumber": 1
+          },
+          {
+            "code": "301",
+            "absoluteValue": 3.4355347313510314,
+            "cumulativeValue": 1182.796191169462,
+            "density": 1.005,
+            "tonerDescription": "Lemon Yellow",
+            "sequenceNumber": 2
+          },
+          {
+            "code": "200",
+            "absoluteValue": 4.4542259350145645,
+            "cumulativeValue": 1187.2504171044766,
+            "density": 0.95,
+            "tonerDescription": "Standard Black",
+            "sequenceNumber": 3
+          }
+        ]
+      },
+      "colorInfo": {
+        "marketColorId": "34581133-7db5-e311-b816-005056945ff1",
+        "name": "CAD85:50T (Summit White)",
+        "ownerName": "Cadillac",
+        "variantNumber": 1,
+        "akzoCode": "CAD85:50T"
+      },
+      "capturedAt": 1794967449106
+    }
+  }
 }
