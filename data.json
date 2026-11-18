@@ -1,0 +1,17 @@
+{
+  "updatedAt": "2026-11-18T01:40:39.403Z",
+  "usage": {},
+  "daily": {},
+  "favorites": {
+    "5dcbd198-85ef-e611-80f0-0050568d4c1c": {
+      "marketColorId": "5dcbd198-85ef-e611-80f0-0050568d4c1c",
+      "variantNumber": null,
+      "manufacturer": "Subaru/Fuji",
+      "name": "SUBM1Y (Crimson Red)",
+      "imageUrl": "/apim/frontend/cod/2025.4.0/cod/market-color-id/5dcbd198-85ef-e611-80f0-0050568d4c1c/medium/tube",
+      "descriptorIcon": null,
+      "url": "https://colors.autokotesystems.com/formula/marketcolor/Automotive/ATK/370/5dcbd198-85ef-e611-80f0-0050568d4c1c/1",
+      "addedAt": 1794965677779
+    }
+  }
+}
