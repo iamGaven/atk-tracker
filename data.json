@@ -1,9 +1,34 @@
 {
-  "updatedAt": "2026-11-18T04:14:52.889Z",
-  "usage": {},
-  "daily": {},
-  "favorites": {},
-  "colorMeta": {},
+  "updatedAt": "2026-11-18T04:15:56.747Z",
+  "usage": {
+    "VAU40R (White)": 2
+  },
+  "daily": {
+    "2026-11-17": {
+      "VAU40R (White)": 2
+    }
+  },
+  "favorites": {
+    "0fca1798-69b5-e311-b816-005056945ff1": {
+      "marketColorId": "0fca1798-69b5-e311-b816-005056945ff1",
+      "variantNumber": null,
+      "manufacturer": "Vauxhall",
+      "name": "VAU40R (White)",
+      "imageUrl": "https://colors.autokotesystems.com/apim/frontend/cod/2025.4.0/cod/market-color-id/0fca1798-69b5-e311-b816-005056945ff1/medium/tube?variantNumber=1",
+      "descriptorIcon": null,
+      "url": "https://colors.autokotesystems.com/formula/marketcolor/Automotive/ATK/370/0fca1798-69b5-e311-b816-005056945ff1/1",
+      "addedAt": 1794975353504
+    }
+  },
+  "colorMeta": {
+    "VAU40R (White)": {
+      "marketColorId": "0fca1798-69b5-e311-b816-005056945ff1",
+      "name": "VAU40R (White)",
+      "manufacturer": "Vauxhall",
+      "imageUrl": "https://colors.autokotesystems.com/apim/frontend/cod/2025.4.0/cod/market-color-id/0fca1798-69b5-e311-b816-005056945ff1/medium/tube?variantNumber=1",
+      "descriptorIcon": null
+    }
+  },
   "resetId": "1794975292889",
   "resetFavs": true
 }
