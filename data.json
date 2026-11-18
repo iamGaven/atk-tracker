@@ -1,15 +1,17 @@
 {
-  "updatedAt": "2026-11-18T01:42:53.796Z",
+  "updatedAt": "2026-11-18T01:43:00.644Z",
   "usage": {
     "CAD85:50T": 1,
     "CAD85:50T(B)": 1,
-    "OP40R (Olympic White)": 1
+    "OP40R (Olympic White)": 1,
+    "OP40R": 1
   },
   "daily": {
     "2026-11-17": {
       "CAD85:50T": 1,
       "CAD85:50T(B)": 1,
-      "OP40R (Olympic White)": 1
+      "OP40R (Olympic White)": 1,
+      "OP40R": 1
     }
   },
   "favorites": {
