@@ -1,7 +1,13 @@
 {
-  "updatedAt": "2026-11-18T22:41:38.891Z",
-  "usage": {},
-  "daily": {},
+  "updatedAt": "2026-11-18T22:41:56.394Z",
+  "usage": {
+    "BMW0019 (Arctic Blue)": 1
+  },
+  "daily": {
+    "2026-11-18": {
+      "BMW0019 (Arctic Blue)": 1
+    }
+  },
   "favorites": {
     "34581133-7db5-e311-b816-005056945ff1": {
       "marketColorId": "34581133-7db5-e311-b816-005056945ff1",
@@ -34,7 +40,15 @@
       "addedAt": 1794976776770
     }
   },
-  "colorMeta": {},
+  "colorMeta": {
+    "BMW0019 (Arctic Blue)": {
+      "marketColorId": "f5e36595-62b5-e311-b816-005056945ff1",
+      "name": "BMW0019 (Arctic Blue)",
+      "manufacturer": "BMW",
+      "imageUrl": "https://colors.autokotesystems.com/apim/frontend/cod/2025.4.0/cod/market-color-id/f5e36595-62b5-e311-b816-005056945ff1/medium/tube?variantNumber=1",
+      "descriptorIcon": null
+    }
+  },
   "resetId": "1795041698891",
   "resetFavs": false
 }
