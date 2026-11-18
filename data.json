@@ -1,13 +1,15 @@
 {
-  "updatedAt": "2026-11-18T02:31:22.930Z",
+  "updatedAt": "2026-11-18T02:31:26.879Z",
   "usage": {
     "CAD85:50T (Summit White)": 1,
-    "CHE85:50T (Summit White)": 1
+    "CHE85:50T (Summit White)": 1,
+    "CHE85:50T": 1
   },
   "daily": {
     "2026-11-17": {
       "CAD85:50T (Summit White)": 1,
-      "CHE85:50T (Summit White)": 1
+      "CHE85:50T (Summit White)": 1,
+      "CHE85:50T": 1
     }
   },
   "favorites": {
@@ -34,6 +36,13 @@
       "marketColorId": "28ec069c-7cb5-e311-b816-005056945ff1",
       "name": "CHE85:50T (Summit White)",
       "manufacturer": null,
+      "imageUrl": "https://colors.autokotesystems.com/apim/frontend/cod/2025.4.0/cod/market-color-id/28ec069c-7cb5-e311-b816-005056945ff1/medium/tube?variantNumber=1",
+      "descriptorIcon": null
+    },
+    "CHE85:50T": {
+      "marketColorId": "28ec069c-7cb5-e311-b816-005056945ff1",
+      "name": "CHE85:50T",
+      "manufacturer": "Chevrolet",
       "imageUrl": "https://colors.autokotesystems.com/apim/frontend/cod/2025.4.0/cod/market-color-id/28ec069c-7cb5-e311-b816-005056945ff1/medium/tube?variantNumber=1",
       "descriptorIcon": null
     }
