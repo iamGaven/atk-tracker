@@ -1,17 +1,19 @@
 {
-  "updatedAt": "2026-11-18T04:37:43.677Z",
+  "updatedAt": "2026-11-18T04:38:21.232Z",
   "usage": {
     "CAD85:50T (Summit White)": 2,
     "INFKAD (Gray)": 1,
     "TOY1G3 (Magnetic Gray)": 1,
-    "TOY1G3 (Graphite Grey)": 2
+    "TOY1G3 (Graphite Grey)": 2,
+    "HON170H (Scarlet Red)": 1
   },
   "daily": {
     "2026-11-17": {
       "CAD85:50T (Summit White)": 2,
       "INFKAD (Gray)": 1,
       "TOY1G3 (Magnetic Gray)": 1,
-      "TOY1G3 (Graphite Grey)": 2
+      "TOY1G3 (Graphite Grey)": 2,
+      "HON170H (Scarlet Red)": 1
     }
   },
   "favorites": {
@@ -63,6 +65,13 @@
       "name": "TOY1G3 (Graphite Grey)",
       "manufacturer": "Toyota",
       "imageUrl": "https://colors.autokotesystems.com/apim/frontend/cod/2025.4.0/cod/market-color-id/dc38d5aa-53b5-e311-b816-005056945ff1/medium/tube?variantNumber=1",
+      "descriptorIcon": null
+    },
+    "HON170H (Scarlet Red)": {
+      "marketColorId": "2bd58cc3-a788-ee11-8149-005056beb5b3",
+      "name": "HON170H (Scarlet Red)",
+      "manufacturer": "Honda",
+      "imageUrl": "https://colors.autokotesystems.com/apim/frontend/cod/2025.4.0/cod/market-color-id/2bd58cc3-a788-ee11-8149-005056beb5b3/medium/tube?variantNumber=1",
       "descriptorIcon": null
     }
   },
