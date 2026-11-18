@@ -1,17 +1,19 @@
 {
-  "updatedAt": "2026-11-18T02:34:45.270Z",
+  "updatedAt": "2026-11-18T02:34:47.578Z",
   "usage": {
     "CAD85:50T (Summit White)": 1,
     "CHE85:50T (Summit White)": 1,
     "CHE85:50T": 1,
-    "NISKAD (Gray)": 1
+    "NISKAD (Gray)": 1,
+    "NISKAD (Dark Grey)": 1
   },
   "daily": {
     "2026-11-17": {
       "CAD85:50T (Summit White)": 1,
       "CHE85:50T (Summit White)": 1,
       "CHE85:50T": 1,
-      "NISKAD (Gray)": 1
+      "NISKAD (Gray)": 1,
+      "NISKAD (Dark Grey)": 1
     }
   },
   "favorites": {
@@ -63,6 +65,13 @@
       "name": "NISKAD (Dark Grey)",
       "manufacturer": "Nissan",
       "imageUrl": "https://colors.autokotesystems.com/apim/frontend/cod/2025.4.0/cod/market-color-id/a440b94b-4eb5-e311-b816-005056945ff1/medium/tube?variantNumber=1",
+      "descriptorIcon": null
+    },
+    "NISKAD (Dark Grey)": {
+      "marketColorId": "a440b94b-4eb5-e311-b816-005056945ff1",
+      "name": "NISKAD (Dark Grey)",
+      "manufacturer": "Nissan",
+      "imageUrl": "https://colors.autokotesystems.com/apim/frontend/cod/2025.4.0/cod/market-color-id/a440b94b-4eb5-e311-b816-005056945ff1/medium/tube?variantNumber=2",
       "descriptorIcon": null
     }
   }
