@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-18T02:23:51.144Z",
+  "updatedAt": "2026-11-18T02:31:13.560Z",
   "usage": {
     "CAD85:50T (Summit White)": 1
   },
@@ -8,18 +8,7 @@
       "CAD85:50T (Summit White)": 1
     }
   },
-  "favorites": {
-    "34581133-7db5-e311-b816-005056945ff1": {
-      "marketColorId": "34581133-7db5-e311-b816-005056945ff1",
-      "variantNumber": null,
-      "manufacturer": "Unknown",
-      "name": "34581133-7db5-e311-b816-005056945ff1",
-      "imageUrl": "https://colors.autokotesystems.com/apim/frontend/cod/2025.4.0/cod/market-color-id/34581133-7db5-e311-b816-005056945ff1/medium/tube?variantNumber=1",
-      "descriptorIcon": null,
-      "url": "https://colors.autokotesystems.com/formula/marketcolor/Automotive/ATK/370/34581133-7db5-e311-b816-005056945ff1/1",
-      "addedAt": 1794968629629
-    }
-  },
+  "favorites": {},
   "colorMeta": {
     "CAD85:50T (Summit White)": {
       "marketColorId": "34581133-7db5-e311-b816-005056945ff1",
