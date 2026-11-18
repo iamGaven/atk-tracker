@@ -2,196 +2,278 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
 <title>Paint Tracker</title>
 <style>
+  :root {
+    --bg: #eef0f4; --surface: #fff; --surface2: #f6f7f9; --text: #161b26; --muted: #6b7384;
+    --line: #e3e6ec; --accent: #2f5bea; --accent-soft: #e8edfd; --danger: #d93a2f; --ok: #1e8a4c;
+    --shadow: 0 1px 2px rgba(16,24,40,.06), 0 4px 14px rgba(16,24,40,.05);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0e1118; --surface: #171b25; --surface2: #1e2331; --text: #eef0f6; --muted: #8b93a7;
+      --line: #272d3c; --accent: #6b8cff; --accent-soft: #212a4a; --danger: #ff6b5e; --ok: #4cc983;
+      --shadow: none;
+    }
+  }
   * { box-sizing: border-box; }
-  body { margin: 0; font: 16px/1.4 -apple-system, Segoe UI, Arial, sans-serif; background: #f4f5f7; color: #222; }
-  header { background: #1f2a44; color: #fff; padding: 12px 16px; }
-  main { max-width: 640px; margin: 0 auto; padding: 14px; }
-  section { background: #fff; border-radius: 10px; padding: 14px; margin-bottom: 14px; box-shadow: 0 1px 3px rgba(0,0,0,.08); }
-  h2 { font-size: 14px; text-transform: uppercase; letter-spacing: .04em; color: #1f2a44; margin: 0 0 8px; }
-  h3 { font-size: 13px; color: #555; margin: 10px 0 4px; border-bottom: 1px solid #eee; padding-bottom: 4px; }
-  .row { display: flex; align-items: center; gap: 10px; padding: 8px 0; border-bottom: 1px solid #eee; }
-  .row:last-child { border-bottom: none; }
-  .grow { flex: 1; min-width: 0; word-break: break-word; }
-  .meta { color: #777; font-size: 12px; }
-  .count { font-weight: 700; }
-  .thumb { width: 40px; height: 40px; object-fit: cover; border-radius: 4px; flex-shrink: 0; }
-  .descriptor { width: 16px; height: 16px; vertical-align: middle; flex-shrink: 0; }
-  a { color: #1f2a44; }
-  .muted { color: #777; font-size: 14px; }
-  .status { color: #ccd; font-size: 12px; margin-top: 4px; }
-  .color-group { margin-bottom: 10px; }
-  .color-group-header { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; }
-  .color-group-title { font-weight: 600; font-size: 14px; }
-  .variant-row { display: flex; align-items: center; gap: 8px; padding: 5px 0 5px 48px; border-bottom: 1px solid #f0f0f0; font-size: 14px; }
-  .variant-row:last-child { border-bottom: none; }
-  .mfr-section { margin-bottom: 16px; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; background: var(--bg); color: var(--text);
+    font: 15px/1.45 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; }
 
-  .danger-zone { border: 1px solid #f0c4c4; }
-  .danger-btn { background: #c0392b; color: #fff; border: 0; border-radius: 8px; padding: 10px 16px; font-size: 15px; font-weight: 600; cursor: pointer; }
+  .top { position: sticky; top: 0; z-index: 5; background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    padding: calc(env(safe-area-inset-top, 0px) + 12px) 16px 10px; border-bottom: 1px solid var(--line); }
+  .top-in { max-width: 680px; margin: 0 auto; }
+  .brand { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+  .brand h1 { margin: 0; font-size: 20px; letter-spacing: -.01em; display: flex; align-items: center; gap: 8px; }
+  .logo { width: 26px; height: 26px; border-radius: 8px; flex-shrink: 0;
+    background: conic-gradient(from 200deg, #ff6b5e, #ffb347, #4cc983, #4aa8ff, #9b6bff, #ff6b5e); }
+  .sync { display: flex; align-items: center; gap: 8px; color: var(--muted); font-size: 12px; }
+  .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--ok); flex-shrink: 0; }
+  .dot.bad { background: var(--danger); }
+  .icon-btn { border: 1px solid var(--line); background: var(--surface); color: var(--text); width: 32px; height: 32px;
+    border-radius: 10px; cursor: pointer; font-size: 16px; line-height: 1; }
+  .icon-btn:active { transform: scale(.95); }
+
+  .tabs { display: flex; gap: 4px; margin-top: 12px; padding: 4px; background: var(--surface2);
+    border: 1px solid var(--line); border-radius: 12px; }
+  .tabs button { flex: 1; border: 0; background: transparent; color: var(--muted); font: inherit; font-weight: 600;
+    padding: 8px 6px; border-radius: 9px; cursor: pointer; display: flex; justify-content: center; align-items: center; gap: 6px; }
+  .tabs button.on { background: var(--surface); color: var(--text); box-shadow: var(--shadow); }
+  .tabs .n { font-size: 11px; font-weight: 700; color: var(--accent); background: var(--accent-soft);
+    border-radius: 999px; padding: 1px 7px; }
+
+  main { max-width: 680px; margin: 0 auto; padding: 14px 16px calc(env(safe-area-inset-bottom, 0px) + 40px); }
+  .summary { display: flex; gap: 10px; margin-bottom: 12px; }
+  .stat { flex: 1; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 10px 14px; box-shadow: var(--shadow); }
+  .stat b { display: block; font-size: 22px; letter-spacing: -.02em; }
+  .stat span { color: var(--muted); font-size: 12px; }
+
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; margin-bottom: 12px;
+    box-shadow: var(--shadow); overflow: hidden; }
+  .card-h { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 11px 14px;
+    background: var(--surface2); border-bottom: 1px solid var(--line); }
+  .card-h h3 { margin: 0; font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+  .pill { font-size: 12px; font-weight: 700; color: var(--accent); background: var(--accent-soft); border-radius: 999px; padding: 2px 10px; }
+
+  .item { display: flex; align-items: center; gap: 12px; padding: 10px 14px; border-bottom: 1px solid var(--line); }
+  .item:last-child { border-bottom: 0; }
+  .thumb { width: 48px; height: 48px; border-radius: 10px; flex-shrink: 0; overflow: hidden; position: relative;
+    background: var(--surface2); border: 1px solid var(--line); }
+  .thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .info { flex: 1; min-width: 0; }
+  .code { font-weight: 650; word-break: break-word; display: flex; align-items: center; gap: 6px; }
+  .code img { width: 16px; height: 16px; flex-shrink: 0; }
+  .code a { color: inherit; text-decoration: none; border-bottom: 1px dashed var(--muted); }
+  .desc { color: var(--muted); font-size: 13px; word-break: break-word; }
+  .count { font-size: 17px; font-weight: 750; letter-spacing: -.01em; min-width: 38px; text-align: right; }
+  .count small { font-size: 12px; color: var(--muted); font-weight: 600; margin-left: 1px; }
+
+  .group-title { display: flex; align-items: center; gap: 12px; padding: 10px 14px 4px; }
+  .group-title .code { font-size: 15px; }
+  .variant { display: flex; align-items: center; gap: 8px; padding: 6px 14px 6px 74px; font-size: 14px; color: var(--muted); }
+  .variant img { width: 14px; height: 14px; }
+  .variant a { color: var(--text); text-decoration: none; border-bottom: 1px dashed var(--muted); }
+  .group { padding-bottom: 6px; border-bottom: 1px solid var(--line); }
+  .group:last-child { border-bottom: 0; }
+
+  .empty { text-align: center; color: var(--muted); padding: 40px 16px; background: var(--surface);
+    border: 1px dashed var(--line); border-radius: 16px; }
+  .empty big { display: block; font-size: 28px; margin-bottom: 4px; }
+
+  details.manage { margin-top: 22px; background: var(--surface); border: 1px solid var(--line); border-radius: 16px; overflow: hidden; }
+  details.manage summary { cursor: pointer; padding: 13px 16px; font-weight: 650; color: var(--muted); list-style: none; }
+  details.manage summary::-webkit-details-marker { display: none; }
+  details.manage[open] summary { border-bottom: 1px solid var(--line); }
+  .manage-body { padding: 14px 16px; }
+  .manage-body p { margin: 0 0 10px; color: var(--muted); font-size: 14px; }
+  .check { display: flex; align-items: center; gap: 8px; margin: 10px 0 14px; font-size: 14px; }
+  .danger-btn { background: var(--danger); color: #fff; border: 0; border-radius: 10px; padding: 10px 16px;
+    font: inherit; font-weight: 650; cursor: pointer; }
   .danger-btn:disabled { opacity: .5; cursor: default; }
-  .check { display: flex; align-items: center; gap: 8px; margin: 8px 0 12px; font-size: 14px; }
-  .link-btn { background: none; border: 0; color: #777; font-size: 12px; text-decoration: underline; cursor: pointer; padding: 0; margin-left: 10px; }
-  #clearMsg { margin-top: 8px; font-size: 13px; }
-  .ok { color: #1e8449; }
-  .err { color: #c0392b; }
+  .link-btn { background: none; border: 0; color: var(--muted); font: inherit; font-size: 13px; text-decoration: underline;
+    cursor: pointer; margin-left: 12px; }
+  #clearMsg { margin-top: 10px; font-size: 13px; }
+  .ok { color: var(--ok); } .err { color: var(--danger); }
 </style>
 </head>
 <body>
-<header>
-  <strong>Paint Tracker</strong>
-  <div class="status" id="status">Loading...</div>
-</header>
+<header class="top"><div class="top-in">
+  <div class="brand">
+    <h1><span class="logo"></span>Paint Tracker</h1>
+    <div class="sync"><span class="dot" id="dot"></span><span id="status">Loading…</span>
+      <button class="icon-btn" id="refresh" title="Refresh" aria-label="Refresh">↻</button></div>
+  </div>
+  <nav class="tabs" role="tablist">
+    <button data-tab="favs">Favorites <span class="n" id="nFavs">0</span></button>
+    <button data-tab="today" class="on">Today <span class="n" id="nToday">0</span></button>
+    <button data-tab="all">All time <span class="n" id="nAll">0</span></button>
+  </nav>
+</div></header>
 
 <main>
-  <section>
-    <h2>Favorites</h2>
-    <div id="favs"></div>
-  </section>
+  <div id="view"></div>
 
-  <section>
-    <h2>Today</h2>
-    <div id="today"></div>
-  </section>
-
-  <section>
-    <h2>All time</h2>
-    <div id="usage"></div>
-  </section>
-
-  <section class="danger-zone">
-    <h2>Clear data</h2>
-    <div class="muted">Resets usage counts (today and all time) in data.json on GitHub. Every device running the userscript wipes its local data the next time it syncs.</div>
-    <label class="check">
-      <input type="checkbox" id="clearFavs"> Also clear favorites
-    </label>
-    <button class="danger-btn" id="clearBtn">Clear data</button>
-    <button class="link-btn" id="forgetToken">Forget saved token</button>
-    <div id="clearMsg"></div>
-  </section>
+  <details class="manage">
+    <summary>Manage data</summary>
+    <div class="manage-body">
+      <p>Clears usage counts (today and all time) in data.json on GitHub. Every device running the userscript refreshes from it on its next sync.</p>
+      <label class="check"><input type="checkbox" id="clearFavs"> Also clear favorites</label>
+      <button class="danger-btn" id="clearBtn">Clear data</button>
+      <button class="link-btn" id="forgetToken">Forget saved token</button>
+      <div id="clearMsg"></div>
+    </div>
+  </details>
 </main>
 
 <script>
 const $ = id => document.getElementById(id);
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c =>
   ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
-
-const imgSrc = url => {
-  if (!url) return null;
-  return url.startsWith("http") ? url : `https://colors.autokotesystems.com${url}`;
-};
-
+const imgSrc = url => !url ? null : (url.startsWith("http") ? url : `https://colors.autokotesystems.com${url}`);
 const todayKey = () => {
   const d = new Date();
   return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
 };
 
-const OWNER = "iamGaven";
-const REPO = "atk-tracker";
-const BRANCH = "main";
-const FILE = "data.json";
+const OWNER = "iamGaven", REPO = "atk-tracker", BRANCH = "main", FILE = "data.json";
 const DATA_URL = `https://raw.githubusercontent.com/${OWNER}/${REPO}/${BRANCH}/${FILE}`;
 const API_URL = `https://api.github.com/repos/${OWNER}/${REPO}/contents/${FILE}`;
 const TOKEN_KEY = "paintTrackerGithubToken";
 
-// After a clear, raw.githubusercontent.com may serve stale data for a few minutes.
-// Don't let the auto-refresh redraw old data over the cleared view during that time.
-let holdUntil = 0;
+let holdUntil = 0;      // after a clear without a token, ignore the cached raw file for a while
+let lastData = {};
+let tab = "today";
 
+/* ---------- rendering ---------- */
+
+const thumb = url => {
+  const src = imgSrc(url);
+  return `<span class="thumb">${src ? `<img src="${esc(src)}" loading="lazy" alt="" onerror="this.remove()">` : ""}</span>`;
+};
+const descIcon = url => { const s = imgSrc(url); return s ? `<img src="${esc(s)}" alt="" onerror="this.remove()">` : ""; };
+
+// "CHE85:50T (Summit White)" -> ["CHE85:50T", "Summit White"]
+function splitName(name) {
+  const m = String(name).match(/^(.*?)\s*\((.{2,})\)\s*$/);
+  return m ? [m[1], m[2]] : [String(name), ""];
+}
+
+const empty = (icon, text) => `<div class="empty"><big>${icon}</big>${esc(text)}</div>`;
+
+function summaryHtml(items) {
+  const uses = items.reduce((a, [, n]) => a + n, 0);
+  return `<div class="summary">
+    <div class="stat"><b>${uses}</b><span>total uses</span></div>
+    <div class="stat"><b>${items.length}</b><span>colors</span></div></div>`;
+}
+
+function renderUsage(entries, meta, emptyText) {
+  if (!entries.length) return empty("🎨", emptyText);
+  const groups = {};
+  entries.forEach(([name, n]) => {
+    const m = (meta || {})[name] || {};
+    const mfr = m.manufacturer || "Unknown";
+    const g = groups[mfr] || (groups[mfr] = { total: 0, items: [] });
+    g.total += n;
+    g.items.push({ name, n, m });
+  });
+  const cards = Object.entries(groups)
+    .sort((a, b) => b[1].total - a[1].total || a[0].localeCompare(b[0]))
+    .map(([mfr, g]) => {
+      const rows = g.items.sort((a, b) => b.n - a.n).map(({ name, n, m }) => {
+        const [code, desc] = splitName(name);
+        return `<div class="item">${thumb(m.imageUrl)}
+          <div class="info"><div class="code">${descIcon(m.descriptorIcon)}<span>${esc(code)}</span></div>
+          ${desc ? `<div class="desc">${esc(desc)}</div>` : ""}</div>
+          <div class="count">${n}<small>×</small></div></div>`;
+      }).join("");
+      return `<section class="card"><div class="card-h"><h3>${esc(mfr)}</h3><span class="pill">${g.total}×</span></div>${rows}</section>`;
+    }).join("");
+  return summaryHtml(entries) + cards;
+}
 
 function renderFavs(favorites) {
-  const container = $("favs");
   const entries = Object.entries(favorites || {});
-  if (!entries.length) {
-    container.innerHTML = `<div class="muted">No favorites yet</div>`;
-    return;
-  }
+  if (!entries.length) return empty("⭐", "No favorites yet");
 
-  // Group by manufacturer → marketColorId
   const byMfr = {};
   entries.forEach(([key, f]) => {
     const mfr = f.manufacturer || "Unknown";
-    if (!byMfr[mfr]) byMfr[mfr] = {};
     const id = f.marketColorId || key;
-    if (!byMfr[mfr][id]) byMfr[mfr][id] = { baseName: f.baseName || f.name, imageUrl: null, variants: [] };
-    byMfr[mfr][id].variants.push([key, f]);
+    const groups = byMfr[mfr] || (byMfr[mfr] = {});
+    (groups[id] || (groups[id] = { baseName: f.baseName || f.name, imageUrl: null, variants: [] })).variants.push(f);
   });
+  Object.values(byMfr).forEach(groups => Object.values(groups).forEach(g => {
+    const base = g.variants.find(f => !f.variantNumber);
+    if (base) { g.baseName = base.baseName || base.name || g.baseName; g.imageUrl = base.imageUrl || null; }
+    if (!g.imageUrl) g.imageUrl = (g.variants.find(f => f.imageUrl) || {}).imageUrl || null;
+  }));
 
-  // Fill best imageUrl per group
-  Object.values(byMfr).forEach(groups => {
-    Object.values(groups).forEach(g => {
-      const base = g.variants.find(([, f]) => !f.variantNumber);
-      if (base) {
-        g.baseName = base[1].baseName || base[1].name || g.baseName;
-        if (base[1].imageUrl) g.imageUrl = base[1].imageUrl;
-      }
-      if (!g.imageUrl) {
-        const any = g.variants.find(([, f]) => f.imageUrl);
-        if (any) g.imageUrl = any[1].imageUrl;
-      }
-    });
-  });
-
-  let html = "";
-  Object.keys(byMfr).sort().forEach(mfr => {
-    html += `<div class="mfr-section"><h3>${esc(mfr)}</h3>`;
+  return Object.keys(byMfr).sort().map(mfr => {
     const groups = byMfr[mfr];
-    Object.keys(groups)
+    const body = Object.keys(groups)
       .sort((a, b) => groups[a].baseName.localeCompare(groups[b].baseName))
-      .forEach(id => {
+      .map(id => {
         const g = groups[id];
-        const src = imgSrc(g.imageUrl);
-        html += `<div class="color-group">`;
-        html += `<div class="color-group-header">`;
-        if (src) html += `<img class="thumb" src="${esc(src)}">`;
-        html += `<span class="color-group-title">${esc(g.baseName)}</span>`;
-        html += `</div>`;
-        g.variants
-          .sort((a, b) => (b[1].addedAt || 0) - (a[1].addedAt || 0))
-          .forEach(([, f]) => {
-            const descSrc = imgSrc(f.descriptorIcon);
+        const [code, desc] = splitName(g.baseName);
+        const variants = g.variants
+          .sort((a, b) => (b.addedAt || 0) - (a.addedAt || 0))
+          .map(f => {
             const label = f.variantNumber ? f.name : `${f.name} (base)`;
-            const link = f.url
-              ? `<a href="${esc(f.url)}" target="_blank" rel="noopener">${esc(label)}</a>`
-              : esc(label);
-            html += `<div class="variant-row">`;
-            if (descSrc) html += `<img class="descriptor" src="${esc(descSrc)}" title="Variant type">`;
-            html += link;
-            html += `</div>`;
-          });
-        html += `</div>`;
-      });
-    html += `</div>`;
-  });
-
-  container.innerHTML = html;
+            const link = f.url ? `<a href="${esc(f.url)}" target="_blank" rel="noopener">${esc(label)}</a>` : esc(label);
+            return `<div class="variant">${descIcon(f.descriptorIcon)}${link}</div>`;
+          }).join("");
+        return `<div class="group"><div class="group-title">${thumb(g.imageUrl)}
+          <div class="info"><div class="code"><span>${esc(code)}</span></div>${desc ? `<div class="desc">${esc(desc)}</div>` : ""}</div></div>${variants}</div>`;
+      }).join("");
+    const total = Object.values(groups).reduce((a, g) => a + g.variants.length, 0);
+    return `<section class="card"><div class="card-h"><h3>${esc(mfr)}</h3><span class="pill">${total}</span></div>${body}</section>`;
+  }).join("");
 }
 
 function render(data) {
-  renderFavs(data.favorites);
+  lastData = data || {};
+  const meta = lastData.colorMeta || {};
+  const today = Object.entries((lastData.daily || {})[todayKey()] || {}).sort((a, b) => b[1] - a[1]);
+  const all = Object.entries(lastData.usage || {}).sort((a, b) => b[1] - a[1]);
 
-  const daily = Object.entries((data.daily || {})[todayKey()] || {}).sort((a, b) => b[1] - a[1]);
-  $("today").innerHTML = daily.length
-    ? daily.map(([code, n]) => `<div class="row"><span class="grow">${esc(code)}</span><span class="count">${n}x</span></div>`).join("")
-    : `<div class="muted">Nothing used today</div>`;
+  $("nFavs").textContent = Object.keys(lastData.favorites || {}).length;
+  $("nToday").textContent = today.length;
+  $("nAll").textContent = all.length;
 
-  const usage = Object.entries(data.usage || {}).sort((a, b) => b[1] - a[1]);
-  $("usage").innerHTML = usage.length
-    ? usage.map(([code, n]) => `<div class="row"><span class="grow">${esc(code)}</span><span class="count">${n}x</span></div>`).join("")
-    : `<div class="muted">No usage tracked yet</div>`;
+  $("view").innerHTML =
+    tab === "favs" ? renderFavs(lastData.favorites) :
+    tab === "today" ? renderUsage(today, meta, "Nothing used today") :
+    renderUsage(all, meta, "No usage tracked yet");
+}
+
+document.querySelectorAll(".tabs button").forEach(b => b.addEventListener("click", () => {
+  tab = b.dataset.tab;
+  document.querySelectorAll(".tabs button").forEach(x => x.classList.toggle("on", x === b));
+  render(lastData);
+}));
+
+/* ---------- loading ---------- */
+
+const utf8ToB64 = str => btoa(unescape(encodeURIComponent(str)));
+const b64ToUtf8 = b64 => decodeURIComponent(escape(atob(b64.replace(/\n/g, ""))));
+
+function setStatus(text, bad) {
+  $("status").textContent = text;
+  $("dot").classList.toggle("bad", !!bad);
 }
 
 async function load() {
   let token = null;
   try { token = localStorage.getItem(TOKEN_KEY); } catch (e) {}
-  // Without a token we can only use the cached raw file, so hold off right after a clear
   if (!token && Date.now() < holdUntil) return;
   try {
     let data = null;
-    if (token) {
-      // The API is never stale, so a clear shows up immediately
+    if (token) {   // the API is never stale, so a clear shows up immediately
       try {
         const res = await fetch(`${API_URL}?ref=${BRANCH}&ts=${Date.now()}`, {
           headers: { "Authorization": `Bearer ${token}`, "Accept": "application/vnd.github+json" },
@@ -206,25 +288,20 @@ async function load() {
       data = await res.json();
     }
     render(data);
-    $("status").textContent = "Updated " + new Date(data.updatedAt).toLocaleString();
+    const t = new Date(data.updatedAt);
+    setStatus("Updated " + (isNaN(t) ? "" : t.toLocaleTimeString([], { hour: "numeric", minute: "2-digit" })));
   } catch (e) {
-    $("status").textContent = "Could not load data.json";
+    setStatus("Could not load data", true);
   }
 }
 
-/* ---------- Clear data (writes to GitHub) ---------- */
-
-const utf8ToB64 = str => btoa(unescape(encodeURIComponent(str)));
-const b64ToUtf8 = b64 => decodeURIComponent(escape(atob(b64.replace(/\n/g, ""))));
+/* ---------- clear data (writes to GitHub) ---------- */
 
 function getToken() {
   let token = null;
   try { token = localStorage.getItem(TOKEN_KEY); } catch (e) {}
   if (!token) {
-    token = prompt(
-      "Enter a GitHub personal access token with Contents: read & write access to " +
-      `${OWNER}/${REPO}.\n\nIt will be saved in this browser only.`
-    );
+    token = prompt(`Enter a GitHub personal access token with Contents: read & write access to ${OWNER}/${REPO}.\n\nIt will be saved in this browser only.`);
     if (token) {
       token = token.trim();
       try { localStorage.setItem(TOKEN_KEY, token); } catch (e) {}
@@ -233,21 +310,13 @@ function getToken() {
   return token;
 }
 
-function setMsg(text, cls) {
-  const el = $("clearMsg");
-  el.textContent = text;
-  el.className = cls || "";
-}
+function setMsg(text, cls) { const el = $("clearMsg"); el.textContent = text; el.className = cls || ""; }
 
 async function clearData() {
   const alsoFavs = $("clearFavs").checked;
-
-  // Confirmation popup
-  const ok = confirm(
-    alsoFavs
-      ? "Are you sure?\n\nThis will permanently erase ALL usage counts AND ALL favorites from data.json in the GitHub repo, and from every device running the userscript."
-      : "Are you sure?\n\nThis will permanently erase ALL usage counts (today and all time) from data.json in the GitHub repo, and from every device running the userscript. Favorites will be kept."
-  );
+  const ok = confirm(alsoFavs
+    ? "Are you sure?\n\nThis will permanently erase ALL usage counts AND ALL favorites from data.json in the GitHub repo, and from every device running the userscript."
+    : "Are you sure?\n\nThis will permanently erase ALL usage counts (today and all time) from data.json in the GitHub repo, and from every device running the userscript. Favorites will be kept.");
   if (!ok) return;
 
   const token = getToken();
@@ -255,15 +324,10 @@ async function clearData() {
 
   const btn = $("clearBtn");
   btn.disabled = true;
-  setMsg("Clearing...");
-
-  const headers = {
-    "Authorization": `Bearer ${token}`,
-    "Accept": "application/vnd.github+json"
-  };
+  setMsg("Clearing…");
+  const headers = { "Authorization": `Bearer ${token}`, "Accept": "application/vnd.github+json" };
 
   try {
-    // Get current file (need its sha, and its favorites if keeping them)
     const getRes = await fetch(`${API_URL}?ref=${BRANCH}&ts=${Date.now()}`, { headers, cache: "no-store" });
     if (getRes.status === 401 || getRes.status === 403) {
       try { localStorage.removeItem(TOKEN_KEY); } catch (e) {}
@@ -281,8 +345,8 @@ async function clearData() {
       daily: {},
       usage: {},
       colorMeta: {},
-      resetId: String(Date.now()),   // tells the userscript to wipe its local storage
-      resetFavs: alsoFavs,           // whether favorites should be wiped too
+      resetId: String(Date.now()),   // queued clicks older than this are discarded by the userscript
+      resetFavs: alsoFavs,
       updatedAt: new Date().toISOString()
     };
 
@@ -305,8 +369,8 @@ async function clearData() {
 
     holdUntil = Date.now() + 5 * 60 * 1000;
     render(cleared);
-    $("status").textContent = "Cleared " + new Date().toLocaleString();
-    setMsg("Data cleared. Devices will wipe their local data on their next sync.", "ok");
+    setStatus("Cleared just now");
+    setMsg("Data cleared. Devices refresh from it on their next sync.", "ok");
   } catch (e) {
     setMsg(e.message || "Something went wrong.", "err");
   } finally {
@@ -319,6 +383,7 @@ $("forgetToken").addEventListener("click", () => {
   try { localStorage.removeItem(TOKEN_KEY); } catch (e) {}
   setMsg("Saved token removed.", "ok");
 });
+$("refresh").addEventListener("click", () => { holdUntil = 0; setStatus("Refreshing…"); load(); });
 
 load();
 setInterval(load, 60000);
