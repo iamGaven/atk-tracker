@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-18T01:47:32.238Z",
+  "updatedAt": "2026-11-18T01:47:39.578Z",
   "usage": {
     "CAD85:50T": 1,
     "CAD85:50T(B)": 1,
@@ -40,6 +40,16 @@
       "descriptorIcon": null,
       "url": "https://colors.autokotesystems.com/formula/marketcolor/Automotive/ATK/370/9e23cbd3-0911-e611-80e6-0050568d4c1c/1",
       "addedAt": 1794966300586
+    },
+    "5dcbd198-85ef-e611-80f0-0050568d4c1c": {
+      "marketColorId": "5dcbd198-85ef-e611-80f0-0050568d4c1c",
+      "variantNumber": null,
+      "manufacturer": "Subaru/Fuji",
+      "name": "SUBM1Y (Crimson Red Pearl)",
+      "imageUrl": null,
+      "descriptorIcon": null,
+      "url": "https://colors.autokotesystems.com/formula/marketcolor/Automotive/ATK/370/5dcbd198-85ef-e611-80f0-0050568d4c1c/1",
+      "addedAt": 1794966458071
     }
   }
 }
