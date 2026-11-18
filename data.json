@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-18T22:45:07.534Z",
+  "updatedAt": "2026-11-18T22:47:56.517Z",
   "usage": {
     "BMW0019 (Arctic Blue)": 1,
     "BMW0016 (Turmelin)": 1
@@ -40,16 +40,6 @@
       "descriptorIcon": null,
       "url": "https://colors.autokotesystems.com/formula/marketcolor/Automotive/ATK/370/2bd58cc3-a788-ee11-8149-005056beb5b3/1",
       "addedAt": 1794976776770
-    },
-    "5dcbd198-85ef-e611-80f0-0050568d4c1c": {
-      "marketColorId": "5dcbd198-85ef-e611-80f0-0050568d4c1c",
-      "variantNumber": null,
-      "manufacturer": "Subaru/Fuji",
-      "name": "SUBM1Y(B) (Crimson Red Pearl)",
-      "imageUrl": "https://colors.autokotesystems.com/apim/frontend/cod/2025.4.0/cod/market-color-id/5dcbd198-85ef-e611-80f0-0050568d4c1c/medium/tube?variantNumber=1",
-      "descriptorIcon": "https://colors.autokotesystems.com/assets/images/color-variant-descriptors/b.svg",
-      "url": "https://colors.autokotesystems.com/formula/marketcolor/Automotive/ATK/370/5dcbd198-85ef-e611-80f0-0050568d4c1c/1",
-      "addedAt": 1795041905718
     }
   },
   "colorMeta": {
