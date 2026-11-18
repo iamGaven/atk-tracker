@@ -1,30 +1,9 @@
 {
-  "updatedAt": "2026-11-18T04:32:19.097Z",
+  "updatedAt": "2026-11-18T04:32:43.658Z",
   "usage": {},
   "daily": {},
-  "favorites": {
-    "29127fd2-7cb5-e311-b816-005056945ff1": {
-      "marketColorId": "29127fd2-7cb5-e311-b816-005056945ff1",
-      "variantNumber": null,
-      "manufacturer": "Buick",
-      "name": "BUI85:50T (White)",
-      "imageUrl": "https://colors.autokotesystems.com/apim/frontend/cod/2025.4.0/cod/market-color-id/29127fd2-7cb5-e311-b816-005056945ff1/medium/tube?variantNumber=1",
-      "descriptorIcon": null,
-      "url": "https://colors.autokotesystems.com/formula/marketcolor/Automotive/ATK/370/29127fd2-7cb5-e311-b816-005056945ff1/1",
-      "addedAt": 1794976309861
-    },
-    "9e23cbd3-0911-e611-80e6-0050568d4c1c": {
-      "marketColorId": "9e23cbd3-0911-e611-80e6-0050568d4c1c",
-      "variantNumber": null,
-      "manufacturer": "Renault-Samsung",
-      "name": "RS9718 (Gray)",
-      "imageUrl": "https://colors.autokotesystems.com/apim/frontend/cod/2025.4.0/cod/market-color-id/9e23cbd3-0911-e611-80e6-0050568d4c1c/medium/tube?variantNumber=1",
-      "descriptorIcon": null,
-      "url": "https://colors.autokotesystems.com/formula/marketcolor/Automotive/ATK/370/9e23cbd3-0911-e611-80e6-0050568d4c1c/1",
-      "addedAt": 1794976329435
-    }
-  },
+  "favorites": {},
   "colorMeta": {},
-  "resetId": "1794976339097",
-  "resetFavs": false
+  "resetId": "1794976363658",
+  "resetFavs": true
 }
