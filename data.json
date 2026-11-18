@@ -1,11 +1,12 @@
 {
-  "updatedAt": "2026-11-18T04:39:59.724Z",
+  "updatedAt": "2026-11-18T22:29:07.653Z",
   "usage": {
     "CAD85:50T (Summit White)": 2,
     "INFKAD (Gray)": 1,
     "TOY1G3 (Magnetic Gray)": 1,
     "TOY1G3 (Graphite Grey)": 2,
-    "HON170H (Scarlet Red)": 2
+    "HON170H (Scarlet Red)": 2,
+    "ACU130H (Mercury Silver)": 1
   },
   "daily": {
     "2026-11-17": {
@@ -14,6 +15,9 @@
       "TOY1G3 (Magnetic Gray)": 1,
       "TOY1G3 (Graphite Grey)": 2,
       "HON170H (Scarlet Red)": 2
+    },
+    "2026-11-18": {
+      "ACU130H (Mercury Silver)": 1
     }
   },
   "favorites": {
@@ -82,6 +86,13 @@
       "name": "HON170H (Scarlet Red)",
       "manufacturer": "Honda",
       "imageUrl": "https://colors.autokotesystems.com/apim/frontend/cod/2025.4.0/cod/market-color-id/2bd58cc3-a788-ee11-8149-005056beb5b3/medium/tube?variantNumber=1",
+      "descriptorIcon": null
+    },
+    "ACU130H (Mercury Silver)": {
+      "marketColorId": "5023b1aa-4489-ee11-8149-005056beb5b3",
+      "name": "ACU130H (Mercury Silver)",
+      "manufacturer": "Acura",
+      "imageUrl": "https://colors.autokotesystems.com/apim/frontend/cod/2025.4.0/cod/market-color-id/5023b1aa-4489-ee11-8149-005056beb5b3/medium/tube?variantNumber=1",
       "descriptorIcon": null
     }
   },
