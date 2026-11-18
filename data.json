@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-18T22:47:56.517Z",
+  "updatedAt": "2026-11-18T23:10:04.936Z",
   "usage": {
     "BMW0019 (Arctic Blue)": 1,
     "BMW0016 (Turmelin)": 1
@@ -40,6 +40,16 @@
       "descriptorIcon": null,
       "url": "https://colors.autokotesystems.com/formula/marketcolor/Automotive/ATK/370/2bd58cc3-a788-ee11-8149-005056beb5b3/1",
       "addedAt": 1794976776770
+    },
+    "a440b94b-4eb5-e311-b816-005056945ff1": {
+      "marketColorId": "a440b94b-4eb5-e311-b816-005056945ff1",
+      "variantNumber": null,
+      "manufacturer": "Nissan",
+      "name": "NISKAD (Dark Grey)",
+      "imageUrl": "https://colors.autokotesystems.com/apim/frontend/cod/2025.4.0/cod/market-color-id/a440b94b-4eb5-e311-b816-005056945ff1/medium/tube?variantNumber=1",
+      "descriptorIcon": null,
+      "url": "https://colors.autokotesystems.com/formula/marketcolor/Automotive/ATK/370/a440b94b-4eb5-e311-b816-005056945ff1/1",
+      "addedAt": 1795043403234
     }
   },
   "colorMeta": {
