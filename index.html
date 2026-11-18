@@ -28,6 +28,15 @@
   .variant-row { display: flex; align-items: center; gap: 8px; padding: 5px 0 5px 48px; border-bottom: 1px solid #f0f0f0; font-size: 14px; }
   .variant-row:last-child { border-bottom: none; }
   .mfr-section { margin-bottom: 16px; }
+
+  .danger-zone { border: 1px solid #f0c4c4; }
+  .danger-btn { background: #c0392b; color: #fff; border: 0; border-radius: 8px; padding: 10px 16px; font-size: 15px; font-weight: 600; cursor: pointer; }
+  .danger-btn:disabled { opacity: .5; cursor: default; }
+  .check { display: flex; align-items: center; gap: 8px; margin: 8px 0 12px; font-size: 14px; }
+  .link-btn { background: none; border: 0; color: #777; font-size: 12px; text-decoration: underline; cursor: pointer; padding: 0; margin-left: 10px; }
+  #clearMsg { margin-top: 8px; font-size: 13px; }
+  .ok { color: #1e8449; }
+  .err { color: #c0392b; }
 </style>
 </head>
 <body>
@@ -51,6 +60,17 @@
     <h2>All time</h2>
     <div id="usage"></div>
   </section>
+
+  <section class="danger-zone">
+    <h2>Clear data</h2>
+    <div class="muted">Resets usage counts (today and all time) in data.json on GitHub. Every device running the userscript wipes its local data the next time it syncs.</div>
+    <label class="check">
+      <input type="checkbox" id="clearFavs"> Also clear favorites
+    </label>
+    <button class="danger-btn" id="clearBtn">Clear data</button>
+    <button class="link-btn" id="forgetToken">Forget saved token</button>
+    <div id="clearMsg"></div>
+  </section>
 </main>
 
 <script>
@@ -68,7 +88,17 @@ const todayKey = () => {
   return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
 };
 
-const DATA_URL = "https://raw.githubusercontent.com/iamGaven/atk-tracker/main/data.json";
+const OWNER = "iamGaven";
+const REPO = "atk-tracker";
+const BRANCH = "main";
+const FILE = "data.json";
+const DATA_URL = `https://raw.githubusercontent.com/${OWNER}/${REPO}/${BRANCH}/${FILE}`;
+const API_URL = `https://api.github.com/repos/${OWNER}/${REPO}/contents/${FILE}`;
+const TOKEN_KEY = "paintTrackerGithubToken";
+
+// After a clear, raw.githubusercontent.com may serve stale data for a few minutes.
+// Don't let the auto-refresh redraw old data over the cleared view during that time.
+let holdUntil = 0;
 
 
 function renderFavs(favorites) {
@@ -154,6 +184,7 @@ function render(data) {
 }
 
 async function load() {
+  if (Date.now() < holdUntil) return;
   try {
     const res = await fetch(DATA_URL + "?ts=" + Date.now(), { cache: "no-store" });
     if (!res.ok) throw new Error(res.status);
@@ -164,6 +195,114 @@ async function load() {
     $("status").textContent = "Could not load data.json";
   }
 }
+
+/* ---------- Clear data (writes to GitHub) ---------- */
+
+const utf8ToB64 = str => btoa(unescape(encodeURIComponent(str)));
+const b64ToUtf8 = b64 => decodeURIComponent(escape(atob(b64.replace(/\n/g, ""))));
+
+function getToken() {
+  let token = null;
+  try { token = localStorage.getItem(TOKEN_KEY); } catch (e) {}
+  if (!token) {
+    token = prompt(
+      "Enter a GitHub personal access token with Contents: read & write access to " +
+      `${OWNER}/${REPO}.\n\nIt will be saved in this browser only.`
+    );
+    if (token) {
+      token = token.trim();
+      try { localStorage.setItem(TOKEN_KEY, token); } catch (e) {}
+    }
+  }
+  return token;
+}
+
+function setMsg(text, cls) {
+  const el = $("clearMsg");
+  el.textContent = text;
+  el.className = cls || "";
+}
+
+async function clearData() {
+  const alsoFavs = $("clearFavs").checked;
+
+  // Confirmation popup
+  const ok = confirm(
+    alsoFavs
+      ? "Are you sure?\n\nThis will permanently erase ALL usage counts AND ALL favorites from data.json in the GitHub repo, and from every device running the userscript."
+      : "Are you sure?\n\nThis will permanently erase ALL usage counts (today and all time) from data.json in the GitHub repo, and from every device running the userscript. Favorites will be kept."
+  );
+  if (!ok) return;
+
+  const token = getToken();
+  if (!token) { setMsg("Cancelled: no token provided.", "err"); return; }
+
+  const btn = $("clearBtn");
+  btn.disabled = true;
+  setMsg("Clearing...");
+
+  const headers = {
+    "Authorization": `Bearer ${token}`,
+    "Accept": "application/vnd.github+json"
+  };
+
+  try {
+    // Get current file (need its sha, and its favorites if keeping them)
+    const getRes = await fetch(`${API_URL}?ref=${BRANCH}&ts=${Date.now()}`, { headers, cache: "no-store" });
+    if (getRes.status === 401 || getRes.status === 403) {
+      try { localStorage.removeItem(TOKEN_KEY); } catch (e) {}
+      throw new Error("Token rejected. It has been forgotten, so try again with a valid one.");
+    }
+    if (!getRes.ok) throw new Error(`Could not read data.json (${getRes.status})`);
+    const file = await getRes.json();
+
+    let current = {};
+    try { current = JSON.parse(b64ToUtf8(file.content)); } catch (e) {}
+
+    const cleared = {
+      ...current,
+      favorites: alsoFavs ? {} : (current.favorites || {}),
+      daily: {},
+      usage: {},
+      colorMeta: {},
+      resetId: String(Date.now()),   // tells the userscript to wipe its local storage
+      resetFavs: alsoFavs,           // whether favorites should be wiped too
+      updatedAt: new Date().toISOString()
+    };
+
+    const putRes = await fetch(API_URL, {
+      method: "PUT",
+      headers: { ...headers, "Content-Type": "application/json" },
+      body: JSON.stringify({
+        message: alsoFavs ? "Clear all data" : "Clear usage data",
+        content: utf8ToB64(JSON.stringify(cleared, null, 2)),
+        sha: file.sha,
+        branch: BRANCH
+      })
+    });
+    if (putRes.status === 401 || putRes.status === 403) {
+      try { localStorage.removeItem(TOKEN_KEY); } catch (e) {}
+      throw new Error("Token rejected or lacks write permission. It has been forgotten.");
+    }
+    if (putRes.status === 409) throw new Error("data.json changed while clearing. Please try again.");
+    if (!putRes.ok) throw new Error(`Could not write data.json (${putRes.status})`);
+
+    holdUntil = Date.now() + 5 * 60 * 1000;
+    render(cleared);
+    $("status").textContent = "Cleared " + new Date().toLocaleString();
+    setMsg("Data cleared. Devices will wipe their local data on their next sync.", "ok");
+  } catch (e) {
+    setMsg(e.message || "Something went wrong.", "err");
+  } finally {
+    btn.disabled = false;
+  }
+}
+
+$("clearBtn").addEventListener("click", clearData);
+$("forgetToken").addEventListener("click", () => {
+  try { localStorage.removeItem(TOKEN_KEY); } catch (e) {}
+  setMsg("Saved token removed.", "ok");
+});
 
 load();
 setInterval(load, 60000);
