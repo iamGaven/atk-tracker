@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-18T01:47:39.578Z",
+  "updatedAt": "2026-11-18T01:47:42.718Z",
   "usage": {
     "CAD85:50T": 1,
     "CAD85:50T(B)": 1,
@@ -7,7 +7,8 @@
     "OP40R": 1,
     "RS9718 (Gray)": 1,
     "RS9718(L)": 1,
-    "SUBM1Y (Crimson Red)": 1
+    "SUBM1Y (Crimson Red)": 1,
+    "CAD85:50T (Summit White)": 1
   },
   "daily": {
     "2026-11-17": {
@@ -17,7 +18,8 @@
       "OP40R": 1,
       "RS9718 (Gray)": 1,
       "RS9718(L)": 1,
-      "SUBM1Y (Crimson Red)": 1
+      "SUBM1Y (Crimson Red)": 1,
+      "CAD85:50T (Summit White)": 1
     }
   },
   "favorites": {
@@ -50,6 +52,16 @@
       "descriptorIcon": null,
       "url": "https://colors.autokotesystems.com/formula/marketcolor/Automotive/ATK/370/5dcbd198-85ef-e611-80f0-0050568d4c1c/1",
       "addedAt": 1794966458071
+    },
+    "34581133-7db5-e311-b816-005056945ff1": {
+      "marketColorId": "34581133-7db5-e311-b816-005056945ff1",
+      "variantNumber": null,
+      "manufacturer": "Cadillac",
+      "name": "CAD85:50T (Summit White)",
+      "imageUrl": null,
+      "descriptorIcon": null,
+      "url": "https://colors.autokotesystems.com/formula/marketcolor/Automotive/ATK/370/34581133-7db5-e311-b816-005056945ff1/1",
+      "addedAt": 1794966461211
     }
   }
 }
