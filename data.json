@@ -1,15 +1,17 @@
 {
-  "updatedAt": "2026-11-18T04:37:31.422Z",
+  "updatedAt": "2026-11-18T04:37:36.199Z",
   "usage": {
     "CAD85:50T (Summit White)": 2,
     "INFKAD (Gray)": 1,
-    "TOY1G3 (Magnetic Gray)": 1
+    "TOY1G3 (Magnetic Gray)": 1,
+    "TOY1G3 (Graphite Grey)": 1
   },
   "daily": {
     "2026-11-17": {
       "CAD85:50T (Summit White)": 2,
       "INFKAD (Gray)": 1,
-      "TOY1G3 (Magnetic Gray)": 1
+      "TOY1G3 (Magnetic Gray)": 1,
+      "TOY1G3 (Graphite Grey)": 1
     }
   },
   "favorites": {
@@ -60,6 +62,13 @@
       "descriptorIcon": null
     },
     "TOY1G3 (Magnetic Gray)": {
+      "marketColorId": "dc38d5aa-53b5-e311-b816-005056945ff1",
+      "name": "TOY1G3 (Graphite Grey)",
+      "manufacturer": "Toyota",
+      "imageUrl": "https://colors.autokotesystems.com/apim/frontend/cod/2025.4.0/cod/market-color-id/dc38d5aa-53b5-e311-b816-005056945ff1/medium/tube?variantNumber=1",
+      "descriptorIcon": null
+    },
+    "TOY1G3 (Graphite Grey)": {
       "marketColorId": "dc38d5aa-53b5-e311-b816-005056945ff1",
       "name": "TOY1G3 (Graphite Grey)",
       "manufacturer": "Toyota",
