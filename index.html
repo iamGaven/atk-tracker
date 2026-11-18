@@ -162,6 +162,18 @@ function splitName(name) {
   return m ? [m[1], m[2]] : [String(name), ""];
 }
 
+// Link to the color's formula page, like favorites have. Uses the stored url when there is one,
+// otherwise rebuilds it from the color id and variant in the image url.
+function formulaUrl(m, favorites) {
+  if (m.url) return m.url;
+  const id = m.marketColorId;
+  if (!id) return null;
+  const variant = ((m.imageUrl || "").match(/variantNumber=(\d+)/i) || [])[1] || "1";
+  const fav = Object.values(favorites || {}).find(f => f.marketColorId === id && f.url);
+  if (fav) return fav.url.replace(/\/[^/]+\/[^/]+$/, `/${id}/${variant}`);
+  return `https://colors.autokotesystems.com/formula/marketcolor/Automotive/ATK/370/${id}/${variant}`;
+}
+
 const empty = (icon, text) => `<div class="empty"><big>${icon}</big>${esc(text)}</div>`;
 
 function summaryHtml(items) {
@@ -171,7 +183,7 @@ function summaryHtml(items) {
     <div class="stat"><b>${items.length}</b><span>colors</span></div></div>`;
 }
 
-function renderUsage(entries, meta, emptyText) {
+function renderUsage(entries, meta, emptyText, favorites) {
   if (!entries.length) return empty("🎨", emptyText);
   const groups = {};
   entries.forEach(([name, n]) => {
@@ -186,8 +198,12 @@ function renderUsage(entries, meta, emptyText) {
     .map(([mfr, g]) => {
       const rows = g.items.sort((a, b) => b.n - a.n).map(({ name, n, m }) => {
         const [code, desc] = splitName(name);
+        const link = formulaUrl(m, favorites);
+        const label = link
+          ? `<a href="${esc(link)}" target="_blank" rel="noopener">${esc(code)}</a>`
+          : esc(code);
         return `<div class="item">${thumb(m.imageUrl)}
-          <div class="info"><div class="code">${descIcon(m.descriptorIcon)}<span>${esc(code)}</span></div>
+          <div class="info"><div class="code">${descIcon(m.descriptorIcon)}<span>${label}</span></div>
           ${desc ? `<div class="desc">${esc(desc)}</div>` : ""}</div>
           <div class="count">${n}<small>×</small></div></div>`;
       }).join("");
@@ -247,8 +263,8 @@ function render(data) {
 
   $("view").innerHTML =
     tab === "favs" ? renderFavs(lastData.favorites) :
-    tab === "today" ? renderUsage(today, meta, "Nothing used today") :
-    renderUsage(all, meta, "No usage tracked yet");
+    tab === "today" ? renderUsage(today, meta, "Nothing used today", lastData.favorites) :
+    renderUsage(all, meta, "No usage tracked yet", lastData.favorites);
 }
 
 document.querySelectorAll(".tabs button").forEach(b => b.addEventListener("click", () => {
