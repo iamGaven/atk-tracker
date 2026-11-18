@@ -1,15 +1,7 @@
 {
-  "updatedAt": "2026-11-18T04:32:12.866Z",
-  "usage": {
-    "BUI85:50T (White)": 1,
-    "RS9718 (Gray)": 2
-  },
-  "daily": {
-    "2026-11-17": {
-      "BUI85:50T (White)": 1,
-      "RS9718 (Gray)": 2
-    }
-  },
+  "updatedAt": "2026-11-18T04:32:19.097Z",
+  "usage": {},
+  "daily": {},
   "favorites": {
     "29127fd2-7cb5-e311-b816-005056945ff1": {
       "marketColorId": "29127fd2-7cb5-e311-b816-005056945ff1",
@@ -32,22 +24,7 @@
       "addedAt": 1794976329435
     }
   },
-  "colorMeta": {
-    "BUI85:50T (White)": {
-      "marketColorId": "29127fd2-7cb5-e311-b816-005056945ff1",
-      "name": "BUI85:50T (White)",
-      "manufacturer": "Buick",
-      "imageUrl": "https://colors.autokotesystems.com/apim/frontend/cod/2025.4.0/cod/market-color-id/29127fd2-7cb5-e311-b816-005056945ff1/medium/tube?variantNumber=2",
-      "descriptorIcon": null
-    },
-    "RS9718 (Gray)": {
-      "marketColorId": "9e23cbd3-0911-e611-80e6-0050568d4c1c",
-      "name": "RS9718 (Gray)",
-      "manufacturer": "Renault-Samsung",
-      "imageUrl": "https://colors.autokotesystems.com/apim/frontend/cod/2025.4.0/cod/market-color-id/9e23cbd3-0911-e611-80e6-0050568d4c1c/medium/tube?variantNumber=1",
-      "descriptorIcon": null
-    }
-  },
-  "resetId": "1794976059515",
+  "colorMeta": {},
+  "resetId": "1794976339097",
   "resetFavs": false
 }
