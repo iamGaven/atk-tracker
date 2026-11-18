@@ -68,6 +68,9 @@ const todayKey = () => {
   return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
 };
 
+const DATA_URL = "https://raw.githubusercontent.com/iamGaven/atk-tracker/main/data.json";
+
+
 function renderFavs(favorites) {
   const container = $("favs");
   const entries = Object.entries(favorites || {});
@@ -152,11 +155,7 @@ function render(data) {
 
 async function load() {
   try {
-    const res = await fetch("data.json?ts=" + Date.now(), { cache: "no-store" });
-    if (res.status === 404) {
-      $("status").textContent = "No data yet. Use the Autokote site first.";
-      return render({});
-    }
+    const res = await fetch(DATA_URL + "?ts=" + Date.now(), { cache: "no-store" });
     if (!res.ok) throw new Error(res.status);
     const data = await res.json();
     render(data);
