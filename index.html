@@ -184,11 +184,27 @@ function render(data) {
 }
 
 async function load() {
-  if (Date.now() < holdUntil) return;
+  let token = null;
+  try { token = localStorage.getItem(TOKEN_KEY); } catch (e) {}
+  // Without a token we can only use the cached raw file, so hold off right after a clear
+  if (!token && Date.now() < holdUntil) return;
   try {
-    const res = await fetch(DATA_URL + "?ts=" + Date.now(), { cache: "no-store" });
-    if (!res.ok) throw new Error(res.status);
-    const data = await res.json();
+    let data = null;
+    if (token) {
+      // The API is never stale, so a clear shows up immediately
+      try {
+        const res = await fetch(`${API_URL}?ref=${BRANCH}&ts=${Date.now()}`, {
+          headers: { "Authorization": `Bearer ${token}`, "Accept": "application/vnd.github+json" },
+          cache: "no-store"
+        });
+        if (res.ok) data = JSON.parse(b64ToUtf8((await res.json()).content));
+      } catch (e) {}
+    }
+    if (!data) {
+      const res = await fetch(DATA_URL + "?ts=" + Date.now(), { cache: "no-store" });
+      if (!res.ok) throw new Error(res.status);
+      data = await res.json();
+    }
     render(data);
     $("status").textContent = "Updated " + new Date(data.updatedAt).toLocaleString();
   } catch (e) {
