@@ -1,12 +1,13 @@
 {
-  "updatedAt": "2026-11-18T22:29:07.653Z",
+  "updatedAt": "2026-11-18T22:29:21.883Z",
   "usage": {
     "CAD85:50T (Summit White)": 2,
     "INFKAD (Gray)": 1,
     "TOY1G3 (Magnetic Gray)": 1,
     "TOY1G3 (Graphite Grey)": 2,
     "HON170H (Scarlet Red)": 2,
-    "ACU130H (Mercury Silver)": 1
+    "ACU130H (Mercury Silver)": 1,
+    "CAD00:58U (Sapphire)": 1
   },
   "daily": {
     "2026-11-17": {
@@ -17,7 +18,8 @@
       "HON170H (Scarlet Red)": 2
     },
     "2026-11-18": {
-      "ACU130H (Mercury Silver)": 1
+      "ACU130H (Mercury Silver)": 1,
+      "CAD00:58U (Sapphire)": 1
     }
   },
   "favorites": {
@@ -93,6 +95,13 @@
       "name": "ACU130H (Mercury Silver)",
       "manufacturer": "Acura",
       "imageUrl": "https://colors.autokotesystems.com/apim/frontend/cod/2025.4.0/cod/market-color-id/5023b1aa-4489-ee11-8149-005056beb5b3/medium/tube?variantNumber=1",
+      "descriptorIcon": null
+    },
+    "CAD00:58U (Sapphire)": {
+      "marketColorId": "c5e2c302-7db5-e311-b816-005056945ff1",
+      "name": "CAD00:58U (Sapphire)",
+      "manufacturer": "Cadillac",
+      "imageUrl": "https://colors.autokotesystems.com/apim/frontend/cod/2025.4.0/cod/market-color-id/c5e2c302-7db5-e311-b816-005056945ff1/medium/tube?variantNumber=1",
       "descriptorIcon": null
     }
   },
