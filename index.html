@@ -11,15 +11,23 @@
   main { max-width: 640px; margin: 0 auto; padding: 14px; }
   section { background: #fff; border-radius: 10px; padding: 14px; margin-bottom: 14px; box-shadow: 0 1px 3px rgba(0,0,0,.08); }
   h2 { font-size: 14px; text-transform: uppercase; letter-spacing: .04em; color: #1f2a44; margin: 0 0 8px; }
+  h3 { font-size: 13px; color: #555; margin: 10px 0 4px; border-bottom: 1px solid #eee; padding-bottom: 4px; }
   .row { display: flex; align-items: center; gap: 10px; padding: 8px 0; border-bottom: 1px solid #eee; }
   .row:last-child { border-bottom: none; }
   .grow { flex: 1; min-width: 0; word-break: break-word; }
   .meta { color: #777; font-size: 12px; }
   .count { font-weight: 700; }
-  .thumb { width: 40px; height: 40px; object-fit: cover; border-radius: 4px; }
+  .thumb { width: 40px; height: 40px; object-fit: cover; border-radius: 4px; flex-shrink: 0; }
+  .descriptor { width: 16px; height: 16px; vertical-align: middle; flex-shrink: 0; }
   a { color: #1f2a44; }
   .muted { color: #777; font-size: 14px; }
   .status { color: #ccd; font-size: 12px; margin-top: 4px; }
+  .color-group { margin-bottom: 10px; }
+  .color-group-header { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; }
+  .color-group-title { font-weight: 600; font-size: 14px; }
+  .variant-row { display: flex; align-items: center; gap: 8px; padding: 5px 0 5px 48px; border-bottom: 1px solid #f0f0f0; font-size: 14px; }
+  .variant-row:last-child { border-bottom: none; }
+  .mfr-section { margin-bottom: 16px; }
 </style>
 </head>
 <body>
@@ -50,24 +58,86 @@ const $ = id => document.getElementById(id);
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c =>
   ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 
+const imgSrc = url => {
+  if (!url) return null;
+  return url.startsWith("http") ? url : `https://colors.autokotesystems.com${url}`;
+};
+
 const todayKey = () => {
   const d = new Date();
   return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
 };
 
+function renderFavs(favorites) {
+  const container = $("favs");
+  const entries = Object.entries(favorites || {});
+  if (!entries.length) {
+    container.innerHTML = `<div class="muted">No favorites yet</div>`;
+    return;
+  }
+
+  // Group by manufacturer → marketColorId
+  const byMfr = {};
+  entries.forEach(([key, f]) => {
+    const mfr = f.manufacturer || "Unknown";
+    if (!byMfr[mfr]) byMfr[mfr] = {};
+    const id = f.marketColorId || key;
+    if (!byMfr[mfr][id]) byMfr[mfr][id] = { baseName: f.baseName || f.name, imageUrl: null, variants: [] };
+    byMfr[mfr][id].variants.push([key, f]);
+  });
+
+  // Fill best imageUrl per group
+  Object.values(byMfr).forEach(groups => {
+    Object.values(groups).forEach(g => {
+      const base = g.variants.find(([, f]) => !f.variantNumber);
+      if (base) {
+        g.baseName = base[1].baseName || base[1].name || g.baseName;
+        if (base[1].imageUrl) g.imageUrl = base[1].imageUrl;
+      }
+      if (!g.imageUrl) {
+        const any = g.variants.find(([, f]) => f.imageUrl);
+        if (any) g.imageUrl = any[1].imageUrl;
+      }
+    });
+  });
+
+  let html = "";
+  Object.keys(byMfr).sort().forEach(mfr => {
+    html += `<div class="mfr-section"><h3>${esc(mfr)}</h3>`;
+    const groups = byMfr[mfr];
+    Object.keys(groups)
+      .sort((a, b) => groups[a].baseName.localeCompare(groups[b].baseName))
+      .forEach(id => {
+        const g = groups[id];
+        const src = imgSrc(g.imageUrl);
+        html += `<div class="color-group">`;
+        html += `<div class="color-group-header">`;
+        if (src) html += `<img class="thumb" src="${esc(src)}">`;
+        html += `<span class="color-group-title">${esc(g.baseName)}</span>`;
+        html += `</div>`;
+        g.variants
+          .sort((a, b) => (b[1].addedAt || 0) - (a[1].addedAt || 0))
+          .forEach(([, f]) => {
+            const descSrc = imgSrc(f.descriptorIcon);
+            const label = f.variantNumber ? f.name : `${f.name} (base)`;
+            const link = f.url
+              ? `<a href="${esc(f.url)}" target="_blank" rel="noopener">${esc(label)}</a>`
+              : esc(label);
+            html += `<div class="variant-row">`;
+            if (descSrc) html += `<img class="descriptor" src="${esc(descSrc)}" title="Variant type">`;
+            html += link;
+            html += `</div>`;
+          });
+        html += `</div>`;
+      });
+    html += `</div>`;
+  });
+
+  container.innerHTML = html;
+}
+
 function render(data) {
-  const favs = Object.values(data.favorites || {})
-    .sort((a, b) => (b.addedAt || 0) - (a.addedAt || 0));
-  $("favs").innerHTML = favs.length
-    ? favs.map(f => `
-      <div class="row">
-        ${f.imageUrl ? `<img class="thumb" src="${esc(f.imageUrl)}">` : ""}
-        <div class="grow">
-          <a href="${esc(f.url || "#")}" target="_blank" rel="noopener">${esc(f.name)}</a>
-          <div class="meta">${esc(f.manufacturer)}${f.variantNumber ? "" : " (base)"}</div>
-        </div>
-      </div>`).join("")
-    : `<div class="muted">No favorites yet</div>`;
+  renderFavs(data.favorites);
 
   const daily = Object.entries((data.daily || {})[todayKey()] || {}).sort((a, b) => b[1] - a[1]);
   $("today").innerHTML = daily.length
@@ -82,7 +152,6 @@ function render(data) {
 
 async function load() {
   try {
-    // Cache-busting so the phone always gets the latest file
     const res = await fetch("data.json?ts=" + Date.now(), { cache: "no-store" });
     if (res.status === 404) {
       $("status").textContent = "No data yet. Use the Autokote site first.";
@@ -98,7 +167,7 @@ async function load() {
 }
 
 load();
-setInterval(load, 60000);   // refresh every minute while the page is open
+setInterval(load, 60000);
 </script>
 </body>
 </html>
