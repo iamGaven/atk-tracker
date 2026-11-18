@@ -1,9 +1,34 @@
 {
-  "updatedAt": "2026-11-18T04:16:53.506Z",
-  "usage": {},
-  "daily": {},
-  "favorites": {},
-  "colorMeta": {},
+  "updatedAt": "2026-11-18T04:17:08.023Z",
+  "usage": {
+    "NISKAD (Dark Grey)": 1
+  },
+  "daily": {
+    "2026-11-17": {
+      "NISKAD (Dark Grey)": 1
+    }
+  },
+  "favorites": {
+    "a440b94b-4eb5-e311-b816-005056945ff1": {
+      "marketColorId": "a440b94b-4eb5-e311-b816-005056945ff1",
+      "variantNumber": null,
+      "manufacturer": "Nissan",
+      "name": "NISKAD (Dark Grey)",
+      "imageUrl": "https://colors.autokotesystems.com/apim/frontend/cod/2025.4.0/cod/market-color-id/a440b94b-4eb5-e311-b816-005056945ff1/medium/tube?variantNumber=1",
+      "descriptorIcon": null,
+      "url": "https://colors.autokotesystems.com/formula/marketcolor/Automotive/ATK/370/a440b94b-4eb5-e311-b816-005056945ff1/1",
+      "addedAt": 1794975426260
+    }
+  },
+  "colorMeta": {
+    "NISKAD (Dark Grey)": {
+      "marketColorId": "a440b94b-4eb5-e311-b816-005056945ff1",
+      "name": "NISKAD (Dark Grey)",
+      "manufacturer": "Nissan",
+      "imageUrl": "https://colors.autokotesystems.com/apim/frontend/cod/2025.4.0/cod/market-color-id/a440b94b-4eb5-e311-b816-005056945ff1/medium/tube?variantNumber=1",
+      "descriptorIcon": null
+    }
+  },
   "resetId": "1794975413506",
   "resetFavs": true
 }
