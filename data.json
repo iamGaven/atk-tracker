@@ -1,13 +1,15 @@
 {
-  "updatedAt": "2026-11-18T01:42:39.146Z",
+  "updatedAt": "2026-11-18T01:42:53.796Z",
   "usage": {
     "CAD85:50T": 1,
-    "CAD85:50T(B)": 1
+    "CAD85:50T(B)": 1,
+    "OP40R (Olympic White)": 1
   },
   "daily": {
     "2026-11-17": {
       "CAD85:50T": 1,
-      "CAD85:50T(B)": 1
+      "CAD85:50T(B)": 1,
+      "OP40R (Olympic White)": 1
     }
   },
   "favorites": {
@@ -20,6 +22,16 @@
       "descriptorIcon": null,
       "url": "https://colors.autokotesystems.com/formula/marketcolor/Automotive/ATK/370/5dcbd198-85ef-e611-80f0-0050568d4c1c/1",
       "addedAt": 1794965677779
+    },
+    "27564441-64b5-e311-b816-005056945ff1": {
+      "marketColorId": "27564441-64b5-e311-b816-005056945ff1",
+      "variantNumber": null,
+      "manufacturer": "Unknown",
+      "name": "27564441-64b5-e311-b816-005056945ff1",
+      "imageUrl": null,
+      "descriptorIcon": null,
+      "url": "https://colors.autokotesystems.com/formula/marketcolor/Automotive/ATK/370/27564441-64b5-e311-b816-005056945ff1/1",
+      "addedAt": 1794966172293
     }
   }
 }
