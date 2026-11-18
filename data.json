@@ -1,15 +1,7 @@
 {
-  "updatedAt": "2026-11-18T04:19:08.978Z",
-  "usage": {
-    "SUBM1Y (Crimson Red)": 1,
-    "SUBM1Y (Crimson Red Pearl)": 1
-  },
-  "daily": {
-    "2026-11-17": {
-      "SUBM1Y (Crimson Red)": 1,
-      "SUBM1Y (Crimson Red Pearl)": 1
-    }
-  },
+  "updatedAt": "2026-11-18T04:19:15.180Z",
+  "usage": {},
+  "daily": {},
   "favorites": {
     "5dcbd198-85ef-e611-80f0-0050568d4c1c": {
       "marketColorId": "5dcbd198-85ef-e611-80f0-0050568d4c1c",
@@ -22,22 +14,7 @@
       "addedAt": 1794975545211
     }
   },
-  "colorMeta": {
-    "SUBM1Y (Crimson Red)": {
-      "marketColorId": "5dcbd198-85ef-e611-80f0-0050568d4c1c",
-      "name": "SUBM1Y (Crimson Red Pearl)",
-      "manufacturer": "Subaru/Fuji",
-      "imageUrl": "https://colors.autokotesystems.com/apim/frontend/cod/2025.4.0/cod/market-color-id/5dcbd198-85ef-e611-80f0-0050568d4c1c/medium/tube?variantNumber=1",
-      "descriptorIcon": null
-    },
-    "SUBM1Y (Crimson Red Pearl)": {
-      "marketColorId": "5dcbd198-85ef-e611-80f0-0050568d4c1c",
-      "name": "SUBM1Y (Crimson Red Pearl)",
-      "manufacturer": "Subaru/Fuji",
-      "imageUrl": "https://colors.autokotesystems.com/apim/frontend/cod/2025.4.0/cod/market-color-id/5dcbd198-85ef-e611-80f0-0050568d4c1c/medium/tube?variantNumber=1",
-      "descriptorIcon": null
-    }
-  },
-  "resetId": "1794975413506",
-  "resetFavs": true
+  "colorMeta": {},
+  "resetId": "1794975555180",
+  "resetFavs": false
 }
