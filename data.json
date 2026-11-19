@@ -1,13 +1,15 @@
 {
-  "updatedAt": "2026-11-18T23:10:04.936Z",
+  "updatedAt": "2026-11-19T00:11:27.399Z",
   "usage": {
     "BMW0019 (Arctic Blue)": 1,
-    "BMW0016 (Turmelin)": 1
+    "BMW0016 (Turmelin)": 1,
+    "RAM99:WS2 (Bright Silver)": 1
   },
   "daily": {
     "2026-11-18": {
       "BMW0019 (Arctic Blue)": 1,
-      "BMW0016 (Turmelin)": 1
+      "BMW0016 (Turmelin)": 1,
+      "RAM99:WS2 (Bright Silver)": 1
     }
   },
   "favorites": {
@@ -50,6 +52,16 @@
       "descriptorIcon": null,
       "url": "https://colors.autokotesystems.com/formula/marketcolor/Automotive/ATK/370/a440b94b-4eb5-e311-b816-005056945ff1/1",
       "addedAt": 1795043403234
+    },
+    "621d379e-57b5-e311-b816-005056945ff1": {
+      "marketColorId": "621d379e-57b5-e311-b816-005056945ff1",
+      "variantNumber": null,
+      "manufacturer": "Ram",
+      "name": "RAM99:WS2 (Brt. Silver)",
+      "imageUrl": "https://colors.autokotesystems.com/apim/frontend/cod/2025.4.0/cod/market-color-id/621d379e-57b5-e311-b816-005056945ff1/medium/tube?variantNumber=1",
+      "descriptorIcon": null,
+      "url": "https://colors.autokotesystems.com/formula/marketcolor/Automotive/ATK/370/621d379e-57b5-e311-b816-005056945ff1/1",
+      "addedAt": 1795047084684
     }
   },
   "colorMeta": {
@@ -65,6 +77,13 @@
       "name": "BMW0016 (Turmelin)",
       "manufacturer": "BMW",
       "imageUrl": "https://colors.autokotesystems.com/apim/frontend/cod/2025.4.0/cod/market-color-id/f3e36595-62b5-e311-b816-005056945ff1/medium/tube?variantNumber=1",
+      "descriptorIcon": null
+    },
+    "RAM99:WS2 (Bright Silver)": {
+      "marketColorId": "621d379e-57b5-e311-b816-005056945ff1",
+      "name": "RAM99:WS2 (Brt. Silver)",
+      "manufacturer": "Ram",
+      "imageUrl": "https://colors.autokotesystems.com/apim/frontend/cod/2025.4.0/cod/market-color-id/621d379e-57b5-e311-b816-005056945ff1/medium/tube?variantNumber=1",
       "descriptorIcon": null
     }
   },
