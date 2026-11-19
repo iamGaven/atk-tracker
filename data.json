@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-19T23:13:20.487Z",
+  "updatedAt": "2026-11-19T23:13:30.402Z",
   "usage": {
     "CAD85:50T (Summit White)": 1
   },
@@ -62,5 +62,43 @@
   },
   "resetId": "1795129989342",
   "resetFavs": false,
-  "mixes": []
+  "mixes": [
+    {
+      "amount": 3,
+      "grams": 105.3,
+      "cost": 7.75,
+      "unpriced": 0,
+      "layers": [
+        {
+          "layer": "Layer 1",
+          "grams": 105.3,
+          "cost": 7.75,
+          "unpriced": 0
+        }
+      ],
+      "components": [
+        {
+          "paint_code": "100",
+          "name": "HIGH HIDING WHITE (FOR SOLIDS)",
+          "grams": 104.6,
+          "cost": 7.66
+        },
+        {
+          "paint_code": "200",
+          "name": "STANDARD BLACK",
+          "grams": 0.4,
+          "cost": 0.04
+        },
+        {
+          "paint_code": "301",
+          "name": "LEMON YELLOW",
+          "grams": 0.3,
+          "cost": 0.05
+        }
+      ],
+      "day": "2026-11-19",
+      "id": "1795130007233-c1spyj",
+      "t": 1795130007233
+    }
+  ]
 }
