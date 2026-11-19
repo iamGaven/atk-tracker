@@ -1,17 +1,19 @@
 {
-  "updatedAt": "2026-11-19T00:11:56.793Z",
+  "updatedAt": "2026-11-19T00:16:18.767Z",
   "usage": {
     "BMW0019 (Arctic Blue)": 1,
     "BMW0016 (Turmelin)": 1,
     "RAM99:WS2 (Bright Silver)": 1,
-    "RAM99:WS2 (Brt. Silver)": 1
+    "RAM99:WS2 (Brt. Silver)": 1,
+    "DOD24:ZR6 (Red Hot)": 1
   },
   "daily": {
     "2026-11-18": {
       "BMW0019 (Arctic Blue)": 1,
       "BMW0016 (Turmelin)": 1,
       "RAM99:WS2 (Bright Silver)": 1,
-      "RAM99:WS2 (Brt. Silver)": 1
+      "RAM99:WS2 (Brt. Silver)": 1,
+      "DOD24:ZR6 (Red Hot)": 1
     }
   },
   "favorites": {
@@ -83,6 +85,13 @@
       "name": "RAM99:WS2 (Brt. Silver)",
       "manufacturer": "Ram",
       "imageUrl": "https://colors.autokotesystems.com/apim/frontend/cod/2025.4.0/cod/market-color-id/621d379e-57b5-e311-b816-005056945ff1/medium/tube?variantNumber=4",
+      "descriptorIcon": null
+    },
+    "DOD24:ZR6 (Red Hot)": {
+      "marketColorId": "fe2d99fc-259d-ef11-814e-0022485d53a8",
+      "name": "DOD24:ZR6 (Red Hot)",
+      "manufacturer": "Dodge",
+      "imageUrl": "https://colors.autokotesystems.com/apim/frontend/cod/2025.4.0/cod/market-color-id/fe2d99fc-259d-ef11-814e-0022485d53a8/medium/tube?variantNumber=1",
       "descriptorIcon": null
     }
   },
