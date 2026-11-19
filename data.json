@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-19T23:31:32.369Z",
+  "updatedAt": "2026-11-19T23:31:42.409Z",
   "usage": {},
   "daily": {},
   "favorites": {
@@ -209,6 +209,82 @@
       "count": 1,
       "id": "1795131077735-l0of9n",
       "t": 1795131077735
+    },
+    {
+      "key": "Layer 1:100+302+200|Layer 2:032+030+812+802+801",
+      "image": null,
+      "amount": 2,
+      "grams": 125.3,
+      "cost": 15.96,
+      "unpriced": 0,
+      "layers": [
+        {
+          "layer": "Layer 1",
+          "grams": 70.2,
+          "cost": 5.16,
+          "unpriced": 0
+        },
+        {
+          "layer": "Layer 2",
+          "grams": 55.1,
+          "cost": 10.8,
+          "unpriced": 0
+        }
+      ],
+      "components": [
+        {
+          "paint_code": "100",
+          "name": "HIGH HIDING WHITE (FOR SOLIDS)",
+          "grams": 69.6,
+          "cost": 5.09
+        },
+        {
+          "paint_code": "200",
+          "name": "STANDARD BLACK",
+          "grams": 0.5,
+          "cost": 0.05
+        },
+        {
+          "paint_code": "302",
+          "name": "YELLOW OXIDE",
+          "grams": 0.1,
+          "cost": 0.02
+        },
+        {
+          "paint_code": "801",
+          "name": "WHITE MICA",
+          "grams": 13.8,
+          "cost": 2.92
+        },
+        {
+          "paint_code": "802",
+          "name": "WHITE MICA SPARKLE",
+          "grams": 8.6,
+          "cost": 1.89
+        },
+        {
+          "paint_code": "812",
+          "name": "BLUE VIOLET MICA GF",
+          "grams": 6,
+          "cost": 1.29
+        },
+        {
+          "paint_code": "032",
+          "name": "CLEAR ADDITIVE",
+          "grams": 22.5,
+          "cost": 4.32
+        },
+        {
+          "paint_code": "030",
+          "name": "FLOP ADJUSTER TRANSPARENT",
+          "grams": 4.2,
+          "cost": 0.38
+        }
+      ],
+      "day": "2026-11-19",
+      "count": 1,
+      "id": "1795131099569-fjs45h",
+      "t": 1795131099569
     }
   ]
 }
