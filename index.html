@@ -274,18 +274,20 @@ function renderFavs(favorites) {
     return `<section class="card"><div class="card-h"><h3>${esc(mfr)}</h3><span class="pill">${total}</span></div>${body}</section>`;
   }).join("");
 }
-
-// Today: confirmed mixes with their prices, then the usage list
+// Today: confirmed mixes (one card per paint), then usage for paints without a mix
 function renderToday(entries, meta, favorites, mixes) {
   const todayMixes = mixes.filter(m => m.day === todayKey()).sort((a, b) => b.t - a.t);
-  const mixHtml = todayMixes.length ? renderMixes(todayMixes) : "";
-  const usageHtml = entries.length
-    ? renderUsage(entries, meta, "", favorites)
+  const mixNames = new Set(todayMixes.map(m => m.name).filter(Boolean));
+  const rest = entries.filter(([name]) => !mixNames.has(name));
+
+  const mixHtml = todayMixes.length ? renderMixes(todayMixes, meta) : "";
+  const usageHtml = rest.length
+    ? renderUsage(rest, meta, "", favorites)
     : (todayMixes.length ? "" : empty("🎨", "Nothing used today"));
   return mixHtml + usageHtml;
 }
 
-function renderMixes(list) {
+function renderMixes(list, meta) {
   const total = list.reduce((a, m) => a + (m.cost || 0), 0);
   const count = list.reduce((a, m) => a + (m.count || 1), 0);
   const summary = `<div class="summary">
@@ -293,8 +295,13 @@ function renderMixes(list) {
     <div class="stat"><b>${count}</b><span>mixes</span></div></div>`;
 
   const cards = list.map(m => {
-    const codes = (m.components || []).map(c => c.paint_code).join(" + ");
+    // Paint name when known; older mixes without one fall back to their paint codes
+    const [code, desc] = m.name
+      ? splitName(m.name)
+      : [(m.components || []).map(c => c.paint_code).join(" + "), ""];
+    const img = m.image || ((meta || {})[m.name] || {}).imageUrl || null;
     const times = m.count > 1 ? `${m.count} mixes today` : "1 mix today";
+
     const layers = (m.layers || []).length > 1
       ? `<div class="sub">${m.layers.map(l => `${esc(l.layer)}: ${money(l.cost)}`).join(" · ")}</div>`
       : "";
@@ -310,11 +317,13 @@ function renderMixes(list) {
     const unpriced = m.unpriced
       ? `<div class="sub warn">${m.unpriced} component(s) not in price list</div>`
       : "";
+
     return `<section class="card">
       <div class="item">
-        ${thumb(m.image)}
+        ${thumb(img)}
         <div class="info">
-          <div class="code"><span>${esc(codes)}</span></div>
+          <div class="code"><span>${esc(code)}</span></div>
+          ${desc ? `<div class="desc">${esc(desc)}</div>` : ""}
           <div class="desc">${times} · ${(m.grams || 0).toFixed(1)} g</div>
         </div>
         <div class="count">${money(m.cost)}</div>
