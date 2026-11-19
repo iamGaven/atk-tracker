@@ -74,6 +74,11 @@
   .sub { padding: 8px 14px; font-size: 13px; color: var(--muted); }
   .warn { color: #b26a00; }
 
+  .mix-details summary { cursor: pointer; padding: 10px 14px; font-size: 13px; font-weight: 600;
+    color: var(--accent); list-style: none; border-top: 1px solid var(--line); }
+  .mix-details summary::-webkit-details-marker { display: none; }
+  .mix-details[open] summary { border-bottom: 1px solid var(--line); }
+
   .group-title { display: flex; align-items: center; gap: 12px; padding: 10px 14px 4px; }
   .group-title .code { font-size: 15px; }
   .variant { display: flex; align-items: center; gap: 8px; padding: 6px 14px 6px 74px; font-size: 14px; color: var(--muted); }
@@ -282,13 +287,15 @@ function renderToday(entries, meta, favorites, mixes) {
 
 function renderMixes(list) {
   const total = list.reduce((a, m) => a + (m.cost || 0), 0);
+  const count = list.reduce((a, m) => a + (m.count || 1), 0);
   const summary = `<div class="summary">
     <div class="stat"><b>${money(total)}</b><span>mixed today</span></div>
-    <div class="stat"><b>${list.length}</b><span>mixes</span></div></div>`;
+    <div class="stat"><b>${count}</b><span>mixes</span></div></div>`;
 
   const cards = list.map(m => {
-    const time = new Date(m.t).toLocaleTimeString([], { hour: "numeric", minute: "2-digit" });
-    const layerLine = (m.layers || []).length > 1
+    const codes = (m.components || []).map(c => c.paint_code).join(" + ");
+    const times = m.count > 1 ? `${m.count} mixes today` : "1 mix today";
+    const layers = (m.layers || []).length > 1
       ? `<div class="sub">${m.layers.map(l => `${esc(l.layer)}: ${money(l.cost)}`).join(" · ")}</div>`
       : "";
     const rows = (m.components || []).map(c => `
@@ -304,13 +311,18 @@ function renderMixes(list) {
       ? `<div class="sub warn">${m.unpriced} component(s) not in price list</div>`
       : "";
     return `<section class="card">
-      <div class="card-h"><h3>Mix · ${esc(time)}</h3><span class="pill">${money(m.cost)}</span></div>
-      ${layerLine}${rows}${unpriced}
       <div class="item">
-        <div class="info"><div class="code"><span>Total</span></div>
-        <div class="desc">${(m.grams || 0).toFixed(1)} g</div></div>
+        ${thumb(m.image)}
+        <div class="info">
+          <div class="code"><span>${esc(codes)}</span></div>
+          <div class="desc">${times} · ${(m.grams || 0).toFixed(1)} g</div>
+        </div>
         <div class="count">${money(m.cost)}</div>
       </div>
+      <details class="mix-details">
+        <summary>Breakdown</summary>
+        ${layers}${rows}${unpriced}
+      </details>
     </section>`;
   }).join("");
 
@@ -330,7 +342,7 @@ function bucketMixes(mixes, view) {
     const b = buckets[key] || (buckets[key] = { key, cost: 0, grams: 0, count: 0, unpriced: 0 });
     b.cost += m.cost || 0;
     b.grams += m.grams || 0;
-    b.count += 1;
+    b.count += m.count || 1;
     b.unpriced += m.unpriced || 0;
   });
   return Object.values(buckets).sort((a, b) => a.key.localeCompare(b.key));
@@ -429,7 +441,7 @@ function render(data) {
 
   $("nFavs").textContent = Object.keys(lastData.favorites || {}).length;
   $("nToday").textContent = today.length;
-  $("nCosts").textContent = mixes.length;
+  $("nCosts").textContent = mixes.reduce((a, m) => a + (m.count || 1), 0);
   $("nAll").textContent = all.length;
 
   $("view").innerHTML =
