@@ -1,12 +1,13 @@
 {
-  "updatedAt": "2026-11-19T00:20:12.309Z",
+  "updatedAt": "2026-11-19T23:10:05.636Z",
   "usage": {
     "BMW0019 (Arctic Blue)": 1,
     "BMW0016 (Turmelin)": 1,
     "RAM99:WS2 (Bright Silver)": 1,
     "RAM99:WS2 (Brt. Silver)": 1,
     "DOD24:ZR6 (Red Hot)": 4,
-    "DOD9307 (Ruby Red)": 1
+    "DOD9307 (Ruby Red)": 1,
+    "SUBM1Y (Crimson Red Pearl)": 2
   },
   "daily": {
     "2026-11-18": {
@@ -16,6 +17,9 @@
       "RAM99:WS2 (Brt. Silver)": 1,
       "DOD24:ZR6 (Red Hot)": 4,
       "DOD9307 (Ruby Red)": 1
+    },
+    "2026-11-19": {
+      "SUBM1Y (Crimson Red Pearl)": 2
     }
   },
   "favorites": {
@@ -58,6 +62,16 @@
       "descriptorIcon": null,
       "url": "https://colors.autokotesystems.com/formula/marketcolor/Automotive/ATK/370/a440b94b-4eb5-e311-b816-005056945ff1/1",
       "addedAt": 1795043403234
+    },
+    "5dcbd198-85ef-e611-80f0-0050568d4c1c": {
+      "marketColorId": "5dcbd198-85ef-e611-80f0-0050568d4c1c",
+      "variantNumber": null,
+      "manufacturer": "Subaru/Fuji",
+      "name": "SUBM1Y (Crimson Red Pearl)",
+      "imageUrl": "https://colors.autokotesystems.com/apim/frontend/cod/2025.4.0/cod/market-color-id/5dcbd198-85ef-e611-80f0-0050568d4c1c/medium/tube?variantNumber=1",
+      "descriptorIcon": null,
+      "url": "https://colors.autokotesystems.com/formula/marketcolor/Automotive/ATK/370/5dcbd198-85ef-e611-80f0-0050568d4c1c/1",
+      "addedAt": 1795129803519
     }
   },
   "colorMeta": {
@@ -102,6 +116,14 @@
       "manufacturer": "Dodge",
       "imageUrl": "https://colors.autokotesystems.com/apim/frontend/cod/2025.4.0/cod/market-color-id/4a18c84e-7eb5-e311-b816-005056945ff1/medium/tube?variantNumber=1",
       "descriptorIcon": null
+    },
+    "SUBM1Y (Crimson Red Pearl)": {
+      "marketColorId": "5dcbd198-85ef-e611-80f0-0050568d4c1c",
+      "name": "SUBM1Y (Crimson Red Pearl)",
+      "manufacturer": "Subaru/Fuji",
+      "imageUrl": "https://colors.autokotesystems.com/apim/frontend/cod/2025.4.0/cod/market-color-id/5dcbd198-85ef-e611-80f0-0050568d4c1c/medium/tube?variantNumber=1",
+      "descriptorIcon": null,
+      "url": "https://colors.autokotesystems.com/formula/marketcolor/Automotive/ATK/370/5dcbd198-85ef-e611-80f0-0050568d4c1c/1"
     }
   },
   "resetId": "1795041698891",
