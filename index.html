@@ -74,10 +74,16 @@
   .sub { padding: 8px 14px; font-size: 13px; color: var(--muted); }
   .warn { color: #b26a00; }
 
-  .mix-details summary { cursor: pointer; padding: 10px 14px; font-size: 13px; font-weight: 600;
-    color: var(--accent); list-style: none; border-top: 1px solid var(--line); }
+  .mix-details { border-top: 1px solid var(--line); }
+  .mix-details summary { cursor: pointer; list-style: none; display: flex; align-items: center;
+    justify-content: space-between; padding: 8px 14px 8px 74px; font-size: 13px; color: var(--muted); }
   .mix-details summary::-webkit-details-marker { display: none; }
-  .mix-details[open] summary { border-bottom: 1px solid var(--line); }
+  .mix-details summary::after { content: "▾"; font-size: 14px; transition: transform .15s; }
+  .mix-details[open] summary::after { transform: rotate(180deg); }
+  .mix-details .sub { padding: 6px 14px 2px 74px; }
+  .mix-details .item { padding-left: 74px; border-bottom: 1px solid var(--line); }
+  .mix-details .item:last-child { border-bottom: 0; }
+  .mix-details .warn { padding: 6px 14px 10px 74px; }
 
   .group-title { display: flex; align-items: center; gap: 12px; padding: 10px 14px 4px; }
   .group-title .code { font-size: 15px; }
