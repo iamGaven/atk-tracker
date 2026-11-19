@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-19T23:31:19.702Z",
+  "updatedAt": "2026-11-19T23:31:32.369Z",
   "usage": {},
   "daily": {},
   "favorites": {
@@ -32,6 +32,16 @@
       "descriptorIcon": null,
       "url": "https://colors.autokotesystems.com/formula/marketcolor/Automotive/ATK/370/5dcbd198-85ef-e611-80f0-0050568d4c1c/1",
       "addedAt": 1795129803519
+    },
+    "334577a7-1572-e911-816a-0050568d4c1c": {
+      "marketColorId": "334577a7-1572-e911-816a-0050568d4c1c",
+      "variantNumber": null,
+      "manufacturer": "Holden Motor Co.",
+      "name": "HLD94000 (Abalone White)",
+      "imageUrl": "https://colors.autokotesystems.com/apim/frontend/cod/2025.4.0/cod/market-color-id/334577a7-1572-e911-816a-0050568d4c1c/medium/tube?variantNumber=1",
+      "descriptorIcon": null,
+      "url": "https://colors.autokotesystems.com/formula/marketcolor/Automotive/ATK/370/334577a7-1572-e911-816a-0050568d4c1c/1",
+      "addedAt": 1795131090043
     }
   },
   "colorMeta": {},
