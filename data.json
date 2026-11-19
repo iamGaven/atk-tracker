@@ -1,7 +1,13 @@
 {
-  "updatedAt": "2026-11-19T23:31:42.409Z",
-  "usage": {},
-  "daily": {},
+  "updatedAt": "2026-11-19T23:37:27.450Z",
+  "usage": {
+    "CAD91:41T (Black)": 1
+  },
+  "daily": {
+    "2026-11-19": {
+      "CAD91:41T (Black)": 1
+    }
+  },
   "favorites": {
     "28efc80d-57b5-e311-b816-005056945ff1": {
       "marketColorId": "28efc80d-57b5-e311-b816-005056945ff1",
@@ -42,9 +48,28 @@
       "descriptorIcon": null,
       "url": "https://colors.autokotesystems.com/formula/marketcolor/Automotive/ATK/370/334577a7-1572-e911-816a-0050568d4c1c/1",
       "addedAt": 1795131090043
+    },
+    "cfeb223f-7db5-e311-b816-005056945ff1": {
+      "marketColorId": "cfeb223f-7db5-e311-b816-005056945ff1",
+      "variantNumber": null,
+      "manufacturer": "Cadillac",
+      "name": "CAD91:41T (Black)",
+      "imageUrl": "https://colors.autokotesystems.com/apim/frontend/cod/2025.4.0/cod/market-color-id/cfeb223f-7db5-e311-b816-005056945ff1/medium/tube?variantNumber=1",
+      "descriptorIcon": null,
+      "url": "https://colors.autokotesystems.com/formula/marketcolor/Automotive/ATK/370/cfeb223f-7db5-e311-b816-005056945ff1/1",
+      "addedAt": 1795131445809
     }
   },
-  "colorMeta": {},
+  "colorMeta": {
+    "CAD91:41T (Black)": {
+      "marketColorId": "cfeb223f-7db5-e311-b816-005056945ff1",
+      "name": "CAD91:41T (Black)",
+      "manufacturer": "Cadillac",
+      "imageUrl": "https://colors.autokotesystems.com/apim/frontend/cod/2025.4.0/cod/market-color-id/cfeb223f-7db5-e311-b816-005056945ff1/medium/tube?variantNumber=1",
+      "descriptorIcon": null,
+      "url": "https://colors.autokotesystems.com/formula/marketcolor/Automotive/ATK/370/cfeb223f-7db5-e311-b816-005056945ff1/1"
+    }
+  },
   "resetId": "1795130967615",
   "resetFavs": false,
   "mixes": [
