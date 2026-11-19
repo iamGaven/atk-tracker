@@ -1,38 +1,14 @@
 {
-  "updatedAt": "2026-11-19T23:10:05.636Z",
+  "updatedAt": "2026-11-19T23:14:21.397Z",
   "usage": {
-    "BMW0019 (Arctic Blue)": 1,
-    "BMW0016 (Turmelin)": 1,
-    "RAM99:WS2 (Bright Silver)": 1,
-    "RAM99:WS2 (Brt. Silver)": 1,
-    "DOD24:ZR6 (Red Hot)": 4,
-    "DOD9307 (Ruby Red)": 1,
-    "SUBM1Y (Crimson Red Pearl)": 2
+    "CAD85:50T (Summit White)": 1
   },
   "daily": {
-    "2026-11-18": {
-      "BMW0019 (Arctic Blue)": 1,
-      "BMW0016 (Turmelin)": 1,
-      "RAM99:WS2 (Bright Silver)": 1,
-      "RAM99:WS2 (Brt. Silver)": 1,
-      "DOD24:ZR6 (Red Hot)": 4,
-      "DOD9307 (Ruby Red)": 1
-    },
     "2026-11-19": {
-      "SUBM1Y (Crimson Red Pearl)": 2
+      "CAD85:50T (Summit White)": 1
     }
   },
   "favorites": {
-    "34581133-7db5-e311-b816-005056945ff1": {
-      "marketColorId": "34581133-7db5-e311-b816-005056945ff1",
-      "variantNumber": null,
-      "manufacturer": "Cadillac",
-      "name": "CAD85:50T (Summit White)",
-      "imageUrl": "https://colors.autokotesystems.com/apim/frontend/cod/2025.4.0/cod/market-color-id/34581133-7db5-e311-b816-005056945ff1/medium/tube?variantNumber=1",
-      "descriptorIcon": null,
-      "url": "https://colors.autokotesystems.com/formula/marketcolor/Automotive/ATK/370/34581133-7db5-e311-b816-005056945ff1/1",
-      "addedAt": 1794976397063
-    },
     "28efc80d-57b5-e311-b816-005056945ff1": {
       "marketColorId": "28efc80d-57b5-e311-b816-005056945ff1",
       "variantNumber": null,
@@ -53,16 +29,6 @@
       "url": "https://colors.autokotesystems.com/formula/marketcolor/Automotive/ATK/370/2bd58cc3-a788-ee11-8149-005056beb5b3/1",
       "addedAt": 1794976776770
     },
-    "a440b94b-4eb5-e311-b816-005056945ff1": {
-      "marketColorId": "a440b94b-4eb5-e311-b816-005056945ff1",
-      "variantNumber": null,
-      "manufacturer": "Nissan",
-      "name": "NISKAD (Dark Grey)",
-      "imageUrl": "https://colors.autokotesystems.com/apim/frontend/cod/2025.4.0/cod/market-color-id/a440b94b-4eb5-e311-b816-005056945ff1/medium/tube?variantNumber=1",
-      "descriptorIcon": null,
-      "url": "https://colors.autokotesystems.com/formula/marketcolor/Automotive/ATK/370/a440b94b-4eb5-e311-b816-005056945ff1/1",
-      "addedAt": 1795043403234
-    },
     "5dcbd198-85ef-e611-80f0-0050568d4c1c": {
       "marketColorId": "5dcbd198-85ef-e611-80f0-0050568d4c1c",
       "variantNumber": null,
@@ -75,57 +41,115 @@
     }
   },
   "colorMeta": {
-    "BMW0019 (Arctic Blue)": {
-      "marketColorId": "f5e36595-62b5-e311-b816-005056945ff1",
-      "name": "BMW0019 (Arctic Blue)",
-      "manufacturer": "BMW",
-      "imageUrl": "https://colors.autokotesystems.com/apim/frontend/cod/2025.4.0/cod/market-color-id/f5e36595-62b5-e311-b816-005056945ff1/medium/tube?variantNumber=1",
-      "descriptorIcon": null
-    },
-    "BMW0016 (Turmelin)": {
-      "marketColorId": "f3e36595-62b5-e311-b816-005056945ff1",
-      "name": "BMW0016 (Turmelin)",
-      "manufacturer": "BMW",
-      "imageUrl": "https://colors.autokotesystems.com/apim/frontend/cod/2025.4.0/cod/market-color-id/f3e36595-62b5-e311-b816-005056945ff1/medium/tube?variantNumber=1",
-      "descriptorIcon": null
-    },
-    "RAM99:WS2 (Bright Silver)": {
-      "marketColorId": "621d379e-57b5-e311-b816-005056945ff1",
-      "name": "RAM99:WS2 (Brt. Silver)",
-      "manufacturer": "Ram",
-      "imageUrl": "https://colors.autokotesystems.com/apim/frontend/cod/2025.4.0/cod/market-color-id/621d379e-57b5-e311-b816-005056945ff1/medium/tube?variantNumber=1",
-      "descriptorIcon": null
-    },
-    "RAM99:WS2 (Brt. Silver)": {
-      "marketColorId": "621d379e-57b5-e311-b816-005056945ff1",
-      "name": "RAM99:WS2 (Brt. Silver)",
-      "manufacturer": "Ram",
-      "imageUrl": "https://colors.autokotesystems.com/apim/frontend/cod/2025.4.0/cod/market-color-id/621d379e-57b5-e311-b816-005056945ff1/medium/tube?variantNumber=4",
-      "descriptorIcon": null
-    },
-    "DOD24:ZR6 (Red Hot)": {
-      "marketColorId": "fe2d99fc-259d-ef11-814e-0022485d53a8",
-      "name": "DOD24:ZR6 (Red Hot)",
-      "manufacturer": "Dodge",
-      "imageUrl": "https://colors.autokotesystems.com/apim/frontend/cod/2025.4.0/cod/market-color-id/fe2d99fc-259d-ef11-814e-0022485d53a8/medium/tube?variantNumber=1",
-      "descriptorIcon": null
-    },
-    "DOD9307 (Ruby Red)": {
-      "marketColorId": "4a18c84e-7eb5-e311-b816-005056945ff1",
-      "name": "DOD9307 (Ruby Red)",
-      "manufacturer": "Dodge",
-      "imageUrl": "https://colors.autokotesystems.com/apim/frontend/cod/2025.4.0/cod/market-color-id/4a18c84e-7eb5-e311-b816-005056945ff1/medium/tube?variantNumber=1",
-      "descriptorIcon": null
-    },
-    "SUBM1Y (Crimson Red Pearl)": {
-      "marketColorId": "5dcbd198-85ef-e611-80f0-0050568d4c1c",
-      "name": "SUBM1Y (Crimson Red Pearl)",
-      "manufacturer": "Subaru/Fuji",
-      "imageUrl": "https://colors.autokotesystems.com/apim/frontend/cod/2025.4.0/cod/market-color-id/5dcbd198-85ef-e611-80f0-0050568d4c1c/medium/tube?variantNumber=1",
+    "CAD85:50T (Summit White)": {
+      "marketColorId": "34581133-7db5-e311-b816-005056945ff1",
+      "name": "CAD85:50T (Summit White)",
+      "manufacturer": "Cadillac",
+      "imageUrl": "https://colors.autokotesystems.com/apim/frontend/cod/2025.4.0/cod/market-color-id/34581133-7db5-e311-b816-005056945ff1/medium/tube?variantNumber=1",
       "descriptorIcon": null,
-      "url": "https://colors.autokotesystems.com/formula/marketcolor/Automotive/ATK/370/5dcbd198-85ef-e611-80f0-0050568d4c1c/1"
+      "url": "https://colors.autokotesystems.com/formula/marketcolor/Automotive/ATK/370/34581133-7db5-e311-b816-005056945ff1/1"
     }
   },
-  "resetId": "1795041698891",
-  "resetFavs": false
+  "resetId": "1795129989342",
+  "resetFavs": false,
+  "mixes": [
+    {
+      "amount": 3,
+      "grams": 105.3,
+      "cost": 7.75,
+      "unpriced": 0,
+      "layers": [
+        {
+          "layer": "Layer 1",
+          "grams": 105.3,
+          "cost": 7.75,
+          "unpriced": 0
+        }
+      ],
+      "components": [
+        {
+          "paint_code": "100",
+          "name": "HIGH HIDING WHITE (FOR SOLIDS)",
+          "grams": 104.6,
+          "cost": 7.66
+        },
+        {
+          "paint_code": "200",
+          "name": "STANDARD BLACK",
+          "grams": 0.4,
+          "cost": 0.04
+        },
+        {
+          "paint_code": "301",
+          "name": "LEMON YELLOW",
+          "grams": 0.3,
+          "cost": 0.05
+        }
+      ],
+      "day": "2026-11-19",
+      "id": "1795130007233-c1spyj",
+      "t": 1795130007233
+    },
+    {
+      "amount": 2,
+      "grams": 56.7,
+      "cost": 9.41,
+      "unpriced": 0,
+      "layers": [
+        {
+          "layer": "Layer 1",
+          "grams": 56.7,
+          "cost": 9.41,
+          "unpriced": 0
+        }
+      ],
+      "components": [
+        {
+          "paint_code": "201",
+          "name": "CARBON BLACK",
+          "grams": 5.9,
+          "cost": 0.54
+        },
+        {
+          "paint_code": "500",
+          "name": "PURPLE",
+          "grams": 0.5,
+          "cost": 0.07
+        },
+        {
+          "paint_code": "504",
+          "name": "BRIGHT BLUE RED SHADE TRANSPARENT",
+          "grams": 0.9,
+          "cost": 0.16
+        },
+        {
+          "paint_code": "704",
+          "name": "SPARKLE COARSE ALUMINUM",
+          "grams": 13.8,
+          "cost": 1.67
+        },
+        {
+          "paint_code": "801",
+          "name": "WHITE MICA",
+          "grams": 22.9,
+          "cost": 4.85
+        },
+        {
+          "paint_code": "811",
+          "name": "BLUE MICA YF",
+          "grams": 7.8,
+          "cost": 1.66
+        },
+        {
+          "paint_code": "030",
+          "name": "FLOP ADJUSTER TRANSPARENT",
+          "grams": 4.9,
+          "cost": 0.44
+        }
+      ],
+      "day": "2026-11-19",
+      "id": "1795130058405-o8d2ji",
+      "t": 1795130058405
+    }
+  ]
 }
