@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-19T23:13:30.402Z",
+  "updatedAt": "2026-11-19T23:14:13.476Z",
   "usage": {
     "CAD85:50T (Summit White)": 1
   },
@@ -28,16 +28,6 @@
       "descriptorIcon": null,
       "url": "https://colors.autokotesystems.com/formula/marketcolor/Automotive/ATK/370/2bd58cc3-a788-ee11-8149-005056beb5b3/1",
       "addedAt": 1794976776770
-    },
-    "a440b94b-4eb5-e311-b816-005056945ff1": {
-      "marketColorId": "a440b94b-4eb5-e311-b816-005056945ff1",
-      "variantNumber": null,
-      "manufacturer": "Nissan",
-      "name": "NISKAD (Dark Grey)",
-      "imageUrl": "https://colors.autokotesystems.com/apim/frontend/cod/2025.4.0/cod/market-color-id/a440b94b-4eb5-e311-b816-005056945ff1/medium/tube?variantNumber=1",
-      "descriptorIcon": null,
-      "url": "https://colors.autokotesystems.com/formula/marketcolor/Automotive/ATK/370/a440b94b-4eb5-e311-b816-005056945ff1/1",
-      "addedAt": 1795043403234
     },
     "5dcbd198-85ef-e611-80f0-0050568d4c1c": {
       "marketColorId": "5dcbd198-85ef-e611-80f0-0050568d4c1c",
