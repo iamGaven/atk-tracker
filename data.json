@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-11-19T00:17:52.473Z",
+  "updatedAt": "2026-11-19T00:18:06.087Z",
   "usage": {
     "BMW0019 (Arctic Blue)": 1,
     "BMW0016 (Turmelin)": 1,
     "RAM99:WS2 (Bright Silver)": 1,
     "RAM99:WS2 (Brt. Silver)": 1,
-    "DOD24:ZR6 (Red Hot)": 1,
+    "DOD24:ZR6 (Red Hot)": 2,
     "DOD9307 (Ruby Red)": 1
   },
   "daily": {
@@ -14,7 +14,7 @@
       "BMW0016 (Turmelin)": 1,
       "RAM99:WS2 (Bright Silver)": 1,
       "RAM99:WS2 (Brt. Silver)": 1,
-      "DOD24:ZR6 (Red Hot)": 1,
+      "DOD24:ZR6 (Red Hot)": 2,
       "DOD9307 (Ruby Red)": 1
     }
   },
