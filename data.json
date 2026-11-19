@@ -1,27 +1,7 @@
 {
-  "updatedAt": "2026-11-19T23:10:05.636Z",
-  "usage": {
-    "BMW0019 (Arctic Blue)": 1,
-    "BMW0016 (Turmelin)": 1,
-    "RAM99:WS2 (Bright Silver)": 1,
-    "RAM99:WS2 (Brt. Silver)": 1,
-    "DOD24:ZR6 (Red Hot)": 4,
-    "DOD9307 (Ruby Red)": 1,
-    "SUBM1Y (Crimson Red Pearl)": 2
-  },
-  "daily": {
-    "2026-11-18": {
-      "BMW0019 (Arctic Blue)": 1,
-      "BMW0016 (Turmelin)": 1,
-      "RAM99:WS2 (Bright Silver)": 1,
-      "RAM99:WS2 (Brt. Silver)": 1,
-      "DOD24:ZR6 (Red Hot)": 4,
-      "DOD9307 (Ruby Red)": 1
-    },
-    "2026-11-19": {
-      "SUBM1Y (Crimson Red Pearl)": 2
-    }
-  },
+  "updatedAt": "2026-11-19T23:13:09.342Z",
+  "usage": {},
+  "daily": {},
   "favorites": {
     "34581133-7db5-e311-b816-005056945ff1": {
       "marketColorId": "34581133-7db5-e311-b816-005056945ff1",
@@ -74,58 +54,7 @@
       "addedAt": 1795129803519
     }
   },
-  "colorMeta": {
-    "BMW0019 (Arctic Blue)": {
-      "marketColorId": "f5e36595-62b5-e311-b816-005056945ff1",
-      "name": "BMW0019 (Arctic Blue)",
-      "manufacturer": "BMW",
-      "imageUrl": "https://colors.autokotesystems.com/apim/frontend/cod/2025.4.0/cod/market-color-id/f5e36595-62b5-e311-b816-005056945ff1/medium/tube?variantNumber=1",
-      "descriptorIcon": null
-    },
-    "BMW0016 (Turmelin)": {
-      "marketColorId": "f3e36595-62b5-e311-b816-005056945ff1",
-      "name": "BMW0016 (Turmelin)",
-      "manufacturer": "BMW",
-      "imageUrl": "https://colors.autokotesystems.com/apim/frontend/cod/2025.4.0/cod/market-color-id/f3e36595-62b5-e311-b816-005056945ff1/medium/tube?variantNumber=1",
-      "descriptorIcon": null
-    },
-    "RAM99:WS2 (Bright Silver)": {
-      "marketColorId": "621d379e-57b5-e311-b816-005056945ff1",
-      "name": "RAM99:WS2 (Brt. Silver)",
-      "manufacturer": "Ram",
-      "imageUrl": "https://colors.autokotesystems.com/apim/frontend/cod/2025.4.0/cod/market-color-id/621d379e-57b5-e311-b816-005056945ff1/medium/tube?variantNumber=1",
-      "descriptorIcon": null
-    },
-    "RAM99:WS2 (Brt. Silver)": {
-      "marketColorId": "621d379e-57b5-e311-b816-005056945ff1",
-      "name": "RAM99:WS2 (Brt. Silver)",
-      "manufacturer": "Ram",
-      "imageUrl": "https://colors.autokotesystems.com/apim/frontend/cod/2025.4.0/cod/market-color-id/621d379e-57b5-e311-b816-005056945ff1/medium/tube?variantNumber=4",
-      "descriptorIcon": null
-    },
-    "DOD24:ZR6 (Red Hot)": {
-      "marketColorId": "fe2d99fc-259d-ef11-814e-0022485d53a8",
-      "name": "DOD24:ZR6 (Red Hot)",
-      "manufacturer": "Dodge",
-      "imageUrl": "https://colors.autokotesystems.com/apim/frontend/cod/2025.4.0/cod/market-color-id/fe2d99fc-259d-ef11-814e-0022485d53a8/medium/tube?variantNumber=1",
-      "descriptorIcon": null
-    },
-    "DOD9307 (Ruby Red)": {
-      "marketColorId": "4a18c84e-7eb5-e311-b816-005056945ff1",
-      "name": "DOD9307 (Ruby Red)",
-      "manufacturer": "Dodge",
-      "imageUrl": "https://colors.autokotesystems.com/apim/frontend/cod/2025.4.0/cod/market-color-id/4a18c84e-7eb5-e311-b816-005056945ff1/medium/tube?variantNumber=1",
-      "descriptorIcon": null
-    },
-    "SUBM1Y (Crimson Red Pearl)": {
-      "marketColorId": "5dcbd198-85ef-e611-80f0-0050568d4c1c",
-      "name": "SUBM1Y (Crimson Red Pearl)",
-      "manufacturer": "Subaru/Fuji",
-      "imageUrl": "https://colors.autokotesystems.com/apim/frontend/cod/2025.4.0/cod/market-color-id/5dcbd198-85ef-e611-80f0-0050568d4c1c/medium/tube?variantNumber=1",
-      "descriptorIcon": null,
-      "url": "https://colors.autokotesystems.com/formula/marketcolor/Automotive/ATK/370/5dcbd198-85ef-e611-80f0-0050568d4c1c/1"
-    }
-  },
-  "resetId": "1795041698891",
+  "colorMeta": {},
+  "resetId": "1795129989342",
   "resetFavs": false
 }
