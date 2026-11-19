@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-19T23:29:27.615Z",
+  "updatedAt": "2026-11-19T23:31:19.702Z",
   "usage": {},
   "daily": {},
   "favorites": {
@@ -135,6 +135,70 @@
       "day": "2026-11-19",
       "id": "1795130058405-o8d2ji",
       "t": 1795130058405
+    },
+    {
+      "key": "Layer 1:801+500+504+030+201+811+704",
+      "image": null,
+      "amount": 4,
+      "grams": 113.4,
+      "cost": 18.81,
+      "unpriced": 0,
+      "layers": [
+        {
+          "layer": "Layer 1",
+          "grams": 113.4,
+          "cost": 18.81,
+          "unpriced": 0
+        }
+      ],
+      "components": [
+        {
+          "paint_code": "201",
+          "name": "CARBON BLACK",
+          "grams": 11.8,
+          "cost": 1.09
+        },
+        {
+          "paint_code": "500",
+          "name": "PURPLE",
+          "grams": 1.1,
+          "cost": 0.16
+        },
+        {
+          "paint_code": "504",
+          "name": "BRIGHT BLUE RED SHADE TRANSPARENT",
+          "grams": 1.8,
+          "cost": 0.33
+        },
+        {
+          "paint_code": "704",
+          "name": "SPARKLE COARSE ALUMINUM",
+          "grams": 27.6,
+          "cost": 3.34
+        },
+        {
+          "paint_code": "801",
+          "name": "WHITE MICA",
+          "grams": 45.8,
+          "cost": 9.7
+        },
+        {
+          "paint_code": "811",
+          "name": "BLUE MICA YF",
+          "grams": 15.5,
+          "cost": 3.31
+        },
+        {
+          "paint_code": "030",
+          "name": "FLOP ADJUSTER TRANSPARENT",
+          "grams": 9.8,
+          "cost": 0.89
+        }
+      ],
+      "day": "2026-11-19",
+      "count": 1,
+      "id": "1795131077735-l0of9n",
+      "t": 1795131077735
     }
   ]
 }
