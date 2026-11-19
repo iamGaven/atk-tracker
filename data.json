@@ -14,6 +14,53 @@
     }
   },
   "colorMeta": {},
-  "mixes": [],
-  "updatedAt": "2026-11-19T23:44:44.607Z"
+  "mixes": [
+    {
+      "key": "Layer 1:201+407+301+101",
+      "image": null,
+      "amount": 2,
+      "grams": 56.2,
+      "cost": 5.23,
+      "unpriced": 0,
+      "layers": [
+        {
+          "layer": "Layer 1",
+          "grams": 56.2,
+          "cost": 5.23,
+          "unpriced": 0
+        }
+      ],
+      "components": [
+        {
+          "paint_code": "101",
+          "name": "TINTING WHITE (FOR METALLICS)",
+          "grams": 1.5,
+          "cost": 0.15
+        },
+        {
+          "paint_code": "201",
+          "name": "CARBON BLACK",
+          "grams": 54,
+          "cost": 4.97
+        },
+        {
+          "paint_code": "301",
+          "name": "LEMON YELLOW",
+          "grams": 0.5,
+          "cost": 0.09
+        },
+        {
+          "paint_code": "407",
+          "name": "MAGENTA",
+          "grams": 0.2,
+          "cost": 0.03
+        }
+      ],
+      "day": "2026-11-19",
+      "count": 1,
+      "id": "1795131889554-qandz2",
+      "t": 1795131889554
+    }
+  ],
+  "updatedAt": "2026-11-19T23:44:51.711Z"
 }
