@@ -1,0 +1,19 @@
+{
+  "usage": {},
+  "daily": {},
+  "favorites": {
+    "24127fd2-7cb5-e311-b816-005056945ff1": {
+      "marketColorId": "24127fd2-7cb5-e311-b816-005056945ff1",
+      "variantNumber": null,
+      "manufacturer": "Buick",
+      "name": "BUI84:41C (Black Onyx)",
+      "imageUrl": "https://colors.autokotesystems.com/apim/frontend/cod/2025.4.0/cod/market-color-id/24127fd2-7cb5-e311-b816-005056945ff1/medium/tube?variantNumber=1",
+      "descriptorIcon": null,
+      "url": "https://colors.autokotesystems.com/formula/marketcolor/Automotive/ATK/370/24127fd2-7cb5-e311-b816-005056945ff1/1",
+      "addedAt": 1795131882477
+    }
+  },
+  "colorMeta": {},
+  "mixes": [],
+  "updatedAt": "2026-11-19T23:44:44.607Z"
+}
