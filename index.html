@@ -41,7 +41,7 @@
   .tabs { display: flex; gap: 4px; margin-top: 12px; padding: 4px; background: var(--surface2);
     border: 1px solid var(--line); border-radius: 12px; }
   .tabs button { flex: 1; border: 0; background: transparent; color: var(--muted); font: inherit; font-weight: 600;
-    padding: 8px 6px; border-radius: 9px; cursor: pointer; display: flex; justify-content: center; align-items: center; gap: 6px; }
+    padding: 8px 4px; border-radius: 9px; cursor: pointer; display: flex; justify-content: center; align-items: center; gap: 6px; }
   .tabs button.on { background: var(--surface); color: var(--text); box-shadow: var(--shadow); }
   .tabs .n { font-size: 11px; font-weight: 700; color: var(--accent); background: var(--accent-soft);
     border-radius: 999px; padding: 1px 7px; }
@@ -71,6 +71,8 @@
   .desc { color: var(--muted); font-size: 13px; word-break: break-word; }
   .count { font-size: 17px; font-weight: 750; letter-spacing: -.01em; min-width: 38px; text-align: right; }
   .count small { font-size: 12px; color: var(--muted); font-weight: 600; margin-left: 1px; }
+  .sub { padding: 8px 14px; font-size: 13px; color: var(--muted); }
+  .warn { color: #b26a00; }
 
   .group-title { display: flex; align-items: center; gap: 12px; padding: 10px 14px 4px; }
   .group-title .code { font-size: 15px; }
@@ -79,6 +81,19 @@
   .variant a { color: var(--text); text-decoration: none; border-bottom: 1px dashed var(--muted); }
   .group { padding-bottom: 6px; border-bottom: 1px solid var(--line); }
   .group:last-child { border-bottom: 0; }
+
+  .seg { display: flex; gap: 4px; padding: 4px; background: var(--surface2); border: 1px solid var(--line);
+    border-radius: 12px; margin-bottom: 12px; }
+  .seg button { flex: 1; border: 0; background: transparent; color: var(--muted); font: inherit; font-size: 14px;
+    font-weight: 600; padding: 7px 4px; border-radius: 9px; cursor: pointer; }
+  .seg button.on { background: var(--surface); color: var(--text); box-shadow: var(--shadow); }
+  .chart-wrap { padding: 12px 8px 4px; }
+  .chart-wrap svg { width: 100%; height: auto; display: block; }
+  .chart-wrap text { fill: var(--muted); font-size: 11px; font-family: inherit; }
+  .bar { fill: var(--accent); }
+  .bar:hover, .bar:active { opacity: .75; }
+  .grid { stroke: var(--line); stroke-width: 1; }
+  .period-list .item { cursor: default; }
 
   .empty { text-align: center; color: var(--muted); padding: 40px 16px; background: var(--surface);
     border: 1px dashed var(--line); border-radius: 16px; }
@@ -110,6 +125,7 @@
   <nav class="tabs" role="tablist">
     <button data-tab="favs">Favorites <span class="n" id="nFavs">0</span></button>
     <button data-tab="today" class="on">Today <span class="n" id="nToday">0</span></button>
+    <button data-tab="costs">Costs <span class="n" id="nCosts">0</span></button>
     <button data-tab="all">All time <span class="n" id="nAll">0</span></button>
   </nav>
 </div></header>
@@ -134,10 +150,12 @@ const $ = id => document.getElementById(id);
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c =>
   ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 const imgSrc = url => !url ? null : (url.startsWith("http") ? url : `https://colors.autokotesystems.com${url}`);
+const pad = n => String(n).padStart(2, "0");
 const todayKey = () => {
   const d = new Date();
-  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+  return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
 };
+const money = n => "$" + (n || 0).toFixed(2);
 
 const OWNER = "iamGaven", REPO = "atk-tracker", BRANCH = "main", FILE = "data.json";
 const DATA_URL = `https://raw.githubusercontent.com/${OWNER}/${REPO}/${BRANCH}/${FILE}`;
@@ -147,6 +165,7 @@ const TOKEN_KEY = "paintTrackerGithubToken";
 let holdUntil = 0;      // after a clear without a token, ignore the cached raw file for a while
 let lastData = {};
 let tab = "today";
+let costView = "day";   // day | month | year
 
 /* ---------- rendering ---------- */
 
@@ -184,7 +203,7 @@ function summaryHtml(items) {
 }
 
 function renderUsage(entries, meta, emptyText, favorites) {
-  if (!entries.length) return empty("🎨", emptyText);
+  if (!entries.length) return emptyText ? empty("🎨", emptyText) : "";
   const groups = {};
   entries.forEach(([name, n]) => {
     const m = (meta || {})[name] || {};
@@ -251,19 +270,172 @@ function renderFavs(favorites) {
   }).join("");
 }
 
+// Today: confirmed mixes with their prices, then the usage list
+function renderToday(entries, meta, favorites, mixes) {
+  const todayMixes = mixes.filter(m => m.day === todayKey()).sort((a, b) => b.t - a.t);
+  const mixHtml = todayMixes.length ? renderMixes(todayMixes) : "";
+  const usageHtml = entries.length
+    ? renderUsage(entries, meta, "", favorites)
+    : (todayMixes.length ? "" : empty("🎨", "Nothing used today"));
+  return mixHtml + usageHtml;
+}
+
+function renderMixes(list) {
+  const total = list.reduce((a, m) => a + (m.cost || 0), 0);
+  const summary = `<div class="summary">
+    <div class="stat"><b>${money(total)}</b><span>mixed today</span></div>
+    <div class="stat"><b>${list.length}</b><span>mixes</span></div></div>`;
+
+  const cards = list.map(m => {
+    const time = new Date(m.t).toLocaleTimeString([], { hour: "numeric", minute: "2-digit" });
+    const layerLine = (m.layers || []).length > 1
+      ? `<div class="sub">${m.layers.map(l => `${esc(l.layer)}: ${money(l.cost)}`).join(" · ")}</div>`
+      : "";
+    const rows = (m.components || []).map(c => `
+      <div class="item">
+        <div class="info">
+          <div class="code"><span>${esc(c.paint_code)}</span></div>
+          ${c.name ? `<div class="desc">${esc(c.name)}</div>` : ""}
+          <div class="desc">${(c.grams ?? 0).toFixed(1)} g</div>
+        </div>
+        <div class="count">${c.cost == null ? "n/a" : money(c.cost)}</div>
+      </div>`).join("");
+    const unpriced = m.unpriced
+      ? `<div class="sub warn">${m.unpriced} component(s) not in price list</div>`
+      : "";
+    return `<section class="card">
+      <div class="card-h"><h3>Mix · ${esc(time)}</h3><span class="pill">${money(m.cost)}</span></div>
+      ${layerLine}${rows}${unpriced}
+      <div class="item">
+        <div class="info"><div class="code"><span>Total</span></div>
+        <div class="desc">${(m.grams || 0).toFixed(1)} g</div></div>
+        <div class="count">${money(m.cost)}</div>
+      </div>
+    </section>`;
+  }).join("");
+
+  return summary + cards;
+}
+
+/* ---------- costs tab ---------- */
+
+// Groups confirmed mixes into day / month / year buckets.
+// Keys sort chronologically as strings: "2026-11-19", "2026-11", "2026".
+function bucketMixes(mixes, view) {
+  const buckets = {};
+  mixes.forEach(m => {
+    const day = m.day || (m.t ? dayFromTime(m.t) : null);
+    if (!day) return;
+    const key = view === "year" ? day.slice(0, 4) : view === "month" ? day.slice(0, 7) : day;
+    const b = buckets[key] || (buckets[key] = { key, cost: 0, grams: 0, count: 0, unpriced: 0 });
+    b.cost += m.cost || 0;
+    b.grams += m.grams || 0;
+    b.count += 1;
+    b.unpriced += m.unpriced || 0;
+  });
+  return Object.values(buckets).sort((a, b) => a.key.localeCompare(b.key));
+}
+
+function dayFromTime(t) {
+  const d = new Date(t);
+  return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
+}
+
+function periodLabel(key, view) {
+  if (view === "year") return key;
+  if (view === "month") {
+    const [y, m] = key.split("-");
+    return new Date(+y, +m - 1, 1).toLocaleDateString([], { month: "short", year: "numeric" });
+  }
+  const [y, m, d] = key.split("-");
+  return new Date(+y, +m - 1, +d).toLocaleDateString([], { month: "short", day: "numeric" });
+}
+
+// Simple inline SVG bar chart: no libraries, scales to the phone width.
+function barChartSvg(buckets, view) {
+  if (!buckets.length) return "";
+  const W = 640, H = 240, padL = 48, padR = 12, padT = 16, padB = 36;
+  const innerW = W - padL - padR, innerH = H - padT - padB;
+  const max = Math.max(...buckets.map(b => b.cost), 0.01);
+  const niceMax = Math.ceil(max / 10) * 10 || 10;
+  const slot = innerW / buckets.length;
+  const barW = Math.max(4, Math.min(48, slot * 0.7));
+
+  // Y-axis gridlines at 0, 25%, 50%, 75%, 100%
+  const grid = [0, 0.25, 0.5, 0.75, 1].map(f => {
+    const y = padT + innerH - f * innerH;
+    return `<line class="grid" x1="${padL}" x2="${W - padR}" y1="${y}" y2="${y}"/>
+      <text x="${padL - 6}" y="${y + 4}" text-anchor="end">$${Math.round(niceMax * f)}</text>`;
+  }).join("");
+
+  // Keep x labels readable: show every Nth label when there are many buckets
+  const every = Math.ceil(buckets.length / 8);
+  const bars = buckets.map((b, i) => {
+    const h = (b.cost / niceMax) * innerH;
+    const x = padL + i * slot + (slot - barW) / 2;
+    const y = padT + innerH - h;
+    const label = i % every === 0
+      ? `<text x="${x + barW / 2}" y="${H - 12}" text-anchor="middle">${esc(periodLabel(b.key, view))}</text>`
+      : "";
+    return `<rect class="bar" x="${x}" y="${y}" width="${barW}" height="${Math.max(h, 0)}" rx="3">
+        <title>${esc(periodLabel(b.key, view))}: ${money(b.cost)} (${b.count} mix${b.count === 1 ? "" : "es"})</title>
+      </rect>${label}`;
+  }).join("");
+
+  return `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Mix cost by ${view}">${grid}${bars}</svg>`;
+}
+
+function renderCosts(mixes) {
+  const seg = `<div class="seg">
+    ${["day", "month", "year"].map(v =>
+      `<button data-view="${v}" class="${costView === v ? "on" : ""}">${v[0].toUpperCase() + v.slice(1)}</button>`
+    ).join("")}
+  </div>`;
+
+  if (!mixes.length) return seg + empty("💲", "No confirmed mixes yet");
+
+  const buckets = bucketMixes(mixes, costView);
+  const totalCost = buckets.reduce((a, b) => a + b.cost, 0);
+  const totalGrams = buckets.reduce((a, b) => a + b.grams, 0);
+  const totalMixes = buckets.reduce((a, b) => a + b.count, 0);
+  const avg = totalMixes ? totalCost / totalMixes : 0;
+
+  const summary = `<div class="summary">
+    <div class="stat"><b>${money(totalCost)}</b><span>total spent</span></div>
+    <div class="stat"><b>${money(avg)}</b><span>avg per mix</span></div>
+    <div class="stat"><b>${(totalGrams / 1000).toFixed(2)} kg</b><span>material</span></div></div>`;
+
+  const chart = `<section class="card"><div class="card-h"><h3>Cost per ${costView}</h3></div>
+    <div class="chart-wrap">${barChartSvg(buckets, costView)}</div></section>`;
+
+  const list = `<section class="card period-list"><div class="card-h"><h3>${costView[0].toUpperCase() + costView.slice(1)} breakdown</h3></div>
+    ${[...buckets].reverse().map(b => `
+      <div class="item">
+        <div class="info"><div class="code"><span>${esc(periodLabel(b.key, costView))}</span></div>
+        <div class="desc">${b.count} mix${b.count === 1 ? "" : "es"} · ${(b.grams).toFixed(1)} g${b.unpriced ? ` · <span class="warn">${b.unpriced} unpriced</span>` : ""}</div></div>
+        <div class="count">${money(b.cost)}</div>
+      </div>`).join("")}
+  </section>`;
+
+  return seg + summary + chart + list;
+}
+
 function render(data) {
   lastData = data || {};
   const meta = lastData.colorMeta || {};
+  const mixes = lastData.mixes || [];
   const today = Object.entries((lastData.daily || {})[todayKey()] || {}).sort((a, b) => b[1] - a[1]);
   const all = Object.entries(lastData.usage || {}).sort((a, b) => b[1] - a[1]);
 
   $("nFavs").textContent = Object.keys(lastData.favorites || {}).length;
   $("nToday").textContent = today.length;
+  $("nCosts").textContent = mixes.length;
   $("nAll").textContent = all.length;
 
   $("view").innerHTML =
     tab === "favs" ? renderFavs(lastData.favorites) :
-    tab === "today" ? renderUsage(today, meta, "Nothing used today", lastData.favorites) :
+    tab === "today" ? renderToday(today, meta, lastData.favorites, mixes) :
+    tab === "costs" ? renderCosts(mixes) :
     renderUsage(all, meta, "No usage tracked yet", lastData.favorites);
 }
 
@@ -272,6 +444,14 @@ document.querySelectorAll(".tabs button").forEach(b => b.addEventListener("click
   document.querySelectorAll(".tabs button").forEach(x => x.classList.toggle("on", x === b));
   render(lastData);
 }));
+
+// Day / Month / Year switch inside the Costs tab (event delegation, since the buttons are re-rendered)
+$("view").addEventListener("click", e => {
+  const btn = e.target.closest("[data-view]");
+  if (!btn) return;
+  costView = btn.dataset.view;
+  render(lastData);
+});
 
 /* ---------- loading ---------- */
 
