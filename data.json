@@ -155,7 +155,77 @@
       "count": 1,
       "id": "1795143093883-93bstg",
       "t": 1795143093883
+    },
+    {
+      "key": "Layer 1:704+101+500+502+030+505+201+812",
+      "image": null,
+      "amount": 1,
+      "grams": 28.1,
+      "cost": 4.13,
+      "unpriced": 0,
+      "layers": [
+        {
+          "layer": "Layer 1",
+          "grams": 28.1,
+          "cost": 4.13,
+          "unpriced": 0
+        }
+      ],
+      "components": [
+        {
+          "paint_code": "101",
+          "name": "TINTING WHITE (FOR METALLICS)",
+          "grams": 0,
+          "cost": 0
+        },
+        {
+          "paint_code": "201",
+          "name": "CARBON BLACK",
+          "grams": 6.3,
+          "cost": 0.58
+        },
+        {
+          "paint_code": "500",
+          "name": "PURPLE",
+          "grams": 0.2,
+          "cost": 0.03
+        },
+        {
+          "paint_code": "502",
+          "name": "PHTHALO BLUE GREEN SHADE TRANSPARENT",
+          "grams": 0.4,
+          "cost": 0.07
+        },
+        {
+          "paint_code": "505",
+          "name": "BLUE RED SHADE TRANSPARENT",
+          "grams": 1.7,
+          "cost": 0.31
+        },
+        {
+          "paint_code": "704",
+          "name": "SPARKLE COARSE ALUMINUM",
+          "grams": 10.4,
+          "cost": 1.26
+        },
+        {
+          "paint_code": "812",
+          "name": "BLUE VIOLET MICA GF",
+          "grams": 8.5,
+          "cost": 1.82
+        },
+        {
+          "paint_code": "030",
+          "name": "FLOP ADJUSTER TRANSPARENT",
+          "grams": 0.6,
+          "cost": 0.05
+        }
+      ],
+      "day": "2026-11-19",
+      "count": 1,
+      "id": "1795143395151-nfqo7m",
+      "t": 1795143395151
     }
   ],
-  "updatedAt": "2026-11-20T02:56:33.540Z"
+  "updatedAt": "2026-11-20T02:56:38.405Z"
 }
