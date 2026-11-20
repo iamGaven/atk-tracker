@@ -4,7 +4,7 @@
     "VOLT9038 (Space Blue)": 1,
     "TOY1G3 (Magnetic Gray)": 1,
     "TOY040 (Super White)": 2,
-    "BMW0012 (Polaris Silver)": 1
+    "BMW0012 (Polaris Silver)": 2
   },
   "daily": {
     "2026-11-19": {
@@ -12,7 +12,7 @@
       "VOLT9038 (Space Blue)": 1,
       "TOY1G3 (Magnetic Gray)": 1,
       "TOY040 (Super White)": 2,
-      "BMW0012 (Polaris Silver)": 1
+      "BMW0012 (Polaris Silver)": 2
     }
   },
   "favorites": {
@@ -287,7 +287,57 @@
       "count": 1,
       "id": "1795143550009-mig8wp",
       "t": 1795143550009
+    },
+    {
+      "name": "BMW0012 (Polaris Silver)",
+      "akzoCode": "BMW0012",
+      "variantSuffix": "",
+      "marketColorId": "efe36595-62b5-e311-b816-005056945ff1",
+      "image": "https://colors.autokotesystems.com/apim/frontend/cod/2025.4.0/cod/market-color-id/efe36595-62b5-e311-b816-005056945ff1/medium/tube?variantNumber=1",
+      "key": "Layer 1:703+602+201+030",
+      "amount": 1,
+      "grams": 28.4,
+      "cost": 3.38,
+      "unpriced": 0,
+      "layers": [
+        {
+          "layer": "Layer 1",
+          "grams": 28.4,
+          "cost": 3.38,
+          "unpriced": 0
+        }
+      ],
+      "components": [
+        {
+          "paint_code": "201",
+          "name": "CARBON BLACK",
+          "grams": 0.4,
+          "cost": 0.04
+        },
+        {
+          "paint_code": "602",
+          "name": "PHTHALO GREEN BLUE SHADE TRANSPARENT",
+          "grams": 0,
+          "cost": 0
+        },
+        {
+          "paint_code": "703",
+          "name": "COARSE ALUMINUM SPARKLE",
+          "grams": 26.8,
+          "cost": 3.23
+        },
+        {
+          "paint_code": "030",
+          "name": "FLOP ADJUSTER TRANSPARENT",
+          "grams": 1.2,
+          "cost": 0.11
+        }
+      ],
+      "day": "2026-11-19",
+      "count": 1,
+      "id": "1795143969668-haw43s",
+      "t": 1795143969668
     }
   ],
-  "updatedAt": "2026-11-20T03:06:09.333Z"
+  "updatedAt": "2026-11-20T03:06:11.613Z"
 }
