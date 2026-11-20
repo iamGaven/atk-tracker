@@ -21,16 +21,6 @@
       "descriptorIcon": null,
       "url": "https://colors.autokotesystems.com/formula/marketcolor/Automotive/ATK/370/7aa4b655-ecd8-eb11-81b4-0050568d4c1c/1",
       "addedAt": 1795144909056
-    },
-    "e5f60946-6cb5-e311-b816-005056945ff1": {
-      "marketColorId": "e5f60946-6cb5-e311-b816-005056945ff1",
-      "variantNumber": null,
-      "manufacturer": "Honda",
-      "name": "HON9792 (Modern Steel)",
-      "imageUrl": "https://colors.autokotesystems.com/apim/frontend/cod/2025.4.0/cod/market-color-id/e5f60946-6cb5-e311-b816-005056945ff1/medium/tube?variantNumber=1",
-      "descriptorIcon": null,
-      "url": "https://colors.autokotesystems.com/formula/marketcolor/Automotive/ATK/370/e5f60946-6cb5-e311-b816-005056945ff1/1",
-      "addedAt": 1795145067096
     }
   },
   "colorMeta": {
@@ -217,7 +207,7 @@
       "t": 1795144921401
     }
   ],
-  "updatedAt": "2026-11-20T03:24:28.980Z",
+  "updatedAt": "2026-11-20T03:24:56.522Z",
   "resetId": "1795144866762",
   "resetFavs": true,
   "resetMixes": true
