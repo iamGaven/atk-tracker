@@ -665,9 +665,90 @@
       "count": 1,
       "id": "1795193854484-cdvyh8",
       "t": 1795193854484
+    },
+    {
+      "name": "CAD15:G1W (Crystal White)",
+      "akzoCode": "CAD15:G1W",
+      "variantNumber": 1,
+      "variantSuffix": "",
+      "marketColorId": "7f3922a0-f2cb-e311-bfb3-005056945ff1",
+      "image": "https://colors.autokotesystems.com/apim/frontend/cod/2025.4.0/cod/market-color-id/7f3922a0-f2cb-e311-bfb3-005056945ff1/medium/tube?variantNumber=1",
+      "key": "Layer 1:100+302+200|Layer 2:032+030+812+802+801",
+      "amount": 2,
+      "grams": 125.3,
+      "cost": 15.96,
+      "unpriced": 0,
+      "layers": [
+        {
+          "layer": "Layer 1",
+          "grams": 70.2,
+          "cost": 5.16,
+          "unpriced": 0
+        },
+        {
+          "layer": "Layer 2",
+          "grams": 55.1,
+          "cost": 10.8,
+          "unpriced": 0
+        }
+      ],
+      "components": [
+        {
+          "paint_code": "100",
+          "name": "HIGH HIDING WHITE (FOR SOLIDS)",
+          "grams": 69.6,
+          "cost": 5.09
+        },
+        {
+          "paint_code": "200",
+          "name": "STANDARD BLACK",
+          "grams": 0.5,
+          "cost": 0.05
+        },
+        {
+          "paint_code": "302",
+          "name": "YELLOW OXIDE",
+          "grams": 0.1,
+          "cost": 0.02
+        },
+        {
+          "paint_code": "801",
+          "name": "WHITE MICA",
+          "grams": 13.8,
+          "cost": 2.92
+        },
+        {
+          "paint_code": "802",
+          "name": "WHITE MICA SPARKLE",
+          "grams": 8.6,
+          "cost": 1.89
+        },
+        {
+          "paint_code": "812",
+          "name": "BLUE VIOLET MICA GF",
+          "grams": 6,
+          "cost": 1.29
+        },
+        {
+          "paint_code": "032",
+          "name": "CLEAR ADDITIVE",
+          "grams": 22.5,
+          "cost": 4.32
+        },
+        {
+          "paint_code": "030",
+          "name": "FLOP ADJUSTER TRANSPARENT",
+          "grams": 4.2,
+          "cost": 0.38
+        }
+      ],
+      "day": "2026-11-20",
+      "count": 1,
+      "id": "1795196210077-e7ouyg",
+      "t": 1795196210077
     }
   ],
-  "updatedAt": "2026-11-20T17:33:29.859Z",
+  "updatedAt": "2026-11-20T17:36:51.840Z",
   "resetId": "1795147381705",
   "resetFavs": true,
   "resetMixes": true
