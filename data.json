@@ -2,13 +2,15 @@
   "usage": {
     "CAD85:50T (Summit White)": 2,
     "VOLT9038 (Space Blue)": 1,
-    "TOY1G3 (Magnetic Gray)": 1
+    "TOY1G3 (Magnetic Gray)": 1,
+    "TOY040 (Super White)": 1
   },
   "daily": {
     "2026-11-19": {
       "CAD85:50T (Summit White)": 2,
       "VOLT9038 (Space Blue)": 1,
-      "TOY1G3 (Magnetic Gray)": 1
+      "TOY1G3 (Magnetic Gray)": 1,
+      "TOY040 (Super White)": 1
     }
   },
   "favorites": {
@@ -41,6 +43,16 @@
       "descriptorIcon": "https://colors.autokotesystems.com/assets/images/color-variant-descriptors/b.svg",
       "url": "https://colors.autokotesystems.com/formula/marketcolor/Automotive/ATK/370/dc38d5aa-53b5-e311-b816-005056945ff1/1",
       "addedAt": 1795143391778
+    },
+    "9919780f-3ab5-e311-b816-005056945ff1": {
+      "marketColorId": "9919780f-3ab5-e311-b816-005056945ff1",
+      "variantNumber": null,
+      "manufacturer": "Toyota",
+      "name": "TOY040 (Super White 2)",
+      "imageUrl": "https://colors.autokotesystems.com/apim/frontend/cod/2025.4.0/cod/market-color-id/9919780f-3ab5-e311-b816-005056945ff1/medium/tube?variantNumber=1",
+      "descriptorIcon": null,
+      "url": "https://colors.autokotesystems.com/formula/marketcolor/Automotive/ATK/370/9919780f-3ab5-e311-b816-005056945ff1/1",
+      "addedAt": 1795143536425
     }
   },
   "colorMeta": {
@@ -67,6 +79,14 @@
       "imageUrl": "https://colors.autokotesystems.com/apim/frontend/cod/2025.4.0/cod/market-color-id/dc38d5aa-53b5-e311-b816-005056945ff1/medium/tube?variantNumber=1",
       "descriptorIcon": null,
       "url": "https://colors.autokotesystems.com/formula/marketcolor/Automotive/ATK/370/dc38d5aa-53b5-e311-b816-005056945ff1/1"
+    },
+    "TOY040 (Super White)": {
+      "marketColorId": "9919780f-3ab5-e311-b816-005056945ff1",
+      "name": "TOY040 (Super White 2)",
+      "manufacturer": "Toyota",
+      "imageUrl": "https://colors.autokotesystems.com/apim/frontend/cod/2025.4.0/cod/market-color-id/9919780f-3ab5-e311-b816-005056945ff1/medium/tube?variantNumber=1",
+      "descriptorIcon": null,
+      "url": "https://colors.autokotesystems.com/formula/marketcolor/Automotive/ATK/370/9919780f-3ab5-e311-b816-005056945ff1/1"
     }
   },
   "mixes": [
@@ -227,5 +247,5 @@
       "t": 1795143395151
     }
   ],
-  "updatedAt": "2026-11-20T02:56:38.405Z"
+  "updatedAt": "2026-11-20T02:58:59.386Z"
 }
