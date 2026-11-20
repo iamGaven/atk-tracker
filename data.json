@@ -1,12 +1,14 @@
 {
   "usage": {
     "TOY1G3(L3) (Graphite Grey)": 1,
-    "CHE85:50T(L2) (Summit White)": 2
+    "CHE85:50T(L2) (Summit White)": 2,
+    "CHE85:50T(B) (Summit White)": 1
   },
   "daily": {
     "2026-11-19": {
       "TOY1G3(L3) (Graphite Grey)": 1,
-      "CHE85:50T(L2) (Summit White)": 2
+      "CHE85:50T(L2) (Summit White)": 2,
+      "CHE85:50T(B) (Summit White)": 1
     }
   },
   "favorites": {},
@@ -98,6 +100,17 @@
       "imageUrl": "https://colors.autokotesystems.com/apim/frontend/cod/2025.4.0/cod/market-color-id/28ec069c-7cb5-e311-b816-005056945ff1/medium/tube?variantNumber=101",
       "descriptorIcon": null,
       "url": "https://colors.autokotesystems.com/formula/marketcolor/Automotive/ATK/370/28ec069c-7cb5-e311-b816-005056945ff1/101"
+    },
+    "CHE85:50T(B) (Summit White)": {
+      "name": "CHE85:50T(B) (Summit White)",
+      "akzoCode": "CHE85:50T",
+      "variantSuffix": "(B)",
+      "variantNumber": 2,
+      "marketColorId": "28ec069c-7cb5-e311-b816-005056945ff1",
+      "manufacturer": "Chevrolet",
+      "imageUrl": "https://colors.autokotesystems.com/apim/frontend/cod/2025.4.0/cod/market-color-id/28ec069c-7cb5-e311-b816-005056945ff1/medium/tube?variantNumber=2",
+      "descriptorIcon": "https://colors.autokotesystems.com/assets/images/color-variant-descriptors/b.svg",
+      "url": "https://colors.autokotesystems.com/formula/marketcolor/Automotive/ATK/370/28ec069c-7cb5-e311-b816-005056945ff1/2"
     }
   },
   "mixes": [
@@ -222,7 +235,7 @@
       "t": 1795146157239
     }
   ],
-  "updatedAt": "2026-11-20T03:42:59.687Z",
+  "updatedAt": "2026-11-20T03:43:15.245Z",
   "resetId": "1795145848773",
   "resetFavs": true,
   "resetMixes": true
