@@ -87,14 +87,14 @@
       "image": "https://colors.autokotesystems.com/apim/frontend/cod/2025.4.0/cod/market-color-id/dc38d5aa-53b5-e311-b816-005056945ff1/medium/tube?variantNumber=1",
       "key": "Layer 1:823+504+201+030+200+705+704",
       "amount": 1,
-      "grams": 28.3,
-      "cost": 4.13,
+      "grams": 56.6,
+      "cost": 8.26,
       "unpriced": 0,
       "layers": [
         {
           "layer": "Layer 1",
-          "grams": 28.3,
-          "cost": 4.13,
+          "grams": 56.6,
+          "cost": 8.26,
           "unpriced": 0
         }
       ],
@@ -102,53 +102,53 @@
         {
           "paint_code": "200",
           "name": "STANDARD BLACK",
-          "grams": 3,
-          "cost": 0.28
+          "grams": 6,
+          "cost": 0.56
         },
         {
           "paint_code": "201",
           "name": "CARBON BLACK",
-          "grams": 2.1,
-          "cost": 0.19
+          "grams": 4.2,
+          "cost": 0.38
         },
         {
           "paint_code": "504",
           "name": "BRIGHT BLUE RED SHADE TRANSPARENT",
-          "grams": 1.8,
-          "cost": 0.33
+          "grams": 3.6,
+          "cost": 0.66
         },
         {
           "paint_code": "704",
           "name": "SPARKLE COARSE ALUMINUM",
-          "grams": 6.6,
-          "cost": 0.8
+          "grams": 13.2,
+          "cost": 1.6
         },
         {
           "paint_code": "705",
           "name": "EXTRA COARSE ALUMINUM",
-          "grams": 5.5,
-          "cost": 0.88
+          "grams": 11,
+          "cost": 1.76
         },
         {
           "paint_code": "823",
           "name": "RED ORANGE MICA OF",
-          "grams": 6.7,
-          "cost": 1.42
+          "grams": 13.4,
+          "cost": 2.84
         },
         {
           "paint_code": "030",
           "name": "FLOP ADJUSTER TRANSPARENT",
-          "grams": 2.6,
-          "cost": 0.24
+          "grams": 5.2,
+          "cost": 0.48
         }
       ],
       "day": "2026-11-19",
-      "count": 1,
+      "count": 2,
       "id": "1795145617177-s4v6gm",
       "t": 1795145617177
     }
   ],
-  "updatedAt": "2026-11-20T03:33:39.403Z",
+  "updatedAt": "2026-11-20T03:33:42.399Z",
   "resetId": "1795145592834",
   "resetFavs": true,
   "resetMixes": true
