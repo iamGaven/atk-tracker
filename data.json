@@ -4,7 +4,8 @@
     "VOLT9038 (Space Blue)": 1,
     "TOY1G3 (Magnetic Gray)": 1,
     "TOY040 (Super White)": 2,
-    "BMW0012 (Polaris Silver)": 2
+    "BMW0012 (Polaris Silver)": 2,
+    "CHE22:G6M (Galactic Gray)": 1
   },
   "daily": {
     "2026-11-19": {
@@ -12,7 +13,8 @@
       "VOLT9038 (Space Blue)": 1,
       "TOY1G3 (Magnetic Gray)": 1,
       "TOY040 (Super White)": 2,
-      "BMW0012 (Polaris Silver)": 2
+      "BMW0012 (Polaris Silver)": 2,
+      "CHE22:G6M (Galactic Gray)": 1
     }
   },
   "favorites": {
@@ -45,6 +47,16 @@
       "descriptorIcon": "https://colors.autokotesystems.com/assets/images/color-variant-descriptors/b.svg",
       "url": "https://colors.autokotesystems.com/formula/marketcolor/Automotive/ATK/370/dc38d5aa-53b5-e311-b816-005056945ff1/1",
       "addedAt": 1795143391778
+    },
+    "7aa4b655-ecd8-eb11-81b4-0050568d4c1c": {
+      "marketColorId": "7aa4b655-ecd8-eb11-81b4-0050568d4c1c",
+      "variantNumber": null,
+      "manufacturer": "Chevrolet",
+      "name": "CHE22:G6M (Galactic Gray)",
+      "imageUrl": "https://colors.autokotesystems.com/apim/frontend/cod/2025.4.0/cod/market-color-id/7aa4b655-ecd8-eb11-81b4-0050568d4c1c/medium/tube?variantNumber=1",
+      "descriptorIcon": null,
+      "url": "https://colors.autokotesystems.com/formula/marketcolor/Automotive/ATK/370/7aa4b655-ecd8-eb11-81b4-0050568d4c1c/1",
+      "addedAt": 1795143988216
     }
   },
   "colorMeta": {
@@ -87,6 +99,14 @@
       "imageUrl": "https://colors.autokotesystems.com/apim/frontend/cod/2025.4.0/cod/market-color-id/efe36595-62b5-e311-b816-005056945ff1/medium/tube?variantNumber=1",
       "descriptorIcon": null,
       "url": "https://colors.autokotesystems.com/formula/marketcolor/Automotive/ATK/370/efe36595-62b5-e311-b816-005056945ff1/1"
+    },
+    "CHE22:G6M (Galactic Gray)": {
+      "marketColorId": "7aa4b655-ecd8-eb11-81b4-0050568d4c1c",
+      "name": "CHE22:G6M (Galactic Gray)",
+      "manufacturer": "Chevrolet",
+      "imageUrl": "https://colors.autokotesystems.com/apim/frontend/cod/2025.4.0/cod/market-color-id/7aa4b655-ecd8-eb11-81b4-0050568d4c1c/medium/tube?variantNumber=1",
+      "descriptorIcon": null,
+      "url": "https://colors.autokotesystems.com/formula/marketcolor/Automotive/ATK/370/7aa4b655-ecd8-eb11-81b4-0050568d4c1c/1"
     }
   },
   "mixes": [
@@ -339,5 +359,5 @@
       "t": 1795143969668
     }
   ],
-  "updatedAt": "2026-11-20T03:06:11.613Z"
+  "updatedAt": "2026-11-20T03:06:29.730Z"
 }
