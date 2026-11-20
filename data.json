@@ -1,10 +1,12 @@
 {
   "usage": {
-    "CHE22:G6M (Galactic Gray)": 2
+    "CHE22:G6M (Galactic Gray)": 2,
+    "HON9792 (Modern Steel)": 1
   },
   "daily": {
     "2026-11-19": {
-      "CHE22:G6M (Galactic Gray)": 2
+      "CHE22:G6M (Galactic Gray)": 2,
+      "HON9792 (Modern Steel)": 1
     }
   },
   "favorites": {
@@ -52,6 +54,16 @@
       "name": "HON9792(B1) (Modern Steel)",
       "akzoCode": "HON9792",
       "variantSuffix": "(B1)",
+      "marketColorId": "e5f60946-6cb5-e311-b816-005056945ff1",
+      "manufacturer": "Honda",
+      "imageUrl": "https://colors.autokotesystems.com/apim/frontend/cod/2025.4.0/cod/market-color-id/e5f60946-6cb5-e311-b816-005056945ff1/medium/tube?variantNumber=1",
+      "descriptorIcon": null,
+      "url": "https://colors.autokotesystems.com/formula/marketcolor/Automotive/ATK/370/e5f60946-6cb5-e311-b816-005056945ff1/1"
+    },
+    "HON9792(C1) (Modern Steel)": {
+      "name": "HON9792(C1) (Modern Steel)",
+      "akzoCode": "HON9792",
+      "variantSuffix": "(C1)",
       "marketColorId": "e5f60946-6cb5-e311-b816-005056945ff1",
       "manufacturer": "Honda",
       "imageUrl": "https://colors.autokotesystems.com/apim/frontend/cod/2025.4.0/cod/market-color-id/e5f60946-6cb5-e311-b816-005056945ff1/medium/tube?variantNumber=1",
@@ -129,7 +141,7 @@
       "t": 1795144902801
     }
   ],
-  "updatedAt": "2026-11-20T03:21:53.132Z",
+  "updatedAt": "2026-11-20T03:21:56.251Z",
   "resetId": "1795144866762",
   "resetFavs": true,
   "resetMixes": true
