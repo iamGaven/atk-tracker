@@ -3,14 +3,16 @@
     "CHE85:50T(B3) (Summit White)": 1,
     "SUBM1Y (Crimson Red Pearl)": 1,
     "CAD91:41T (Black)": 1,
-    "DOD24:ZR6 (Red Hot)": 3
+    "DOD24:ZR6 (Red Hot)": 3,
+    "ACU1001 (Phoenix Yellow)": 1
   },
   "daily": {
     "2026-11-19": {
       "CHE85:50T(B3) (Summit White)": 1,
       "SUBM1Y (Crimson Red Pearl)": 1,
       "CAD91:41T (Black)": 1,
-      "DOD24:ZR6 (Red Hot)": 3
+      "DOD24:ZR6 (Red Hot)": 3,
+      "ACU1001 (Phoenix Yellow)": 1
     }
   },
   "favorites": {},
@@ -199,6 +201,28 @@
           "day": "2026-11-19",
           "cost": 5.55,
           "grams": 28
+        }
+      ]
+    },
+    "ACU1001 (Phoenix Yellow)": {
+      "name": "ACU1001 (Phoenix Yellow)",
+      "akzoCode": "ACU1001",
+      "variantSuffix": "",
+      "variantNumber": 0,
+      "marketColorId": "b3708d19-46b5-e311-b816-005056945ff1",
+      "manufacturer": "Acura",
+      "imageUrl": "https://colors.autokotesystems.com/apim/frontend/cod/2025.4.0/cod/market-color-id/b3708d19-46b5-e311-b816-005056945ff1/medium/tube?variantNumber=0",
+      "descriptorIcon": null,
+      "url": "https://colors.autokotesystems.com/formula/marketcolor/Automotive/ATK/370/b3708d19-46b5-e311-b816-005056945ff1/0",
+      "ozCost": 4.87,
+      "ozGrams": 30.3,
+      "ozAt": 1795148515365,
+      "ozHistory": [
+        {
+          "t": 1795148515365,
+          "day": "2026-11-19",
+          "cost": 4.87,
+          "grams": 30.3
         }
       ]
     }
@@ -427,7 +451,7 @@
       "t": 1795148421445
     }
   ],
-  "updatedAt": "2026-11-20T04:20:23.368Z",
+  "updatedAt": "2026-11-20T04:21:57.276Z",
   "resetId": "1795147381705",
   "resetFavs": true,
   "resetMixes": true
