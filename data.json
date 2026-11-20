@@ -2,13 +2,13 @@
   "usage": {
     "HON9792 (Modern Steel)": 3,
     "HON9792(B1) (Modern Steel)": 1,
-    "TOY1G3 (Graphite Grey)": 2
+    "TOY1G3 (Graphite Grey)": 3
   },
   "daily": {
     "2026-11-19": {
       "HON9792 (Modern Steel)": 3,
       "HON9792(B1) (Modern Steel)": 1,
-      "TOY1G3 (Graphite Grey)": 2
+      "TOY1G3 (Graphite Grey)": 3
     }
   },
   "favorites": {
@@ -79,6 +79,16 @@
       "imageUrl": "https://colors.autokotesystems.com/apim/frontend/cod/2025.4.0/cod/market-color-id/dc38d5aa-53b5-e311-b816-005056945ff1/medium/tube?variantNumber=8",
       "descriptorIcon": null,
       "url": "https://colors.autokotesystems.com/formula/marketcolor/Automotive/ATK/370/dc38d5aa-53b5-e311-b816-005056945ff1/8"
+    },
+    "TOY1G3(L2) (Graphite Grey)": {
+      "name": "TOY1G3(L2) (Graphite Grey)",
+      "akzoCode": "TOY1G3",
+      "variantSuffix": "(L2)",
+      "marketColorId": "dc38d5aa-53b5-e311-b816-005056945ff1",
+      "manufacturer": "Toyota",
+      "imageUrl": "https://colors.autokotesystems.com/apim/frontend/cod/2025.4.0/cod/market-color-id/dc38d5aa-53b5-e311-b816-005056945ff1/medium/tube?variantNumber=1",
+      "descriptorIcon": null,
+      "url": "https://colors.autokotesystems.com/formula/marketcolor/Automotive/ATK/370/dc38d5aa-53b5-e311-b816-005056945ff1/1"
     }
   },
   "mixes": [
@@ -219,7 +229,7 @@
       "t": 1795145256252
     }
   ],
-  "updatedAt": "2026-11-20T03:30:26.144Z",
+  "updatedAt": "2026-11-20T03:30:32.179Z",
   "resetId": "1795145217888",
   "resetFavs": true,
   "resetMixes": true
