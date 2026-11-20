@@ -246,9 +246,54 @@
       "count": 2,
       "id": "1795146142004-xzd5bc",
       "t": 1795146157239
+    },
+    {
+      "name": "CHE85:50T(B3) (Summit White)",
+      "akzoCode": "CHE85:50T",
+      "variantNumber": 126,
+      "variantSuffix": "(B3)",
+      "marketColorId": "28ec069c-7cb5-e311-b816-005056945ff1",
+      "image": "https://colors.autokotesystems.com/apim/frontend/cod/2025.4.0/cod/market-color-id/28ec069c-7cb5-e311-b816-005056945ff1/medium/tube?variantNumber=126",
+      "key": "Layer 1:100+301+200",
+      "amount": 1,
+      "grams": 35.1,
+      "cost": 2.57,
+      "unpriced": 0,
+      "layers": [
+        {
+          "layer": "Layer 1",
+          "grams": 35.1,
+          "cost": 2.57,
+          "unpriced": 0
+        }
+      ],
+      "components": [
+        {
+          "paint_code": "100",
+          "name": "HIGH HIDING WHITE (FOR SOLIDS)",
+          "grams": 35,
+          "cost": 2.56
+        },
+        {
+          "paint_code": "200",
+          "name": "STANDARD BLACK",
+          "grams": 0.1,
+          "cost": 0.01
+        },
+        {
+          "paint_code": "301",
+          "name": "LEMON YELLOW",
+          "grams": 0,
+          "cost": 0
+        }
+      ],
+      "day": "2026-11-19",
+      "count": 1,
+      "id": "1795146255251-n85sal",
+      "t": 1795146255251
     }
   ],
-  "updatedAt": "2026-11-20T03:43:36.455Z",
+  "updatedAt": "2026-11-20T03:44:17.075Z",
   "resetId": "1795145848773",
   "resetFavs": true,
   "resetMixes": true
