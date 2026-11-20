@@ -282,69 +282,109 @@ function renderFavs(favorites) {
   }).join("");
 }
 // Today: confirmed mixes (one card per paint), then usage for paints without a mix
+// Today: one list. Each paint appears once under its manufacturer, with its uses and any mixes.
 function renderToday(entries, meta, favorites, mixes) {
-  const todayMixes = mixes.filter(m => m.day === todayKey()).sort((a, b) => b.t - a.t);
-  const mixNames = new Set(todayMixes.map(m => m.name).filter(Boolean));
-  const rest = entries.filter(([name]) => !mixNames.has(name));
+  const todayMixes = mixes.filter(m => m.day === todayKey());
+  if (!entries.length && !todayMixes.length) return empty("🎨", "Nothing used today");
 
-  const mixHtml = todayMixes.length ? renderMixes(todayMixes, meta) : "";
-  const usageHtml = rest.length
-    ? renderUsage(rest, meta, "", favorites)
-    : (todayMixes.length ? "" : empty("🎨", "Nothing used today"));
-  return mixHtml + usageHtml;
-}
+  // One row per paint: usage counts come from daily, mix details from today's mixes
+  const paints = {};
+  const getPaint = (key, name) => paints[key] || (paints[key] = { key, name, uses: 0, mixes: [] });
+  entries.forEach(([name, n]) => { getPaint(name, name).uses = n; });
+  todayMixes.forEach(m => {
+    const key = m.name || "codes:" + (m.components || []).map(c => c.paint_code).join("+");
+    getPaint(key, m.name || null).mixes.push(m);
+  });
 
-function renderMixes(list, meta) {
-  const total = list.reduce((a, m) => a + (m.cost || 0), 0);
-  const count = list.reduce((a, m) => a + (m.count || 1), 0);
+  // Group by manufacturer, taking it from the mix first, then from colorMeta
+  const byMfr = {};
+  Object.values(paints).forEach(p => {
+    const pm = (meta || {})[p.name] || {};
+    const mfr = (p.mixes[0] && p.mixes[0].manufacturer) || pm.manufacturer || "Unknown";
+    (byMfr[mfr] || (byMfr[mfr] = [])).push(p);
+  });
+
+  const totalCost = todayMixes.reduce((a, m) => a + (m.cost || 0), 0);
+  const totalUses = entries.reduce((a, [, n]) => a + n, 0);
   const summary = `<div class="summary">
-    <div class="stat"><b>${money(total)}</b><span>mixed today</span></div>
-    <div class="stat"><b>${count}</b><span>mixes</span></div></div>`;
+    <div class="stat"><b>${money(totalCost)}</b><span>mixed today</span></div>
+    <div class="stat"><b>${totalUses}</b><span>total uses</span></div></div>`;
 
-  const cards = list.map(m => {
-    // Paint name when known; older mixes without one fall back to their paint codes
-    const [code, desc] = m.name
-      ? splitName(m.name)
-      : [(m.components || []).map(c => c.paint_code).join(" + "), ""];
-    const img = m.image || ((meta || {})[m.name] || {}).imageUrl || null;
-    const times = m.count > 1 ? `${m.count} mixes today` : "1 mix today";
-
-    const layers = (m.layers || []).length > 1
-      ? `<div class="sub">${m.layers.map(l => `${esc(l.layer)}: ${money(l.cost)}`).join(" · ")}</div>`
-      : "";
-    const rows = (m.components || []).map(c => `
-      <div class="item">
-        <div class="info">
-          <div class="code"><span>${esc(c.paint_code)}</span></div>
-          ${c.name ? `<div class="desc">${esc(c.name)}</div>` : ""}
-          <div class="desc">${(c.grams ?? 0).toFixed(1)} g</div>
-        </div>
-        <div class="count">${c.cost == null ? "n/a" : money(c.cost)}</div>
-      </div>`).join("");
-    const unpriced = m.unpriced
-      ? `<div class="sub warn">${m.unpriced} component(s) not in price list</div>`
-      : "";
-
-    return `<section class="card">
-      <div class="item">
-        ${thumb(img)}
-        <div class="info">
-          <div class="code"><span>${esc(code)}</span></div>
-          ${desc ? `<div class="desc">${esc(desc)}</div>` : ""}
-          <div class="desc">${times} · ${(m.grams || 0).toFixed(1)} g</div>
-        </div>
-        <div class="count">${money(m.cost)}</div>
-      </div>
-      <details class="mix-details">
-        <summary>Breakdown</summary>
-        ${layers}${rows}${unpriced}
-      </details>
-    </section>`;
-  }).join("");
+  const cards = Object.entries(byMfr)
+    .sort((a, b) => sumUses(b[1]) - sumUses(a[1]) || a[0].localeCompare(b[0]))
+    .map(([mfr, list]) => {
+      const rows = list
+        .sort((a, b) => b.uses - a.uses || (a.name || "").localeCompare(b.name || ""))
+        .map(p => renderPaintRow(p, meta, favorites))
+        .join("");
+      return `<section class="card">
+        <div class="card-h"><h3>${esc(mfr)}</h3><span class="pill">${sumUses(list)}×</span></div>
+        ${rows}
+      </section>`;
+    }).join("");
 
   return summary + cards;
 }
 
+function sumUses(list) {
+  return list.reduce((a, p) => a + p.uses, 0);
+}
+
+// One paint on the Today tab: plain usage row, or a mix row with a collapsible breakdown
+function renderPaintRow(p, meta, favorites) {
+  const pm = (meta || {})[p.name] || {};
+  const latest = p.mixes[0] || {};
+  const img = latest.image || pm.imageUrl || null;
+  const link = latest.url || pm.url || formulaUrl(pm, favorites);
+
+  const [code, desc] = p.name
+    ? splitName(p.name)
+    : [(latest.components || []).map(c => c.paint_code).join(" + "), ""];
+  const codeHtml = link
+    ? `<a href="${esc(link)}" target="_blank" rel="noopener">${esc(code)}</a>`
+    : esc(code);
+
+  if (!p.mixes.length) {
+    return `<div class="item">${thumb(img)}
+      <div class="info"><div class="code">${descIcon(pm.descriptorIcon)}<span>${codeHtml}</span></div>
+      ${desc ? `<div class="desc">${esc(desc)}</div>` : ""}</div>
+      <div class="count">${p.uses}<small>×</small></div></div>`;
+  }
+
+  const cost = p.mixes.reduce((a, m) => a + (m.cost || 0), 0);
+  const grams = p.mixes.reduce((a, m) => a + (m.grams || 0), 0);
+  const mixCount = p.mixes.reduce((a, m) => a + (m.count || 1), 0);
+  const times = `${mixCount} mix${mixCount === 1 ? "" : "es"} today · ${grams.toFixed(1)} g`;
+  const unpriced = p.mixes.reduce((a, m) => a + (m.unpriced || 0), 0);
+
+  return `<div class="item">${thumb(img)}
+      <div class="info"><div class="code"><span>${codeHtml}</span></div>
+      ${desc ? `<div class="desc">${esc(desc)}</div>` : ""}
+      <div class="desc">${times}</div></div>
+      <div class="count">${money(cost)}</div></div>
+    <details class="mix-details">
+      <summary>Breakdown</summary>
+      ${p.mixes.map(mixBreakdown).join("")}
+      ${unpriced ? `<div class="sub warn">${unpriced} component(s) not in price list</div>` : ""}
+    </details>`;
+}
+
+// The layers and components of one confirmed mix, shown inside the breakdown
+function mixBreakdown(m) {
+  const layers = (m.layers || []).length > 1
+    ? `<div class="sub">${m.layers.map(l => `${esc(l.layer)}: ${money(l.cost)}`).join(" · ")}</div>`
+    : "";
+  const rows = (m.components || []).map(c => `
+    <div class="item">
+      <div class="info">
+        <div class="code"><span>${esc(c.paint_code)}</span></div>
+        ${c.name ? `<div class="desc">${esc(c.name)}</div>` : ""}
+        <div class="desc">${(c.grams ?? 0).toFixed(1)} g</div>
+      </div>
+      <div class="count">${c.cost == null ? "n/a" : money(c.cost)}</div>
+    </div>`).join("");
+  return layers + rows;
+}
 /* ---------- costs tab ---------- */
 
 // Groups confirmed mixes into day / month / year buckets.
