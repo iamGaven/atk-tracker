@@ -1,13 +1,26 @@
 {
   "usage": {
-    "CHE22:G6M (Galactic Gray)": 3
+    "CHE22:G6M (Galactic Gray)": 3,
+    "HON9792 (Modern Steel)": 1
   },
   "daily": {
     "2026-11-19": {
-      "CHE22:G6M (Galactic Gray)": 3
+      "CHE22:G6M (Galactic Gray)": 3,
+      "HON9792 (Modern Steel)": 1
     }
   },
-  "favorites": {},
+  "favorites": {
+    "e5f60946-6cb5-e311-b816-005056945ff1": {
+      "marketColorId": "e5f60946-6cb5-e311-b816-005056945ff1",
+      "variantNumber": null,
+      "manufacturer": "Honda",
+      "name": "HON9792 (Modern Steel)",
+      "imageUrl": "https://colors.autokotesystems.com/apim/frontend/cod/2025.4.0/cod/market-color-id/e5f60946-6cb5-e311-b816-005056945ff1/medium/tube?variantNumber=1",
+      "descriptorIcon": null,
+      "url": "https://colors.autokotesystems.com/formula/marketcolor/Automotive/ATK/370/e5f60946-6cb5-e311-b816-005056945ff1/1",
+      "addedAt": 1795144456584
+    }
+  },
   "colorMeta": {
     "CHE22:G6M (Galactic Gray)": {
       "name": "CHE22:G6M (Galactic Gray)",
@@ -18,6 +31,24 @@
       "imageUrl": "https://colors.autokotesystems.com/apim/frontend/cod/2025.4.0/cod/market-color-id/7aa4b655-ecd8-eb11-81b4-0050568d4c1c/medium/tube?variantNumber=1",
       "descriptorIcon": null,
       "url": "https://colors.autokotesystems.com/formula/marketcolor/Automotive/ATK/370/7aa4b655-ecd8-eb11-81b4-0050568d4c1c/1"
+    },
+    "HON9792 (Modern Steel)": {
+      "marketColorId": "e5f60946-6cb5-e311-b816-005056945ff1",
+      "name": "HON9792 (Modern Steel)",
+      "manufacturer": "Honda",
+      "imageUrl": "https://colors.autokotesystems.com/apim/frontend/cod/2025.4.0/cod/market-color-id/e5f60946-6cb5-e311-b816-005056945ff1/medium/tube?variantNumber=1",
+      "descriptorIcon": null,
+      "url": "https://colors.autokotesystems.com/formula/marketcolor/Automotive/ATK/370/e5f60946-6cb5-e311-b816-005056945ff1/1"
+    },
+    "HON9792(B1) (Modern Steel)": {
+      "name": "HON9792(B1) (Modern Steel)",
+      "akzoCode": "HON9792",
+      "variantSuffix": "(B1)",
+      "marketColorId": "e5f60946-6cb5-e311-b816-005056945ff1",
+      "manufacturer": "Honda",
+      "imageUrl": "https://colors.autokotesystems.com/apim/frontend/cod/2025.4.0/cod/market-color-id/e5f60946-6cb5-e311-b816-005056945ff1/medium/tube?variantNumber=1",
+      "descriptorIcon": null,
+      "url": "https://colors.autokotesystems.com/formula/marketcolor/Automotive/ATK/370/e5f60946-6cb5-e311-b816-005056945ff1/1"
     }
   },
   "mixes": [
@@ -90,7 +121,7 @@
       "t": 1795144382934
     }
   ],
-  "updatedAt": "2026-11-20T03:13:05.411Z",
+  "updatedAt": "2026-11-20T03:14:18.932Z",
   "resetId": "1795144287219",
   "resetFavs": true,
   "resetMixes": true
