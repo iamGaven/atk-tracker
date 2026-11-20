@@ -5,7 +5,7 @@
     "TOY1G3 (Magnetic Gray)": 1,
     "TOY040 (Super White)": 2,
     "BMW0012 (Polaris Silver)": 2,
-    "CHE22:G6M (Galactic Gray)": 1
+    "CHE22:G6M (Galactic Gray)": 2
   },
   "daily": {
     "2026-11-19": {
@@ -14,7 +14,7 @@
       "TOY1G3 (Magnetic Gray)": 1,
       "TOY040 (Super White)": 2,
       "BMW0012 (Polaris Silver)": 2,
-      "CHE22:G6M (Galactic Gray)": 1
+      "CHE22:G6M (Galactic Gray)": 2
     }
   },
   "favorites": {
@@ -357,7 +357,75 @@
       "count": 1,
       "id": "1795143969668-haw43s",
       "t": 1795143969668
+    },
+    {
+      "name": "CHE22:G6M (Galactic Gray)",
+      "akzoCode": "CHE22:G6M",
+      "variantSuffix": "",
+      "marketColorId": "7aa4b655-ecd8-eb11-81b4-0050568d4c1c",
+      "image": "https://colors.autokotesystems.com/apim/frontend/cod/2025.4.0/cod/market-color-id/7aa4b655-ecd8-eb11-81b4-0050568d4c1c/medium/tube?variantNumber=1",
+      "key": "Layer 1:815+101+405+505+704+030+201",
+      "amount": 12,
+      "grams": 338.3,
+      "cost": 51.92,
+      "unpriced": 0,
+      "layers": [
+        {
+          "layer": "Layer 1",
+          "grams": 338.3,
+          "cost": 51.92,
+          "unpriced": 0
+        }
+      ],
+      "components": [
+        {
+          "paint_code": "101",
+          "name": "TINTING WHITE (FOR METALLICS)",
+          "grams": 1,
+          "cost": 0.1
+        },
+        {
+          "paint_code": "201",
+          "name": "CARBON BLACK",
+          "grams": 89.8,
+          "cost": 8.26
+        },
+        {
+          "paint_code": "405",
+          "name": "DARK RED TRANSPARENT",
+          "grams": 16.3,
+          "cost": 3.13
+        },
+        {
+          "paint_code": "505",
+          "name": "BLUE RED SHADE TRANSPARENT",
+          "grams": 18.6,
+          "cost": 3.43
+        },
+        {
+          "paint_code": "704",
+          "name": "SPARKLE COARSE ALUMINUM",
+          "grams": 32.4,
+          "cost": 3.92
+        },
+        {
+          "paint_code": "815",
+          "name": "BLUE MICA FINE YF",
+          "grams": 135.5,
+          "cost": 29.03
+        },
+        {
+          "paint_code": "030",
+          "name": "FLOP ADJUSTER TRANSPARENT",
+          "grams": 44.7,
+          "cost": 4.05
+        }
+      ],
+      "day": "2026-11-19",
+      "count": 1,
+      "id": "1795144008095-xf7sop",
+      "t": 1795144008095
     }
   ],
-  "updatedAt": "2026-11-20T03:06:29.730Z"
+  "updatedAt": "2026-11-20T03:06:50.397Z"
 }
