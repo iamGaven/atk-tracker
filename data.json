@@ -1,12 +1,12 @@
 {
   "usage": {
     "TOY1G3 (Graphite Grey)": 1,
-    "TOY1G3(L1) (Graphite Grey)": 1
+    "TOY1G3(L1) (Graphite Grey)": 3
   },
   "daily": {
     "2026-11-19": {
       "TOY1G3 (Graphite Grey)": 1,
-      "TOY1G3(L1) (Graphite Grey)": 1
+      "TOY1G3(L1) (Graphite Grey)": 3
     }
   },
   "favorites": {},
@@ -78,8 +78,77 @@
       "url": "https://colors.autokotesystems.com/formula/marketcolor/Automotive/ATK/370/dc38d5aa-53b5-e311-b816-005056945ff1/25"
     }
   },
-  "mixes": [],
-  "updatedAt": "2026-11-20T03:33:37.116Z",
+  "mixes": [
+    {
+      "name": "TOY1G3(L1) (Graphite Grey)",
+      "akzoCode": "TOY1G3",
+      "variantSuffix": "(L1)",
+      "marketColorId": "dc38d5aa-53b5-e311-b816-005056945ff1",
+      "image": "https://colors.autokotesystems.com/apim/frontend/cod/2025.4.0/cod/market-color-id/dc38d5aa-53b5-e311-b816-005056945ff1/medium/tube?variantNumber=1",
+      "key": "Layer 1:823+504+201+030+200+705+704",
+      "amount": 1,
+      "grams": 28.3,
+      "cost": 4.13,
+      "unpriced": 0,
+      "layers": [
+        {
+          "layer": "Layer 1",
+          "grams": 28.3,
+          "cost": 4.13,
+          "unpriced": 0
+        }
+      ],
+      "components": [
+        {
+          "paint_code": "200",
+          "name": "STANDARD BLACK",
+          "grams": 3,
+          "cost": 0.28
+        },
+        {
+          "paint_code": "201",
+          "name": "CARBON BLACK",
+          "grams": 2.1,
+          "cost": 0.19
+        },
+        {
+          "paint_code": "504",
+          "name": "BRIGHT BLUE RED SHADE TRANSPARENT",
+          "grams": 1.8,
+          "cost": 0.33
+        },
+        {
+          "paint_code": "704",
+          "name": "SPARKLE COARSE ALUMINUM",
+          "grams": 6.6,
+          "cost": 0.8
+        },
+        {
+          "paint_code": "705",
+          "name": "EXTRA COARSE ALUMINUM",
+          "grams": 5.5,
+          "cost": 0.88
+        },
+        {
+          "paint_code": "823",
+          "name": "RED ORANGE MICA OF",
+          "grams": 6.7,
+          "cost": 1.42
+        },
+        {
+          "paint_code": "030",
+          "name": "FLOP ADJUSTER TRANSPARENT",
+          "grams": 2.6,
+          "cost": 0.24
+        }
+      ],
+      "day": "2026-11-19",
+      "count": 1,
+      "id": "1795145617177-s4v6gm",
+      "t": 1795145617177
+    }
+  ],
+  "updatedAt": "2026-11-20T03:33:39.403Z",
   "resetId": "1795145592834",
   "resetFavs": true,
   "resetMixes": true
