@@ -31,6 +31,16 @@
       "descriptorIcon": null,
       "url": "https://colors.autokotesystems.com/formula/marketcolor/Automotive/ATK/370/34581133-7db5-e311-b816-005056945ff1/1",
       "addedAt": 1795143089295
+    },
+    "dc38d5aa-53b5-e311-b816-005056945ff1": {
+      "marketColorId": "dc38d5aa-53b5-e311-b816-005056945ff1",
+      "variantNumber": null,
+      "manufacturer": "Toyota",
+      "name": "TOY1G3(B) (Graphite Grey)",
+      "imageUrl": "https://colors.autokotesystems.com/apim/frontend/cod/2025.4.0/cod/market-color-id/dc38d5aa-53b5-e311-b816-005056945ff1/medium/tube?variantNumber=1",
+      "descriptorIcon": "https://colors.autokotesystems.com/assets/images/color-variant-descriptors/b.svg",
+      "url": "https://colors.autokotesystems.com/formula/marketcolor/Automotive/ATK/370/dc38d5aa-53b5-e311-b816-005056945ff1/1",
+      "addedAt": 1795143391778
     }
   },
   "colorMeta": {
@@ -147,5 +157,5 @@
       "t": 1795143093883
     }
   ],
-  "updatedAt": "2026-11-20T02:56:26.011Z"
+  "updatedAt": "2026-11-20T02:56:33.540Z"
 }
