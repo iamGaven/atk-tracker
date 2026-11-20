@@ -2,13 +2,13 @@
   "usage": {
     "CHE22:G6M (Galactic Gray)": 2,
     "HON9792 (Modern Steel)": 1,
-    "HON9792(C1) (Modern Steel)": 1
+    "HON9792(C1) (Modern Steel)": 2
   },
   "daily": {
     "2026-11-19": {
       "CHE22:G6M (Galactic Gray)": 2,
       "HON9792 (Modern Steel)": 1,
-      "HON9792(C1) (Modern Steel)": 1
+      "HON9792(C1) (Modern Steel)": 2
     }
   },
   "favorites": {
@@ -150,14 +150,14 @@
       "image": "https://colors.autokotesystems.com/apim/frontend/cod/2025.4.0/cod/market-color-id/e5f60946-6cb5-e311-b816-005056945ff1/medium/tube?variantNumber=1",
       "key": "Layer 1:704+502+500+030+200+201+817+705",
       "amount": 1,
-      "grams": 28.1,
-      "cost": 4.04,
+      "grams": 112.4,
+      "cost": 16.18,
       "unpriced": 0,
       "layers": [
         {
           "layer": "Layer 1",
-          "grams": 28.1,
-          "cost": 4.04,
+          "grams": 112.4,
+          "cost": 16.18,
           "unpriced": 0
         }
       ],
@@ -165,59 +165,59 @@
         {
           "paint_code": "200",
           "name": "STANDARD BLACK",
-          "grams": 1.9,
-          "cost": 0.18
+          "grams": 7.6,
+          "cost": 0.71
         },
         {
           "paint_code": "201",
           "name": "CARBON BLACK",
-          "grams": 3.7,
-          "cost": 0.34
+          "grams": 14.7,
+          "cost": 1.35
         },
         {
           "paint_code": "500",
           "name": "PURPLE",
-          "grams": 1.5,
-          "cost": 0.22
+          "grams": 6.2,
+          "cost": 0.9
         },
         {
           "paint_code": "502",
           "name": "PHTHALO BLUE GREEN SHADE TRANSPARENT",
-          "grams": 0.7,
-          "cost": 0.13
+          "grams": 2.8,
+          "cost": 0.52
         },
         {
           "paint_code": "704",
           "name": "SPARKLE COARSE ALUMINUM",
-          "grams": 6.5,
-          "cost": 0.79
+          "grams": 25.9,
+          "cost": 3.14
         },
         {
           "paint_code": "705",
           "name": "EXTRA COARSE ALUMINUM",
-          "grams": 6,
-          "cost": 0.96
+          "grams": 24.1,
+          "cost": 3.86
         },
         {
           "paint_code": "817",
           "name": "GREEN MICA YF",
-          "grams": 5.9,
-          "cost": 1.26
+          "grams": 23.6,
+          "cost": 5.05
         },
         {
           "paint_code": "030",
           "name": "FLOP ADJUSTER TRANSPARENT",
-          "grams": 1.9,
-          "cost": 0.17
+          "grams": 7.5,
+          "cost": 0.68
         }
       ],
       "day": "2026-11-19",
-      "count": 1,
+      "count": 2,
       "id": "1795144916471-pawjhu",
-      "t": 1795144916471
+      "t": 1795144921401
     }
   ],
-  "updatedAt": "2026-11-20T03:21:58.378Z",
+  "updatedAt": "2026-11-20T03:22:04.402Z",
   "resetId": "1795144866762",
   "resetFavs": true,
   "resetMixes": true
