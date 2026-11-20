@@ -4,7 +4,7 @@
     "SUBM1Y (Crimson Red Pearl)": 1,
     "CAD91:41T (Black)": 1,
     "DOD24:ZR6 (Red Hot)": 3,
-    "ACU1001 (Phoenix Yellow)": 1
+    "ACU1001 (Phoenix Yellow)": 2
   },
   "daily": {
     "2026-11-19": {
@@ -12,6 +12,9 @@
       "SUBM1Y (Crimson Red Pearl)": 1,
       "CAD91:41T (Black)": 1,
       "DOD24:ZR6 (Red Hot)": 3,
+      "ACU1001 (Phoenix Yellow)": 1
+    },
+    "2026-11-20": {
       "ACU1001 (Phoenix Yellow)": 1
     }
   },
@@ -216,7 +219,7 @@
       "url": "https://colors.autokotesystems.com/formula/marketcolor/Automotive/ATK/370/b3708d19-46b5-e311-b816-005056945ff1/0",
       "ozCost": 4.87,
       "ozGrams": 30.3,
-      "ozAt": 1795148515365,
+      "ozAt": 1795189621486,
       "ozHistory": [
         {
           "t": 1795148515365,
@@ -502,7 +505,7 @@
       "t": 1795148519555
     }
   ],
-  "updatedAt": "2026-11-20T04:22:01.500Z",
+  "updatedAt": "2026-11-20T15:47:03.389Z",
   "resetId": "1795147381705",
   "resetFavs": true,
   "resetMixes": true
