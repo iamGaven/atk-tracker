@@ -449,9 +449,60 @@
       "count": 2,
       "id": "1795148356341-6zwpfl",
       "t": 1795148421445
+    },
+    {
+      "name": "ACU1001 (Phoenix Yellow)",
+      "akzoCode": "ACU1001",
+      "variantNumber": 0,
+      "variantSuffix": "",
+      "marketColorId": "b3708d19-46b5-e311-b816-005056945ff1",
+      "image": "https://colors.autokotesystems.com/apim/frontend/cod/2025.4.0/cod/market-color-id/b3708d19-46b5-e311-b816-005056945ff1/medium/tube?variantNumber=0",
+      "key": "Layer 1:301+305+302+100",
+      "amount": 4,
+      "grams": 121.2,
+      "cost": 19.48,
+      "unpriced": 0,
+      "layers": [
+        {
+          "layer": "Layer 1",
+          "grams": 121.2,
+          "cost": 19.48,
+          "unpriced": 0
+        }
+      ],
+      "components": [
+        {
+          "paint_code": "100",
+          "name": "HIGH HIDING WHITE (FOR SOLIDS)",
+          "grams": 14.3,
+          "cost": 1.05
+        },
+        {
+          "paint_code": "301",
+          "name": "LEMON YELLOW",
+          "grams": 90.5,
+          "cost": 15.61
+        },
+        {
+          "paint_code": "302",
+          "name": "YELLOW OXIDE",
+          "grams": 14.3,
+          "cost": 2.45
+        },
+        {
+          "paint_code": "305",
+          "name": "BRIGHT ORANGE YELLOW SHADE",
+          "grams": 2.1,
+          "cost": 0.37
+        }
+      ],
+      "day": "2026-11-19",
+      "count": 1,
+      "id": "1795148519555-5yffpv",
+      "t": 1795148519555
     }
   ],
-  "updatedAt": "2026-11-20T04:21:57.276Z",
+  "updatedAt": "2026-11-20T04:22:01.500Z",
   "resetId": "1795147381705",
   "resetFavs": true,
   "resetMixes": true
