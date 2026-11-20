@@ -303,14 +303,14 @@
       "image": "https://colors.autokotesystems.com/apim/frontend/cod/2025.4.0/cod/market-color-id/cfeb223f-7db5-e311-b816-005056945ff1/medium/tube?variantNumber=1",
       "key": "Layer 1:201+502+200",
       "amount": 5,
-      "grams": 140,
-      "cost": 13.44,
+      "grams": 196,
+      "cost": 18.81,
       "unpriced": 0,
       "layers": [
         {
           "layer": "Layer 1",
-          "grams": 140,
-          "cost": 13.44,
+          "grams": 196,
+          "cost": 18.81,
           "unpriced": 0
         }
       ],
@@ -318,29 +318,29 @@
         {
           "paint_code": "200",
           "name": "STANDARD BLACK",
-          "grams": 22.3,
-          "cost": 2.06
+          "grams": 31.2,
+          "cost": 2.88
         },
         {
           "paint_code": "201",
           "name": "CARBON BLACK",
-          "grams": 111.7,
-          "cost": 10.28
+          "grams": 156.4,
+          "cost": 14.39
         },
         {
           "paint_code": "502",
           "name": "PHTHALO BLUE GREEN SHADE TRANSPARENT",
-          "grams": 6,
-          "cost": 1.1
+          "grams": 8.4,
+          "cost": 1.54
         }
       ],
       "day": "2026-11-19",
-      "count": 1,
+      "count": 2,
       "id": "1795147420882-aonc9r",
-      "t": 1795147420882
+      "t": 1795147453998
     }
   ],
-  "updatedAt": "2026-11-20T04:03:42.835Z",
+  "updatedAt": "2026-11-20T04:04:15.867Z",
   "resetId": "1795147381705",
   "resetFavs": true,
   "resetMixes": true
