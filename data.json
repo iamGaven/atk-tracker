@@ -3,14 +3,14 @@
     "CHE85:50T(B3) (Summit White)": 1,
     "SUBM1Y (Crimson Red Pearl)": 1,
     "CAD91:41T (Black)": 1,
-    "DOD24:ZR6 (Red Hot)": 2
+    "DOD24:ZR6 (Red Hot)": 3
   },
   "daily": {
     "2026-11-19": {
       "CHE85:50T(B3) (Summit White)": 1,
       "SUBM1Y (Crimson Red Pearl)": 1,
       "CAD91:41T (Black)": 1,
-      "DOD24:ZR6 (Red Hot)": 2
+      "DOD24:ZR6 (Red Hot)": 3
     }
   },
   "favorites": {},
@@ -427,7 +427,7 @@
       "t": 1795148356341
     }
   ],
-  "updatedAt": "2026-11-20T04:19:18.212Z",
+  "updatedAt": "2026-11-20T04:20:05.436Z",
   "resetId": "1795147381705",
   "resetFavs": true,
   "resetMixes": true
