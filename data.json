@@ -1,10 +1,21 @@
 {
   "usage": {},
   "daily": {},
-  "favorites": {},
+  "favorites": {
+    "7aa4b655-ecd8-eb11-81b4-0050568d4c1c": {
+      "marketColorId": "7aa4b655-ecd8-eb11-81b4-0050568d4c1c",
+      "variantNumber": null,
+      "manufacturer": "Chevrolet",
+      "name": "CHE22:G6M (Galactic Gray)",
+      "imageUrl": "https://colors.autokotesystems.com/apim/frontend/cod/2025.4.0/cod/market-color-id/7aa4b655-ecd8-eb11-81b4-0050568d4c1c/medium/tube?variantNumber=1",
+      "descriptorIcon": null,
+      "url": "https://colors.autokotesystems.com/formula/marketcolor/Automotive/ATK/370/7aa4b655-ecd8-eb11-81b4-0050568d4c1c/1",
+      "addedAt": 1795144264001
+    }
+  },
   "colorMeta": {},
   "mixes": [],
-  "updatedAt": "2026-11-20T03:10:54.469Z",
+  "updatedAt": "2026-11-20T03:11:05.079Z",
   "resetId": "1795144254469",
   "resetFavs": true,
   "resetMixes": true
