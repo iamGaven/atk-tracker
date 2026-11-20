@@ -3,14 +3,16 @@
     "CAD85:50T (Summit White)": 2,
     "VOLT9038 (Space Blue)": 1,
     "TOY1G3 (Magnetic Gray)": 1,
-    "TOY040 (Super White)": 2
+    "TOY040 (Super White)": 2,
+    "BMW0012 (Polaris Silver)": 1
   },
   "daily": {
     "2026-11-19": {
       "CAD85:50T (Summit White)": 2,
       "VOLT9038 (Space Blue)": 1,
       "TOY1G3 (Magnetic Gray)": 1,
-      "TOY040 (Super White)": 2
+      "TOY040 (Super White)": 2,
+      "BMW0012 (Polaris Silver)": 1
     }
   },
   "favorites": {
@@ -77,6 +79,14 @@
       "imageUrl": "https://colors.autokotesystems.com/apim/frontend/cod/2025.4.0/cod/market-color-id/9919780f-3ab5-e311-b816-005056945ff1/medium/tube?variantNumber=1",
       "descriptorIcon": null,
       "url": "https://colors.autokotesystems.com/formula/marketcolor/Automotive/ATK/370/9919780f-3ab5-e311-b816-005056945ff1/1"
+    },
+    "BMW0012 (Polaris Silver)": {
+      "marketColorId": "efe36595-62b5-e311-b816-005056945ff1",
+      "name": "BMW0012 (Polaris Silver)",
+      "manufacturer": "BMW",
+      "imageUrl": "https://colors.autokotesystems.com/apim/frontend/cod/2025.4.0/cod/market-color-id/efe36595-62b5-e311-b816-005056945ff1/medium/tube?variantNumber=1",
+      "descriptorIcon": null,
+      "url": "https://colors.autokotesystems.com/formula/marketcolor/Automotive/ATK/370/efe36595-62b5-e311-b816-005056945ff1/1"
     }
   },
   "mixes": [
@@ -279,5 +289,5 @@
       "t": 1795143550009
     }
   ],
-  "updatedAt": "2026-11-20T03:01:03.254Z"
+  "updatedAt": "2026-11-20T03:06:09.333Z"
 }
