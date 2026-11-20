@@ -1,18 +1,13 @@
 {
-  "usage": {},
-  "daily": {},
-  "favorites": {
-    "dc38d5aa-53b5-e311-b816-005056945ff1": {
-      "marketColorId": "dc38d5aa-53b5-e311-b816-005056945ff1",
-      "variantNumber": null,
-      "manufacturer": "Toyota",
-      "name": "TOY1G3(L2) (Graphite Grey)",
-      "imageUrl": "https://colors.autokotesystems.com/apim/frontend/cod/2025.4.0/cod/market-color-id/dc38d5aa-53b5-e311-b816-005056945ff1/medium/tube?variantNumber=1",
-      "descriptorIcon": null,
-      "url": "https://colors.autokotesystems.com/formula/marketcolor/Automotive/ATK/370/dc38d5aa-53b5-e311-b816-005056945ff1/1",
-      "addedAt": 1795145596415
+  "usage": {
+    "TOY1G3 (Graphite Grey)": 1
+  },
+  "daily": {
+    "2026-11-19": {
+      "TOY1G3 (Graphite Grey)": 1
     }
   },
+  "favorites": {},
   "colorMeta": {
     "CHE22:G6M (Galactic Gray)": {
       "name": "CHE22:G6M (Galactic Gray)",
@@ -72,7 +67,7 @@
     }
   },
   "mixes": [],
-  "updatedAt": "2026-11-20T03:33:19.411Z",
+  "updatedAt": "2026-11-20T03:33:24.561Z",
   "resetId": "1795145592834",
   "resetFavs": true,
   "resetMixes": true
