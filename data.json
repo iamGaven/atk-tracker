@@ -85,7 +85,47 @@
       "count": 1,
       "id": "1795131889554-qandz2",
       "t": 1795131889554
+    },
+    {
+      "key": "Layer 1:100+301+200",
+      "image": null,
+      "amount": 1,
+      "grams": 35.1,
+      "cost": 2.58,
+      "unpriced": 0,
+      "layers": [
+        {
+          "layer": "Layer 1",
+          "grams": 35.1,
+          "cost": 2.58,
+          "unpriced": 0
+        }
+      ],
+      "components": [
+        {
+          "paint_code": "100",
+          "name": "HIGH HIDING WHITE (FOR SOLIDS)",
+          "grams": 34.9,
+          "cost": 2.55
+        },
+        {
+          "paint_code": "200",
+          "name": "STANDARD BLACK",
+          "grams": 0.1,
+          "cost": 0.01
+        },
+        {
+          "paint_code": "301",
+          "name": "LEMON YELLOW",
+          "grams": 0.1,
+          "cost": 0.02
+        }
+      ],
+      "day": "2026-11-19",
+      "count": 1,
+      "id": "1795143093883-93bstg",
+      "t": 1795143093883
     }
   ],
-  "updatedAt": "2026-11-20T02:51:32.368Z"
+  "updatedAt": "2026-11-20T02:51:36.397Z"
 }
