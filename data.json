@@ -200,9 +200,78 @@
       "count": 1,
       "id": "1795147392563-f81r5e",
       "t": 1795147392563
+    },
+    {
+      "name": "SUBM1Y (Crimson Red Pearl)",
+      "akzoCode": "SUBM1Y",
+      "variantNumber": 1,
+      "variantSuffix": "",
+      "marketColorId": "5dcbd198-85ef-e611-80f0-0050568d4c1c",
+      "image": "https://colors.autokotesystems.com/apim/frontend/cod/2025.4.0/cod/market-color-id/5dcbd198-85ef-e611-80f0-0050568d4c1c/medium/tube?variantNumber=1",
+      "key": "Layer 1:824+200+822+030+405+407+823",
+      "amount": 1,
+      "grams": 28.1,
+      "cost": 5.26,
+      "unpriced": 0,
+      "layers": [
+        {
+          "layer": "Layer 1",
+          "grams": 28.1,
+          "cost": 5.26,
+          "unpriced": 0
+        }
+      ],
+      "components": [
+        {
+          "paint_code": "200",
+          "name": "STANDARD BLACK",
+          "grams": 0.9,
+          "cost": 0.08
+        },
+        {
+          "paint_code": "405",
+          "name": "DARK RED TRANSPARENT",
+          "grams": 3,
+          "cost": 0.58
+        },
+        {
+          "paint_code": "407",
+          "name": "MAGENTA",
+          "grams": 5,
+          "cost": 0.71
+        },
+        {
+          "paint_code": "822",
+          "name": "ORANGE GOLD MICA",
+          "grams": 1.6,
+          "cost": 0.34
+        },
+        {
+          "paint_code": "823",
+          "name": "RED ORANGE MICA OF",
+          "grams": 5.5,
+          "cost": 1.16
+        },
+        {
+          "paint_code": "824",
+          "name": "RED ORANGE MICA SPARKLE OF",
+          "grams": 10.1,
+          "cost": 2.2
+        },
+        {
+          "paint_code": "030",
+          "name": "FLOP ADJUSTER TRANSPARENT",
+          "grams": 2,
+          "cost": 0.18
+        }
+      ],
+      "day": "2026-11-19",
+      "count": 1,
+      "id": "1795147403691-4f9qlu",
+      "t": 1795147403691
     }
   ],
-  "updatedAt": "2026-11-20T04:03:20.535Z",
+  "updatedAt": "2026-11-20T04:03:25.628Z",
   "resetId": "1795147381705",
   "resetFavs": true,
   "resetMixes": true
