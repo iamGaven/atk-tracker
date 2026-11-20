@@ -2,13 +2,15 @@
   "usage": {
     "CHE85:50T(B3) (Summit White)": 1,
     "SUBM1Y (Crimson Red Pearl)": 1,
-    "CAD91:41T (Black)": 1
+    "CAD91:41T (Black)": 1,
+    "DOD24:ZR6 (Red Hot)": 1
   },
   "daily": {
     "2026-11-19": {
       "CHE85:50T(B3) (Summit White)": 1,
       "SUBM1Y (Crimson Red Pearl)": 1,
-      "CAD91:41T (Black)": 1
+      "CAD91:41T (Black)": 1,
+      "DOD24:ZR6 (Red Hot)": 1
     }
   },
   "favorites": {},
@@ -177,6 +179,17 @@
           "grams": 28
         }
       ]
+    },
+    "DOD24:ZR6 (Red Hot)": {
+      "name": "DOD24:ZR6 (Red Hot)",
+      "akzoCode": "DOD24:ZR6",
+      "variantSuffix": "",
+      "variantNumber": 1,
+      "marketColorId": "fe2d99fc-259d-ef11-814e-0022485d53a8",
+      "manufacturer": "Dodge",
+      "imageUrl": "https://colors.autokotesystems.com/apim/frontend/cod/2025.4.0/cod/market-color-id/fe2d99fc-259d-ef11-814e-0022485d53a8/medium/tube?variantNumber=1",
+      "descriptorIcon": null,
+      "url": "https://colors.autokotesystems.com/formula/marketcolor/Automotive/ATK/370/fe2d99fc-259d-ef11-814e-0022485d53a8/1"
     }
   },
   "mixes": [
@@ -340,7 +353,7 @@
       "t": 1795147453998
     }
   ],
-  "updatedAt": "2026-11-20T04:04:15.867Z",
+  "updatedAt": "2026-11-20T04:17:58.775Z",
   "resetId": "1795147381705",
   "resetFavs": true,
   "resetMixes": true
