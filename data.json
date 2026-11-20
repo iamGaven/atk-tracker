@@ -1,10 +1,10 @@
 {
   "usage": {
-    "CHE22:G6M (Galactic Gray)": 1
+    "CHE22:G6M (Galactic Gray)": 2
   },
   "daily": {
     "2026-11-19": {
-      "CHE22:G6M (Galactic Gray)": 1
+      "CHE22:G6M (Galactic Gray)": 2
     }
   },
   "favorites": {},
@@ -29,14 +29,14 @@
       "image": "https://colors.autokotesystems.com/apim/frontend/cod/2025.4.0/cod/market-color-id/7aa4b655-ecd8-eb11-81b4-0050568d4c1c/medium/tube?variantNumber=1",
       "key": "Layer 1:815+101+405+505+704+030+201",
       "amount": 5,
-      "grams": 141,
-      "cost": 21.64,
+      "grams": 197.4,
+      "cost": 30.3,
       "unpriced": 0,
       "layers": [
         {
           "layer": "Layer 1",
-          "grams": 141,
-          "cost": 21.64,
+          "grams": 197.4,
+          "cost": 30.3,
           "unpriced": 0
         }
       ],
@@ -44,53 +44,53 @@
         {
           "paint_code": "101",
           "name": "TINTING WHITE (FOR METALLICS)",
-          "grams": 0.4,
-          "cost": 0.04
+          "grams": 0.6,
+          "cost": 0.06
         },
         {
           "paint_code": "201",
           "name": "CARBON BLACK",
-          "grams": 37.4,
-          "cost": 3.44
+          "grams": 52.4,
+          "cost": 4.82
         },
         {
           "paint_code": "405",
           "name": "DARK RED TRANSPARENT",
-          "grams": 6.8,
-          "cost": 1.31
+          "grams": 9.5,
+          "cost": 1.83
         },
         {
           "paint_code": "505",
           "name": "BLUE RED SHADE TRANSPARENT",
-          "grams": 7.7,
-          "cost": 1.42
+          "grams": 10.8,
+          "cost": 1.99
         },
         {
           "paint_code": "704",
           "name": "SPARKLE COARSE ALUMINUM",
-          "grams": 13.5,
-          "cost": 1.63
+          "grams": 18.9,
+          "cost": 2.28
         },
         {
           "paint_code": "815",
           "name": "BLUE MICA FINE YF",
-          "grams": 56.5,
-          "cost": 12.1
+          "grams": 79.1,
+          "cost": 16.94
         },
         {
           "paint_code": "030",
           "name": "FLOP ADJUSTER TRANSPARENT",
-          "grams": 18.7,
-          "cost": 1.69
+          "grams": 26.1,
+          "cost": 2.36
         }
       ],
       "day": "2026-11-19",
-      "count": 1,
+      "count": 2,
       "id": "1795144295386-o6odrz",
-      "t": 1795144295386
+      "t": 1795144341658
     }
   ],
-  "updatedAt": "2026-11-20T03:11:38.398Z",
+  "updatedAt": "2026-11-20T03:12:24.401Z",
   "resetId": "1795144287219",
   "resetFavs": true,
   "resetMixes": true
