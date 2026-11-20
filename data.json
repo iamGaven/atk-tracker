@@ -1,12 +1,6 @@
 {
-  "usage": {
-    "TOY1G3(L1) (Graphite Grey)": 1
-  },
-  "daily": {
-    "2026-11-19": {
-      "TOY1G3(L1) (Graphite Grey)": 1
-    }
-  },
+  "usage": {},
+  "daily": {},
   "favorites": {},
   "colorMeta": {
     "CHE22:G6M (Galactic Gray)": {
@@ -77,8 +71,8 @@
     }
   },
   "mixes": [],
-  "updatedAt": "2026-11-20T03:35:37.715Z",
-  "resetId": "1795145631979",
+  "updatedAt": "2026-11-20T03:37:28.773Z",
+  "resetId": "1795145848773",
   "resetFavs": true,
   "resetMixes": true
 }
