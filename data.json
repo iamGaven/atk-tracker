@@ -578,9 +578,72 @@
       "count": 1,
       "id": "1795189652800-df2gne",
       "t": 1795189652800
+    },
+    {
+      "name": "NISGAC (Malbec Black)",
+      "akzoCode": "NISGAC",
+      "variantNumber": 1,
+      "variantSuffix": "",
+      "marketColorId": "baaa0856-57b5-e311-b816-005056945ff1",
+      "image": "https://colors.autokotesystems.com/apim/frontend/cod/2025.4.0/cod/market-color-id/baaa0856-57b5-e311-b816-005056945ff1/medium/tube?variantNumber=1",
+      "key": "Layer 1:500+030+405+824+504+201",
+      "amount": 0.5,
+      "grams": 14,
+      "cost": 2.11,
+      "unpriced": 0,
+      "layers": [
+        {
+          "layer": "Layer 1",
+          "grams": 14,
+          "cost": 2.11,
+          "unpriced": 0
+        }
+      ],
+      "components": [
+        {
+          "paint_code": "201",
+          "name": "CARBON BLACK",
+          "grams": 3.4,
+          "cost": 0.31
+        },
+        {
+          "paint_code": "405",
+          "name": "DARK RED TRANSPARENT",
+          "grams": 0.8,
+          "cost": 0.15
+        },
+        {
+          "paint_code": "500",
+          "name": "PURPLE",
+          "grams": 4.4,
+          "cost": 0.63
+        },
+        {
+          "paint_code": "504",
+          "name": "BRIGHT BLUE RED SHADE TRANSPARENT",
+          "grams": 2.5,
+          "cost": 0.45
+        },
+        {
+          "paint_code": "824",
+          "name": "RED ORANGE MICA SPARKLE OF",
+          "grams": 2.3,
+          "cost": 0.5
+        },
+        {
+          "paint_code": "030",
+          "name": "FLOP ADJUSTER TRANSPARENT",
+          "grams": 0.6,
+          "cost": 0.05
+        }
+      ],
+      "day": "2026-11-20",
+      "count": 1,
+      "id": "1795193854484-cdvyh8",
+      "t": 1795193854484
     }
   ],
-  "updatedAt": "2026-11-20T16:57:32.858Z",
+  "updatedAt": "2026-11-20T16:57:36.634Z",
   "resetId": "1795147381705",
   "resetFavs": true,
   "resetMixes": true
