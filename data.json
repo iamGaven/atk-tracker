@@ -4,7 +4,8 @@
     "SUBM1Y (Crimson Red Pearl)": 1,
     "CAD91:41T (Black)": 1,
     "DOD24:ZR6 (Red Hot)": 3,
-    "ACU1001 (Phoenix Yellow)": 2
+    "ACU1001 (Phoenix Yellow)": 2,
+    "NISGAC (Malbec Black)": 1
   },
   "daily": {
     "2026-11-19": {
@@ -15,7 +16,8 @@
       "ACU1001 (Phoenix Yellow)": 1
     },
     "2026-11-20": {
-      "ACU1001 (Phoenix Yellow)": 1
+      "ACU1001 (Phoenix Yellow)": 1,
+      "NISGAC (Malbec Black)": 1
     }
   },
   "favorites": {},
@@ -226,6 +228,28 @@
           "day": "2026-11-19",
           "cost": 4.87,
           "grams": 30.3
+        }
+      ]
+    },
+    "NISGAC (Malbec Black)": {
+      "name": "NISGAC (Malbec Black)",
+      "akzoCode": "NISGAC",
+      "variantSuffix": "",
+      "variantNumber": 1,
+      "marketColorId": "baaa0856-57b5-e311-b816-005056945ff1",
+      "manufacturer": "Nissan",
+      "imageUrl": "https://colors.autokotesystems.com/apim/frontend/cod/2025.4.0/cod/market-color-id/baaa0856-57b5-e311-b816-005056945ff1/medium/tube?variantNumber=1",
+      "descriptorIcon": null,
+      "url": "https://colors.autokotesystems.com/formula/marketcolor/Automotive/ATK/370/baaa0856-57b5-e311-b816-005056945ff1/1",
+      "ozCost": 4.22,
+      "ozGrams": 27.9,
+      "ozAt": 1795193850887,
+      "ozHistory": [
+        {
+          "t": 1795193850887,
+          "day": "2026-11-20",
+          "cost": 4.22,
+          "grams": 27.9
         }
       ]
     }
@@ -556,7 +580,7 @@
       "t": 1795189652800
     }
   ],
-  "updatedAt": "2026-11-20T16:55:57.439Z",
+  "updatedAt": "2026-11-20T16:57:32.858Z",
   "resetId": "1795147381705",
   "resetFavs": true,
   "resetMixes": true
