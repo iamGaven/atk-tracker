@@ -5,7 +5,8 @@
     "CAD91:41T (Black)": 1,
     "DOD24:ZR6 (Red Hot)": 3,
     "ACU1001 (Phoenix Yellow)": 2,
-    "NISGAC (Malbec Black)": 1
+    "NISGAC (Malbec Black)": 1,
+    "CAD15:G1W (Crystal White)": 1
   },
   "daily": {
     "2026-11-19": {
@@ -17,7 +18,8 @@
     },
     "2026-11-20": {
       "ACU1001 (Phoenix Yellow)": 1,
-      "NISGAC (Malbec Black)": 1
+      "NISGAC (Malbec Black)": 1,
+      "CAD15:G1W (Crystal White)": 1
     }
   },
   "favorites": {},
@@ -250,6 +252,28 @@
           "day": "2026-11-20",
           "cost": 4.22,
           "grams": 27.9
+        }
+      ]
+    },
+    "CAD15:G1W (Crystal White)": {
+      "name": "CAD15:G1W (Crystal White)",
+      "akzoCode": "CAD15:G1W",
+      "variantSuffix": "",
+      "variantNumber": 1,
+      "marketColorId": "7f3922a0-f2cb-e311-bfb3-005056945ff1",
+      "manufacturer": "Cadillac",
+      "imageUrl": "https://colors.autokotesystems.com/apim/frontend/cod/2025.4.0/cod/market-color-id/7f3922a0-f2cb-e311-bfb3-005056945ff1/medium/tube?variantNumber=1",
+      "descriptorIcon": null,
+      "url": "https://colors.autokotesystems.com/formula/marketcolor/Automotive/ATK/370/7f3922a0-f2cb-e311-bfb3-005056945ff1/1",
+      "ozCost": 2.58,
+      "ozGrams": 35.1,
+      "ozAt": 1795196007743,
+      "ozHistory": [
+        {
+          "t": 1795196007743,
+          "day": "2026-11-20",
+          "cost": 2.58,
+          "grams": 35.1
         }
       ]
     }
@@ -643,7 +667,7 @@
       "t": 1795193854484
     }
   ],
-  "updatedAt": "2026-11-20T16:57:36.634Z",
+  "updatedAt": "2026-11-20T17:33:29.859Z",
   "resetId": "1795147381705",
   "resetFavs": true,
   "resetMixes": true
