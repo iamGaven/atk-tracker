@@ -1,12 +1,14 @@
 {
   "usage": {
     "CHE85:50T(B3) (Summit White)": 1,
-    "SUBM1Y (Crimson Red Pearl)": 1
+    "SUBM1Y (Crimson Red Pearl)": 1,
+    "CAD91:41T (Black)": 1
   },
   "daily": {
     "2026-11-19": {
       "CHE85:50T(B3) (Summit White)": 1,
-      "SUBM1Y (Crimson Red Pearl)": 1
+      "SUBM1Y (Crimson Red Pearl)": 1,
+      "CAD91:41T (Black)": 1
     }
   },
   "favorites": {},
@@ -153,6 +155,28 @@
           "grams": 28.1
         }
       ]
+    },
+    "CAD91:41T (Black)": {
+      "name": "CAD91:41T (Black)",
+      "akzoCode": "CAD91:41T",
+      "variantSuffix": "",
+      "variantNumber": 1,
+      "marketColorId": "cfeb223f-7db5-e311-b816-005056945ff1",
+      "manufacturer": "Cadillac",
+      "imageUrl": "https://colors.autokotesystems.com/apim/frontend/cod/2025.4.0/cod/market-color-id/cfeb223f-7db5-e311-b816-005056945ff1/medium/tube?variantNumber=1",
+      "descriptorIcon": null,
+      "url": "https://colors.autokotesystems.com/formula/marketcolor/Automotive/ATK/370/cfeb223f-7db5-e311-b816-005056945ff1/1",
+      "ozCost": 2.69,
+      "ozGrams": 28,
+      "ozAt": 1795147417050,
+      "ozHistory": [
+        {
+          "t": 1795147417050,
+          "day": "2026-11-19",
+          "cost": 2.69,
+          "grams": 28
+        }
+      ]
     }
   },
   "mixes": [
@@ -271,7 +295,7 @@
       "t": 1795147403691
     }
   ],
-  "updatedAt": "2026-11-20T04:03:25.628Z",
+  "updatedAt": "2026-11-20T04:03:38.414Z",
   "resetId": "1795147381705",
   "resetFavs": true,
   "resetMixes": true
