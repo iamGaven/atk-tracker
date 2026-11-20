@@ -362,9 +362,72 @@
       "count": 2,
       "id": "1795147420882-aonc9r",
       "t": 1795147453998
+    },
+    {
+      "name": "DOD24:ZR6 (Red Hot)",
+      "akzoCode": "DOD24:ZR6",
+      "variantNumber": 1,
+      "variantSuffix": "",
+      "marketColorId": "fe2d99fc-259d-ef11-814e-0022485d53a8",
+      "image": "https://colors.autokotesystems.com/apim/frontend/cod/2025.4.0/cod/market-color-id/fe2d99fc-259d-ef11-814e-0022485d53a8/medium/tube?variantNumber=1",
+      "key": "Layer 1:404+030+823+822+824+405",
+      "amount": 1,
+      "grams": 28,
+      "cost": 5.55,
+      "unpriced": 0,
+      "layers": [
+        {
+          "layer": "Layer 1",
+          "grams": 28,
+          "cost": 5.55,
+          "unpriced": 0
+        }
+      ],
+      "components": [
+        {
+          "paint_code": "404",
+          "name": "BRIGHT RED TRANSPARENT",
+          "grams": 8.5,
+          "cost": 1.66
+        },
+        {
+          "paint_code": "405",
+          "name": "DARK RED TRANSPARENT",
+          "grams": 6.5,
+          "cost": 1.25
+        },
+        {
+          "paint_code": "822",
+          "name": "ORANGE GOLD MICA",
+          "grams": 3.7,
+          "cost": 0.8
+        },
+        {
+          "paint_code": "823",
+          "name": "RED ORANGE MICA OF",
+          "grams": 1.5,
+          "cost": 0.32
+        },
+        {
+          "paint_code": "824",
+          "name": "RED ORANGE MICA SPARKLE OF",
+          "grams": 6.4,
+          "cost": 1.39
+        },
+        {
+          "paint_code": "030",
+          "name": "FLOP ADJUSTER TRANSPARENT",
+          "grams": 1.4,
+          "cost": 0.13
+        }
+      ],
+      "day": "2026-11-19",
+      "count": 1,
+      "id": "1795148356341-6zwpfl",
+      "t": 1795148356341
     }
   ],
-  "updatedAt": "2026-11-20T04:18:21.526Z",
+  "updatedAt": "2026-11-20T04:19:18.212Z",
   "resetId": "1795147381705",
   "resetFavs": true,
   "resetMixes": true
