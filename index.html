@@ -48,6 +48,7 @@
 
   main { max-width: 680px; margin: 0 auto; padding: 14px 16px calc(env(safe-area-inset-bottom, 0px) + 40px); }
   .summary { display: flex; gap: 10px; margin-bottom: 12px; }
+  .stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 12px; }
   .stat { flex: 1; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 10px 14px; box-shadow: var(--shadow); }
   .stat b { display: block; font-size: 22px; letter-spacing: -.02em; }
   .stat span { color: var(--muted); font-size: 12px; }
@@ -93,18 +94,13 @@
   .group { padding-bottom: 6px; border-bottom: 1px solid var(--line); }
   .group:last-child { border-bottom: 0; }
 
-  .seg { display: flex; gap: 4px; padding: 4px; background: var(--surface2); border: 1px solid var(--line);
-    border-radius: 12px; margin-bottom: 12px; }
-  .seg button { flex: 1; border: 0; background: transparent; color: var(--muted); font: inherit; font-size: 14px;
-    font-weight: 600; padding: 7px 4px; border-radius: 9px; cursor: pointer; }
-  .seg button.on { background: var(--surface); color: var(--text); box-shadow: var(--shadow); }
   .chart-wrap { padding: 12px 8px 4px; }
   .chart-wrap svg { width: 100%; height: auto; display: block; }
-  .chart-wrap text { fill: var(--muted); font-size: 11px; font-family: inherit; }
+  .chart-wrap text { fill: var(--muted); font-size: 12px; font-family: inherit; }
+  .chart-wrap .val { fill: var(--text); font-weight: 600; }
   .bar { fill: var(--accent); }
   .bar:hover, .bar:active { opacity: .75; }
   .grid { stroke: var(--line); stroke-width: 1; }
-  .period-list .item { cursor: default; }
 
   .empty { text-align: center; color: var(--muted); padding: 40px 16px; background: var(--surface);
     border: 1px dashed var(--line); border-radius: 16px; }
@@ -136,7 +132,7 @@
   <nav class="tabs" role="tablist">
     <button data-tab="favs">Favorites <span class="n" id="nFavs">0</span></button>
     <button data-tab="today" class="on">Today <span class="n" id="nToday">0</span></button>
-    <button data-tab="costs">Costs <span class="n" id="nCosts">0</span></button>
+    <button data-tab="stats">Stats <span class="n" id="nStats">0</span></button>
     <button data-tab="all">All time <span class="n" id="nAll">0</span></button>
   </nav>
 </div></header>
@@ -147,7 +143,7 @@
   <details class="manage">
     <summary>Manage data</summary>
     <div class="manage-body">
-      <p>Clears usage counts (today and all time) in data.json on GitHub. Tick the boxes to also clear favorites or confirmed mixes. Every device running the userscript refreshes from it on its next sync.</p>
+      <p>Clears usage counts (today and all time) in data.json on GitHub. Tick the boxes to also clear favorites or confirmed mixes. Paint details, including 1 oz prices, are always kept. Every device running the userscript refreshes from it on its next sync.</p>
       <label class="check"><input type="checkbox" id="clearFavs"> Also clear favorites</label>
       <label class="check"><input type="checkbox" id="clearMixes"> Also clear confirmed mixes</label>
       <button class="danger-btn" id="clearBtn">Clear data</button>
@@ -168,18 +164,27 @@ const todayKey = () => {
   return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
 };
 const money = n => "$" + (n || 0).toFixed(2);
+const round2 = n => Math.round(n * 100) / 100;
+const shortName = (s, n) => s.length > n ? s.slice(0, n - 1) + "…" : s;
+const fmtDay = k => {
+  const [y, m, d] = k.split("-");
+  return new Date(+y, +m - 1, +d).toLocaleDateString([], { month: "short", day: "numeric", year: "numeric" });
+};
+const monthLabel = k => {
+  const [y, m] = k.split("-");
+  return new Date(+y, +m - 1, 1).toLocaleDateString([], { month: "short", year: "2-digit" });
+};
 
 const OWNER = "iamGaven", REPO = "atk-tracker", BRANCH = "main", FILE = "data.json";
 const DATA_URL = `https://raw.githubusercontent.com/${OWNER}/${REPO}/${BRANCH}/${FILE}`;
 const API_URL = `https://api.github.com/repos/${OWNER}/${REPO}/contents/${FILE}`;
 const TOKEN_KEY = "paintTrackerGithubToken";
 
-let holdUntil = 0;      // after a clear without a token, ignore the cached raw file for a while
+let holdUntil = 0;
 let lastData = {};
 let tab = "today";
-let costView = "day";   // day | month | year
 
-/* ---------- rendering ---------- */
+/* ---------- shared rendering ---------- */
 
 const thumb = url => {
   const src = imgSrc(url);
@@ -193,7 +198,7 @@ function splitName(name) {
   return m ? [m[1], m[2]] : [String(name), ""];
 }
 
-// Link to the color's formula page, like favorites have. Uses the stored url when there is one,
+// Link to the color's formula page. Uses the stored url when there is one,
 // otherwise rebuilds it from the color id and variant in the image url.
 function formulaUrl(m, favorites) {
   if (m.url) return m.url;
@@ -281,13 +286,14 @@ function renderFavs(favorites) {
     return `<section class="card"><div class="card-h"><h3>${esc(mfr)}</h3><span class="pill">${total}</span></div>${body}</section>`;
   }).join("");
 }
-// Today: confirmed mixes (one card per paint), then usage for paints without a mix
+
+/* ---------- today ---------- */
+
 // Today: one list. Each paint appears once under its manufacturer, with its uses and any mixes.
 function renderToday(entries, meta, favorites, mixes) {
   const todayMixes = mixes.filter(m => m.day === todayKey());
   if (!entries.length && !todayMixes.length) return empty("🎨", "Nothing used today");
 
-  // One row per paint: usage counts come from daily, mix details from today's mixes
   const paints = {};
   const getPaint = (key, name) => paints[key] || (paints[key] = { key, name, uses: 0, mixes: [] });
   entries.forEach(([name, n]) => { getPaint(name, name).uses = n; });
@@ -296,7 +302,6 @@ function renderToday(entries, meta, favorites, mixes) {
     getPaint(key, m.name || null).mixes.push(m);
   });
 
-  // Group by manufacturer, taking it from the mix first, then from colorMeta
   const byMfr = {};
   Object.values(paints).forEach(p => {
     const pm = (meta || {})[p.name] || {};
@@ -385,108 +390,279 @@ function mixBreakdown(m) {
     </div>`).join("");
   return layers + rows;
 }
-/* ---------- costs tab ---------- */
 
-// Groups confirmed mixes into day / month / year buckets.
-// Keys sort chronologically as strings: "2026-11-19", "2026-11", "2026".
-function bucketMixes(mixes, view) {
-  const buckets = {};
-  mixes.forEach(m => {
-    const day = m.day || (m.t ? dayFromTime(m.t) : null);
-    if (!day) return;
-    const key = view === "year" ? day.slice(0, 4) : view === "month" ? day.slice(0, 7) : day;
-    const b = buckets[key] || (buckets[key] = { key, cost: 0, grams: 0, count: 0, unpriced: 0 });
-    b.cost += m.cost || 0;
-    b.grams += m.grams || 0;
-    b.count += m.count || 1;
-    b.unpriced += m.unpriced || 0;
+/* ---------- stats ---------- */
+
+// Gathers every number the Stats tab shows from data.json in one pass
+function buildStats(data) {
+  const usage = data.usage || {}, daily = data.daily || {}, meta = data.colorMeta || {}, mixes = data.mixes || [];
+  const paints = {};
+  const paint = name => paints[name] || (paints[name] = {
+    name, uses: 0, days: new Set(), firstDay: null, lastDay: null,
+    mixes: 0, cost: 0, grams: 0, components: {}, meta: meta[name] || {},
   });
-  return Object.values(buckets).sort((a, b) => a.key.localeCompare(b.key));
+
+  Object.keys(meta).forEach(name => paint(name));
+  Object.entries(usage).forEach(([name, n]) => { paint(name).uses = n; });
+  Object.entries(daily).forEach(([day, map]) => {
+    Object.keys(map).forEach(name => {
+      const p = paint(name);
+      p.days.add(day);
+      if (!p.firstDay || day < p.firstDay) p.firstDay = day;
+      if (!p.lastDay || day > p.lastDay) p.lastDay = day;
+    });
+  });
+
+  const materials = {}, dayCost = {}, monthCost = {}, yearCost = {}, yearMixes = {};
+  let totalCost = 0, totalGrams = 0, totalMixes = 0;
+
+  mixes.forEach(m => {
+    const n = m.count || 1;
+    const cost = m.cost || 0;
+    totalCost += cost; totalGrams += m.grams || 0; totalMixes += n;
+
+    const day = m.day || "";
+    if (day) {
+      dayCost[day] = (dayCost[day] || 0) + cost;
+      const mk = day.slice(0, 7), yr = day.slice(0, 4);
+      monthCost[mk] = (monthCost[mk] || 0) + cost;
+      yearCost[yr] = (yearCost[yr] || 0) + cost;
+      yearMixes[yr] = (yearMixes[yr] || 0) + n;
+    }
+
+    (m.components || []).forEach(c => {
+      const mat = materials[c.paint_code] || (materials[c.paint_code] = { code: c.paint_code, name: c.name || "", grams: 0, cost: 0 });
+      mat.grams += c.grams || 0;
+      mat.cost += c.cost || 0;
+    });
+
+    if (!m.name) return; // older mixes without a paint name only count toward totals and materials
+    const p = paint(m.name);
+    p.mixes += n; p.cost += cost; p.grams += m.grams || 0;
+    (m.components || []).forEach(c => {
+      const cc = p.components[c.paint_code] || (p.components[c.paint_code] = { code: c.paint_code, name: c.name || "", grams: 0, cost: 0 });
+      cc.grams += c.grams || 0;
+      cc.cost += c.cost || 0;
+    });
+  });
+
+  const list = Object.values(paints).map(p => {
+    const m = p.meta;
+    return {
+      name: p.name,
+      akzoCode: m.akzoCode || p.name.split("(")[0].trim(),
+      variantSuffix: m.variantSuffix || "",
+      manufacturer: m.manufacturer || "Unknown",
+      imageUrl: m.imageUrl || null,
+      url: m.url || null,
+      uses: p.uses,
+      days: p.days.size,
+      firstDay: p.firstDay,
+      lastDay: p.lastDay,
+      mixes: p.mixes,
+      cost: round2(p.cost),
+      grams: round2(p.grams),
+      avgPerMix: p.mixes ? p.cost / p.mixes : null,
+      ozCost: m.ozCost ?? null,
+      ozAt: m.ozAt ?? null,
+      ozHistory: m.ozHistory || [],
+      components: Object.values(p.components).sort((a, b) => b.cost - a.cost),
+    };
+  });
+
+  const byMfr = {};
+  list.forEach(p => {
+    const g = byMfr[p.manufacturer] || (byMfr[p.manufacturer] = { name: p.manufacturer, uses: 0, mixes: 0, cost: 0, paints: 0 });
+    g.uses += p.uses; g.mixes += p.mixes; g.cost += p.cost; g.paints += 1;
+  });
+
+  const matList = Object.values(materials).sort((a, b) => b.cost - a.cost);
+  const busiest = Object.entries(dayCost).sort((a, b) => b[1] - a[1])[0] || null;
+
+  return {
+    list, byMfr, materials: matList, busiest,
+    monthCost, yearCost, yearMixes,
+    totalCost, totalGrams, totalMixes,
+    totalUses: Object.values(usage).reduce((a, n) => a + n, 0),
+    paintsUsed: list.filter(p => p.uses > 0).length,
+    activeDays: Object.keys(daily).filter(d => Object.keys(daily[d]).length).length,
+  };
 }
 
-function dayFromTime(t) {
-  const d = new Date(t);
-  return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
+// Horizontal bars: one row per paint, scaled to the largest value
+function hbarChartSvg(rows, fmt) {
+  if (!rows.length) return "";
+  const W = 440, rowH = 26, labelW = 150, valW = 80, padT = 4;
+  const H = padT + rows.length * rowH + 4;
+  const barMax = W - labelW - valW;
+  const max = Math.max(...rows.map(r => r.value), 0.01);
+  const body = rows.map((r, i) => {
+    const y = padT + i * rowH;
+    const w = Math.max(2, (r.value / max) * barMax);
+    return `<text x="${labelW - 6}" y="${y + 17}" text-anchor="end">${esc(shortName(r.label, 22))}</text>
+      <rect class="bar" x="${labelW}" y="${y + 5}" width="${w.toFixed(1)}" height="14" rx="3"><title>${esc(r.label)}: ${esc(fmt(r.value))}</title></rect>
+      <text class="val" x="${(labelW + w + 5).toFixed(1)}" y="${y + 17}">${esc(fmt(r.value))}</text>`;
+  }).join("");
+  return `<svg viewBox="0 0 ${W} ${H}" role="img">${body}</svg>`;
 }
 
-function periodLabel(key, view) {
-  if (view === "year") return key;
-  if (view === "month") {
-    const [y, m] = key.split("-");
-    return new Date(+y, +m - 1, 1).toLocaleDateString([], { month: "short", year: "numeric" });
-  }
-  const [y, m, d] = key.split("-");
-  return new Date(+y, +m - 1, +d).toLocaleDateString([], { month: "short", day: "numeric" });
-}
-
-// Simple inline SVG bar chart: no libraries, scales to the phone width.
-function barChartSvg(buckets, view) {
-  if (!buckets.length) return "";
-  const W = 640, H = 240, padL = 48, padR = 12, padT = 16, padB = 36;
+// Vertical bars for a time series
+function barChartSvg(items, fmt) {
+  if (!items.length) return "";
+  const W = 420, H = 200, padL = 42, padR = 8, padT = 10, padB = 28;
   const innerW = W - padL - padR, innerH = H - padT - padB;
-  const max = Math.max(...buckets.map(b => b.cost), 0.01);
-  const niceMax = Math.ceil(max / 10) * 10 || 10;
-  const slot = innerW / buckets.length;
-  const barW = Math.max(4, Math.min(48, slot * 0.7));
+  const max = Math.max(...items.map(i => i.value), 0.01);
+  const niceMax = Math.ceil(max / 5) * 5 || 5;
 
-  // Y-axis gridlines at 0, 25%, 50%, 75%, 100%
-  const grid = [0, 0.25, 0.5, 0.75, 1].map(f => {
+  const grid = [0, 0.5, 1].map(f => {
     const y = padT + innerH - f * innerH;
     return `<line class="grid" x1="${padL}" x2="${W - padR}" y1="${y}" y2="${y}"/>
-      <text x="${padL - 6}" y="${y + 4}" text-anchor="end">$${Math.round(niceMax * f)}</text>`;
+      <text x="${padL - 4}" y="${y + 4}" text-anchor="end">$${Math.round(niceMax * f)}</text>`;
   }).join("");
 
-  // Keep x labels readable: show every Nth label when there are many buckets
-  const every = Math.ceil(buckets.length / 8);
-  const bars = buckets.map((b, i) => {
-    const h = (b.cost / niceMax) * innerH;
+  const slot = innerW / items.length;
+  const barW = Math.max(4, Math.min(36, slot * 0.7));
+  const every = Math.ceil(items.length / 6);
+  const bars = items.map((it, i) => {
+    const h = (it.value / niceMax) * innerH;
     const x = padL + i * slot + (slot - barW) / 2;
     const y = padT + innerH - h;
-    const label = i % every === 0
-      ? `<text x="${x + barW / 2}" y="${H - 12}" text-anchor="middle">${esc(periodLabel(b.key, view))}</text>`
+    const lbl = i % every === 0
+      ? `<text x="${(x + barW / 2).toFixed(1)}" y="${H - 10}" text-anchor="middle">${esc(it.label)}</text>`
       : "";
-    return `<rect class="bar" x="${x}" y="${y}" width="${barW}" height="${Math.max(h, 0)}" rx="3">
-        <title>${esc(periodLabel(b.key, view))}: ${money(b.cost)} (${b.count} mix${b.count === 1 ? "" : "es"})</title>
-      </rect>${label}`;
+    return `<rect class="bar" x="${x.toFixed(1)}" y="${y.toFixed(1)}" width="${barW.toFixed(1)}" height="${Math.max(h, 0).toFixed(1)}" rx="3"><title>${esc(it.label)}: ${esc(fmt(it.value))}</title></rect>${lbl}`;
   }).join("");
 
-  return `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Mix cost by ${view}">${grid}${bars}</svg>`;
+  return `<svg viewBox="0 0 ${W} ${H}" role="img">${grid}${bars}</svg>`;
 }
 
-function renderCosts(mixes) {
-  const seg = `<div class="seg">
-    ${["day", "month", "year"].map(v =>
-      `<button data-view="${v}" class="${costView === v ? "on" : ""}">${v[0].toUpperCase() + v.slice(1)}</button>`
-    ).join("")}
+const nameLink = p => {
+  const t = esc(p.name);
+  return p.url ? `<a href="${esc(p.url)}" target="_blank" rel="noopener">${t}</a>` : t;
+};
+
+// One paint on the Stats tab, with its details tucked in a breakdown
+function renderStatPaint(p) {
+  const perOz = p.ozCost != null ? `${money(p.ozCost)}/oz` : "1 oz price pending";
+  const sub = `${p.uses} use${p.uses === 1 ? "" : "s"} · ${p.mixes} mix${p.mixes === 1 ? "" : "es"} · ${money(p.cost)} total · ${perOz}`;
+  const dates = p.firstDay
+    ? `First ${fmtDay(p.firstDay)} · last ${fmtDay(p.lastDay)} · ${p.days} day${p.days === 1 ? "" : "s"} active`
+    : "";
+  const comps = p.components.slice(0, 6).map(c => `
+    <div class="item">
+      <div class="info"><div class="code"><span>${esc(c.code)}</span></div>
+      <div class="desc">${esc(c.name)} · ${c.grams.toFixed(1)} g</div></div>
+      <div class="count">${money(c.cost)}</div>
+    </div>`).join("");
+  const history = p.ozHistory.slice(-5).reverse().map(h =>
+    `<div class="sub">${fmtDay(h.day)} · ${money(h.cost)}/oz</div>`).join("");
+
+  return `<div class="item">${thumb(p.imageUrl)}
+      <div class="info"><div class="code"><span>${nameLink(p)}</span></div>
+      <div class="desc">${esc(p.manufacturer)}${p.variantSuffix ? " · " + esc(p.variantSuffix) : ""}</div>
+      <div class="desc">${sub}</div>
+      ${dates ? `<div class="desc">${dates}</div>` : ""}</div>
+      <div class="count">${money(p.cost)}</div></div>
+    <details class="mix-details">
+      <summary>Details</summary>
+      <div class="sub">Avg per mix ${p.avgPerMix != null ? money(p.avgPerMix) : "—"} · ${p.grams.toFixed(1)} g mixed</div>
+      ${comps}
+      ${history ? `<div class="sub">1 oz price history</div>${history}` : ""}
+    </details>`;
+}
+
+function renderStats(data) {
+  const s = buildStats(data);
+  if (!s.totalMixes && !s.totalUses) return empty("📊", "No stats yet");
+
+  const top = (arr, f) => arr.filter(p => f(p)).sort((a, b) => f(b) - f(a))[0] || null;
+  const mostUsed = top(s.list, p => p.uses);
+  const mostSpent = top(s.list, p => p.cost);
+  const mostMixed = top(s.list, p => p.mixes);
+  const mostOz = top(s.list, p => p.ozCost);
+  const cheapestOz = s.list.filter(p => p.ozCost).sort((a, b) => a.ozCost - b.ozCost)[0] || null;
+  const avgPerMix = s.totalMixes ? s.totalCost / s.totalMixes : 0;
+
+  const statGrid = `<div class="stat-grid">
+    <div class="stat"><b>${money(s.totalCost)}</b><span>total spent on mixes</span></div>
+    <div class="stat"><b>${s.totalMixes}</b><span>mixes</span></div>
+    <div class="stat"><b>${(s.totalGrams / 1000).toFixed(2)} kg</b><span>material mixed</span></div>
+    <div class="stat"><b>${money(avgPerMix)}</b><span>avg per mix</span></div>
+    <div class="stat"><b>${s.totalUses}</b><span>total uses</span></div>
+    <div class="stat"><b>${s.paintsUsed}</b><span>paints used</span></div>
+    <div class="stat"><b>${s.activeDays}</b><span>days active</span></div>
+    <div class="stat"><b>${s.busiest ? money(s.busiest[1]) : "—"}</b><span>${s.busiest ? "biggest mix day · " + fmtDay(s.busiest[0]) : "biggest mix day"}</span></div>
   </div>`;
 
-  if (!mixes.length) return seg + empty("💲", "No confirmed mixes yet");
+  const hl = (label, p, value) => p ? `<div class="item">${thumb(p.imageUrl)}
+      <div class="info"><div class="desc">${esc(label)}</div>
+      <div class="code"><span>${nameLink(p)}</span></div>
+      <div class="desc">${esc(p.manufacturer)}</div></div>
+      <div class="count">${value}</div></div>` : "";
 
-  const buckets = bucketMixes(mixes, costView);
-  const totalCost = buckets.reduce((a, b) => a + b.cost, 0);
-  const totalGrams = buckets.reduce((a, b) => a + b.grams, 0);
-  const totalMixes = buckets.reduce((a, b) => a + b.count, 0);
-  const avg = totalMixes ? totalCost / totalMixes : 0;
-
-  const summary = `<div class="summary">
-    <div class="stat"><b>${money(totalCost)}</b><span>total spent</span></div>
-    <div class="stat"><b>${money(avg)}</b><span>avg per mix</span></div>
-    <div class="stat"><b>${(totalGrams / 1000).toFixed(2)} kg</b><span>material</span></div></div>`;
-
-  const chart = `<section class="card"><div class="card-h"><h3>Cost per ${costView}</h3></div>
-    <div class="chart-wrap">${barChartSvg(buckets, costView)}</div></section>`;
-
-  const list = `<section class="card period-list"><div class="card-h"><h3>${costView[0].toUpperCase() + costView.slice(1)} breakdown</h3></div>
-    ${[...buckets].reverse().map(b => `
-      <div class="item">
-        <div class="info"><div class="code"><span>${esc(periodLabel(b.key, costView))}</span></div>
-        <div class="desc">${b.count} mix${b.count === 1 ? "" : "es"} · ${(b.grams).toFixed(1)} g${b.unpriced ? ` · <span class="warn">${b.unpriced} unpriced</span>` : ""}</div></div>
-        <div class="count">${money(b.cost)}</div>
-      </div>`).join("")}
+  const highlights = `<section class="card"><div class="card-h"><h3>Highlights</h3></div>
+    ${hl("Most used", mostUsed, mostUsed ? `${mostUsed.uses}×` : "")}
+    ${hl("Most money spent", mostSpent, mostSpent ? money(mostSpent.cost) : "")}
+    ${hl("Most mixed", mostMixed, mostMixed ? `${mostMixed.mixes}×` : "")}
+    ${hl("Most expensive per oz", mostOz, mostOz ? money(mostOz.ozCost) + "/oz" : "")}
+    ${hl("Cheapest per oz", cheapestOz, cheapestOz ? money(cheapestOz.ozCost) + "/oz" : "")}
+    ${mostOz ? "" : `<div class="sub">Price per oz appears after a mix page is opened at 1 oz.</div>`}
   </section>`;
 
-  return seg + summary + chart + list;
+  const costRows = s.list.filter(p => p.cost > 0).sort((a, b) => b.cost - a.cost).slice(0, 15)
+    .map(p => ({ label: p.name, value: p.cost }));
+  const ozRows = s.list.filter(p => p.ozCost).sort((a, b) => b.ozCost - a.ozCost).slice(0, 15)
+    .map(p => ({ label: p.name, value: p.ozCost }));
+
+  const costCard = costRows.length
+    ? `<section class="card"><div class="card-h"><h3>Total cost per paint</h3><span class="pill">top ${costRows.length}</span></div>
+        <div class="chart-wrap">${hbarChartSvg(costRows, money)}</div></section>`
+    : "";
+  const ozCard = ozRows.length
+    ? `<section class="card"><div class="card-h"><h3>Price per oz</h3><span class="pill">${ozRows.length} paints</span></div>
+        <div class="chart-wrap">${hbarChartSvg(ozRows, v => money(v) + "/oz")}</div></section>`
+    : "";
+
+  const paintRows = s.list
+    .filter(p => p.uses || p.mixes || p.ozCost)
+    .sort((a, b) => b.cost - a.cost || b.uses - a.uses || a.name.localeCompare(b.name))
+    .map(renderStatPaint).join("");
+  const paintsCard = paintRows
+    ? `<section class="card"><div class="card-h"><h3>All paints</h3><span class="pill">${s.list.filter(p => p.uses || p.mixes || p.ozCost).length}</span></div>${paintRows}</section>`
+    : "";
+
+  const monthItems = Object.keys(s.monthCost).sort().map(k => ({ label: monthLabel(k), value: s.monthCost[k] }));
+  const yearRows = Object.keys(s.yearCost).sort().reverse().map(y => `
+    <div class="item"><div class="info"><div class="code"><span>${y}</span></div>
+    <div class="desc">${s.yearMixes[y]} mix${s.yearMixes[y] === 1 ? "" : "es"}</div></div>
+    <div class="count">${money(s.yearCost[y])}</div></div>`).join("");
+  const monthCard = monthItems.length
+    ? `<section class="card"><div class="card-h"><h3>Spend by month</h3></div>
+        <div class="chart-wrap">${barChartSvg(monthItems, money)}</div>
+        <div class="card-h"><h3>By year</h3></div>${yearRows}</section>`
+    : "";
+
+  const mfrRows = Object.values(s.byMfr).sort((a, b) => b.cost - a.cost).map(g => `
+    <div class="item"><div class="info"><div class="code"><span>${esc(g.name)}</span></div>
+    <div class="desc">${g.paints} paint${g.paints === 1 ? "" : "s"} · ${g.uses} use${g.uses === 1 ? "" : "s"} · ${g.mixes} mix${g.mixes === 1 ? "" : "es"}</div></div>
+    <div class="count">${money(g.cost)}</div></div>`).join("");
+  const mfrCard = mfrRows
+    ? `<section class="card"><div class="card-h"><h3>By manufacturer</h3></div>${mfrRows}</section>`
+    : "";
+
+  const matRows = s.materials.slice(0, 15).map(m => `
+    <div class="item"><div class="info"><div class="code"><span>${esc(m.code)}</span></div>
+    <div class="desc">${esc(m.name)}</div>
+    <div class="desc">${m.grams.toFixed(1)} g · ${s.totalCost ? ((m.cost / s.totalCost) * 100).toFixed(1) : "0.0"}% of spend</div></div>
+    <div class="count">${money(m.cost)}</div></div>`).join("");
+  const matCard = matRows
+    ? `<section class="card"><div class="card-h"><h3>Top materials by cost</h3><span class="pill">top ${Math.min(15, s.materials.length)}</span></div>${matRows}</section>`
+    : "";
+
+  return statGrid + highlights + costCard + ozCard + paintsCard + monthCard + mfrCard + matCard;
 }
+
+/* ---------- render ---------- */
 
 function render(data) {
   lastData = data || {};
@@ -497,13 +673,13 @@ function render(data) {
 
   $("nFavs").textContent = Object.keys(lastData.favorites || {}).length;
   $("nToday").textContent = today.length;
-  $("nCosts").textContent = mixes.reduce((a, m) => a + (m.count || 1), 0);
+  $("nStats").textContent = mixes.reduce((a, m) => a + (m.count || 1), 0);
   $("nAll").textContent = all.length;
 
   $("view").innerHTML =
     tab === "favs" ? renderFavs(lastData.favorites) :
     tab === "today" ? renderToday(today, meta, lastData.favorites, mixes) :
-    tab === "costs" ? renderCosts(mixes) :
+    tab === "stats" ? renderStats(lastData) :
     renderUsage(all, meta, "No usage tracked yet", lastData.favorites);
 }
 
@@ -512,14 +688,6 @@ document.querySelectorAll(".tabs button").forEach(b => b.addEventListener("click
   document.querySelectorAll(".tabs button").forEach(x => x.classList.toggle("on", x === b));
   render(lastData);
 }));
-
-// Day / Month / Year switch inside the Costs tab (event delegation, since the buttons are re-rendered)
-$("view").addEventListener("click", e => {
-  const btn = e.target.closest("[data-view]");
-  if (!btn) return;
-  costView = btn.dataset.view;
-  render(lastData);
-});
 
 /* ---------- loading ---------- */
 
@@ -619,7 +787,7 @@ async function clearData() {
       mixes: alsoMixes ? [] : (current.mixes || []),
       daily: {},
       usage: {},
-      colorMeta: current.colorMeta || {},   // paint details stay so pictures and names still show
+      colorMeta: current.colorMeta || {},   // paint details and 1 oz prices stay
       resetId: String(Date.now()),          // queued events older than this are discarded by the userscript
       resetFavs: alsoFavs,
       resetMixes: alsoMixes,
@@ -659,6 +827,7 @@ async function clearData() {
     btn.disabled = false;
   }
 }
+
 $("clearBtn").addEventListener("click", clearData);
 $("forgetToken").addEventListener("click", () => {
   try { localStorage.removeItem(TOKEN_KEY); } catch (e) {}
