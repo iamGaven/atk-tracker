@@ -1,10 +1,12 @@
 {
   "usage": {
-    "CAD85:50T (Summit White)": 2
+    "CAD85:50T (Summit White)": 2,
+    "VOLT9038 (Space Blue)": 1
   },
   "daily": {
     "2026-11-19": {
-      "CAD85:50T (Summit White)": 2
+      "CAD85:50T (Summit White)": 2,
+      "VOLT9038 (Space Blue)": 1
     }
   },
   "favorites": {
@@ -37,6 +39,14 @@
       "imageUrl": "https://colors.autokotesystems.com/apim/frontend/cod/2025.4.0/cod/market-color-id/34581133-7db5-e311-b816-005056945ff1/medium/tube?variantNumber=1",
       "descriptorIcon": null,
       "url": "https://colors.autokotesystems.com/formula/marketcolor/Automotive/ATK/370/34581133-7db5-e311-b816-005056945ff1/1"
+    },
+    "VOLT9038 (Space Blue)": {
+      "marketColorId": "f278ebae-79b5-e311-b816-005056945ff1",
+      "name": "VOLT9038 (Space Blue)",
+      "manufacturer": "Volvo Truck",
+      "imageUrl": "https://colors.autokotesystems.com/apim/frontend/cod/2025.4.0/cod/market-color-id/f278ebae-79b5-e311-b816-005056945ff1/medium/tube?variantNumber=1",
+      "descriptorIcon": null,
+      "url": "https://colors.autokotesystems.com/formula/marketcolor/Automotive/ATK/370/f278ebae-79b5-e311-b816-005056945ff1/1"
     }
   },
   "mixes": [
@@ -127,5 +137,5 @@
       "t": 1795143093883
     }
   ],
-  "updatedAt": "2026-11-20T02:51:36.397Z"
+  "updatedAt": "2026-11-20T02:56:08.576Z"
 }
