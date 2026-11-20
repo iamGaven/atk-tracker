@@ -1,6 +1,12 @@
 {
-  "usage": {},
-  "daily": {},
+  "usage": {
+    "CAD85:50T (Summit White)": 1
+  },
+  "daily": {
+    "2026-11-19": {
+      "CAD85:50T (Summit White)": 1
+    }
+  },
   "favorites": {
     "24127fd2-7cb5-e311-b816-005056945ff1": {
       "marketColorId": "24127fd2-7cb5-e311-b816-005056945ff1",
@@ -13,7 +19,16 @@
       "addedAt": 1795131882477
     }
   },
-  "colorMeta": {},
+  "colorMeta": {
+    "CAD85:50T (Summit White)": {
+      "marketColorId": "34581133-7db5-e311-b816-005056945ff1",
+      "name": "CAD85:50T (Summit White)",
+      "manufacturer": "Cadillac",
+      "imageUrl": "https://colors.autokotesystems.com/apim/frontend/cod/2025.4.0/cod/market-color-id/34581133-7db5-e311-b816-005056945ff1/medium/tube?variantNumber=1",
+      "descriptorIcon": null,
+      "url": "https://colors.autokotesystems.com/formula/marketcolor/Automotive/ATK/370/34581133-7db5-e311-b816-005056945ff1/1"
+    }
+  },
   "mixes": [
     {
       "key": "Layer 1:201+407+301+101",
@@ -62,5 +77,5 @@
       "t": 1795131889554
     }
   ],
-  "updatedAt": "2026-11-19T23:44:51.711Z"
+  "updatedAt": "2026-11-20T02:51:29.281Z"
 }
