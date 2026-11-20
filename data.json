@@ -189,7 +189,18 @@
       "manufacturer": "Dodge",
       "imageUrl": "https://colors.autokotesystems.com/apim/frontend/cod/2025.4.0/cod/market-color-id/fe2d99fc-259d-ef11-814e-0022485d53a8/medium/tube?variantNumber=1",
       "descriptorIcon": null,
-      "url": "https://colors.autokotesystems.com/formula/marketcolor/Automotive/ATK/370/fe2d99fc-259d-ef11-814e-0022485d53a8/1"
+      "url": "https://colors.autokotesystems.com/formula/marketcolor/Automotive/ATK/370/fe2d99fc-259d-ef11-814e-0022485d53a8/1",
+      "ozCost": 5.55,
+      "ozGrams": 28,
+      "ozAt": 1795148284701,
+      "ozHistory": [
+        {
+          "t": 1795148284701,
+          "day": "2026-11-19",
+          "cost": 5.55,
+          "grams": 28
+        }
+      ]
     }
   },
   "mixes": [
@@ -353,7 +364,7 @@
       "t": 1795147453998
     }
   ],
-  "updatedAt": "2026-11-20T04:17:58.775Z",
+  "updatedAt": "2026-11-20T04:18:06.542Z",
   "resetId": "1795147381705",
   "resetFavs": true,
   "resetMixes": true
