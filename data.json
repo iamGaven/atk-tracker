@@ -1,16 +1,6 @@
 {
-  "usage": {
-    "HON9792 (Modern Steel)": 3,
-    "HON9792(B1) (Modern Steel)": 1,
-    "TOY1G3 (Graphite Grey)": 3
-  },
-  "daily": {
-    "2026-11-19": {
-      "HON9792 (Modern Steel)": 3,
-      "HON9792(B1) (Modern Steel)": 1,
-      "TOY1G3 (Graphite Grey)": 3
-    }
-  },
+  "usage": {},
+  "daily": {},
   "favorites": {
     "e5f60946-6cb5-e311-b816-005056945ff1": {
       "marketColorId": "e5f60946-6cb5-e311-b816-005056945ff1",
@@ -229,8 +219,8 @@
       "t": 1795145256252
     }
   ],
-  "updatedAt": "2026-11-20T03:30:32.179Z",
-  "resetId": "1795145217888",
-  "resetFavs": true,
-  "resetMixes": true
+  "updatedAt": "2026-11-20T03:33:06.996Z",
+  "resetId": "1795145586996",
+  "resetFavs": false,
+  "resetMixes": false
 }
