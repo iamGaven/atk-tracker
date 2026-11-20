@@ -1,10 +1,108 @@
 {
-  "usage": {},
-  "daily": {},
+  "usage": {
+    "CHE22:G6M (Galactic Gray)": 1
+  },
+  "daily": {
+    "2026-11-19": {
+      "CHE22:G6M (Galactic Gray)": 1
+    }
+  },
   "favorites": {},
-  "colorMeta": {},
-  "mixes": [],
-  "updatedAt": "2026-11-20T03:11:07.640Z",
+  "colorMeta": {
+    "CHE22:G6M (Galactic Gray)": {
+      "name": "CHE22:G6M (Galactic Gray)",
+      "akzoCode": "CHE22:G6M",
+      "variantSuffix": "",
+      "marketColorId": "7aa4b655-ecd8-eb11-81b4-0050568d4c1c",
+      "manufacturer": "Chevrolet",
+      "imageUrl": "https://colors.autokotesystems.com/apim/frontend/cod/2025.4.0/cod/market-color-id/7aa4b655-ecd8-eb11-81b4-0050568d4c1c/medium/tube?variantNumber=1",
+      "descriptorIcon": null,
+      "url": "https://colors.autokotesystems.com/formula/marketcolor/Automotive/ATK/370/7aa4b655-ecd8-eb11-81b4-0050568d4c1c/1"
+    }
+  },
+  "mixes": [
+    {
+      "name": "CHE22:G6M (Galactic Gray)",
+      "akzoCode": "CHE22:G6M",
+      "variantSuffix": "",
+      "marketColorId": "7aa4b655-ecd8-eb11-81b4-0050568d4c1c",
+      "image": "https://colors.autokotesystems.com/apim/frontend/cod/2025.4.0/cod/market-color-id/7aa4b655-ecd8-eb11-81b4-0050568d4c1c/medium/tube?variantNumber=1",
+      "key": "Layer 1:201+301+703+901+407+704+504+030+812",
+      "amount": 1,
+      "grams": 28.2,
+      "cost": 3.9,
+      "unpriced": 1,
+      "layers": [
+        {
+          "layer": "Layer 1",
+          "grams": 28.2,
+          "cost": 3.9,
+          "unpriced": 1
+        }
+      ],
+      "components": [
+        {
+          "paint_code": "201",
+          "name": "CARBON BLACK",
+          "grams": 7.7,
+          "cost": 0.71
+        },
+        {
+          "paint_code": "301",
+          "name": "LEMON YELLOW",
+          "grams": 0.2,
+          "cost": 0.03
+        },
+        {
+          "paint_code": "407",
+          "name": "MAGENTA",
+          "grams": 2.1,
+          "cost": 0.3
+        },
+        {
+          "paint_code": "504",
+          "name": "BRIGHT BLUE RED SHADE TRANSPARENT",
+          "grams": 3.1,
+          "cost": 0.56
+        },
+        {
+          "paint_code": "703",
+          "name": "COARSE ALUMINUM SPARKLE",
+          "grams": 0.8,
+          "cost": 0.1
+        },
+        {
+          "paint_code": "704",
+          "name": "SPARKLE COARSE ALUMINUM",
+          "grams": 2.9,
+          "cost": 0.35
+        },
+        {
+          "paint_code": "812",
+          "name": "BLUE VIOLET MICA GF",
+          "grams": 7.3,
+          "cost": 1.56
+        },
+        {
+          "paint_code": "901",
+          "name": "",
+          "grams": 1,
+          "cost": null
+        },
+        {
+          "paint_code": "030",
+          "name": "FLOP ADJUSTER TRANSPARENT",
+          "grams": 3.1,
+          "cost": 0.28
+        }
+      ],
+      "day": "2026-11-19",
+      "count": 1,
+      "id": "1795144268982-hoi1vj",
+      "t": 1795144268982
+    }
+  ],
+  "updatedAt": "2026-11-20T03:11:10.810Z",
   "resetId": "1795144254469",
   "resetFavs": true,
   "resetMixes": true
