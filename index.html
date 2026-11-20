@@ -147,8 +147,9 @@
   <details class="manage">
     <summary>Manage data</summary>
     <div class="manage-body">
-      <p>Clears usage counts (today and all time) in data.json on GitHub. Every device running the userscript refreshes from it on its next sync.</p>
+      <p>Clears usage counts (today and all time) in data.json on GitHub. Tick the boxes to also clear favorites or confirmed mixes. Every device running the userscript refreshes from it on its next sync.</p>
       <label class="check"><input type="checkbox" id="clearFavs"> Also clear favorites</label>
+      <label class="check"><input type="checkbox" id="clearMixes"> Also clear confirmed mixes</label>
       <button class="danger-btn" id="clearBtn">Clear data</button>
       <button class="link-btn" id="forgetToken">Forget saved token</button>
       <div id="clearMsg"></div>
@@ -537,9 +538,19 @@ function setMsg(text, cls) { const el = $("clearMsg"); el.textContent = text; el
 
 async function clearData() {
   const alsoFavs = $("clearFavs").checked;
-  const ok = confirm(alsoFavs
-    ? "Are you sure?\n\nThis will permanently erase ALL usage counts AND ALL favorites from data.json in the GitHub repo, and from every device running the userscript."
-    : "Are you sure?\n\nThis will permanently erase ALL usage counts (today and all time) from data.json in the GitHub repo, and from every device running the userscript. Favorites will be kept.");
+  const alsoMixes = $("clearMixes").checked;
+
+  const scope = [
+    "usage counts (today and all time)",
+    alsoFavs ? "all favorites" : null,
+    alsoMixes ? "all confirmed mixes" : null,
+  ].filter(Boolean).join(", ");
+
+  const ok = confirm(
+    `Are you sure?\n\nThis will permanently erase ${scope} from data.json in the GitHub repo, ` +
+    `and from every device running the userscript.` +
+    (alsoFavs || alsoMixes ? "" : "\n\nFavorites and mixes will be kept.")
+  );
   if (!ok) return;
 
   const token = getToken();
@@ -565,19 +576,27 @@ async function clearData() {
     const cleared = {
       ...current,
       favorites: alsoFavs ? {} : (current.favorites || {}),
+      mixes: alsoMixes ? [] : (current.mixes || []),
       daily: {},
       usage: {},
-      colorMeta: {},
-      resetId: String(Date.now()),   // queued clicks older than this are discarded by the userscript
+      colorMeta: current.colorMeta || {},   // paint details stay so pictures and names still show
+      resetId: String(Date.now()),          // queued events older than this are discarded by the userscript
       resetFavs: alsoFavs,
+      resetMixes: alsoMixes,
       updatedAt: new Date().toISOString()
     };
+
+    const message =
+      alsoFavs && alsoMixes ? "Clear usage, favorites and mixes" :
+      alsoFavs ? "Clear usage and favorites" :
+      alsoMixes ? "Clear usage and mixes" :
+      "Clear usage data";
 
     const putRes = await fetch(API_URL, {
       method: "PUT",
       headers: { ...headers, "Content-Type": "application/json" },
       body: JSON.stringify({
-        message: alsoFavs ? "Clear all data" : "Clear usage data",
+        message,
         content: utf8ToB64(JSON.stringify(cleared, null, 2)),
         sha: file.sha,
         branch: BRANCH
@@ -600,7 +619,6 @@ async function clearData() {
     btn.disabled = false;
   }
 }
-
 $("clearBtn").addEventListener("click", clearData);
 $("forgetToken").addEventListener("click", () => {
   try { localStorage.removeItem(TOKEN_KEY); } catch (e) {}
