@@ -7,7 +7,8 @@
     "ACU1001 (Phoenix Yellow)": 2,
     "NISGAC (Malbec Black)": 1,
     "CAD15:G1W (Crystal White)": 1,
-    "SUBM1Y(B) (Crimson Red Pearl)": 3
+    "SUBM1Y(B) (Crimson Red Pearl)": 3,
+    "HON170H (Scarlet Red)": 1
   },
   "daily": {
     "2026-11-19": {
@@ -23,7 +24,8 @@
       "CAD15:G1W (Crystal White)": 1
     },
     "2026-11-21": {
-      "SUBM1Y(B) (Crimson Red Pearl)": 3
+      "SUBM1Y(B) (Crimson Red Pearl)": 3,
+      "HON170H (Scarlet Red)": 1
     }
   },
   "favorites": {},
@@ -299,6 +301,28 @@
           "t": 1795310250038,
           "day": "2026-11-21",
           "cost": 5.17,
+          "grams": 28.2
+        }
+      ]
+    },
+    "HON170H (Scarlet Red)": {
+      "name": "HON170H (Scarlet Red)",
+      "akzoCode": "HON170H",
+      "variantSuffix": "",
+      "variantNumber": 1,
+      "marketColorId": "2bd58cc3-a788-ee11-8149-005056beb5b3",
+      "manufacturer": "Honda",
+      "imageUrl": "https://colors.autokotesystems.com/apim/frontend/cod/2025.4.0/cod/market-color-id/2bd58cc3-a788-ee11-8149-005056beb5b3/medium/tube?variantNumber=1",
+      "descriptorIcon": null,
+      "url": "https://colors.autokotesystems.com/formula/marketcolor/Automotive/ATK/370/2bd58cc3-a788-ee11-8149-005056beb5b3/1",
+      "ozCost": 5.51,
+      "ozGrams": 28.2,
+      "ozAt": 1795310265067,
+      "ozHistory": [
+        {
+          "t": 1795310265067,
+          "day": "2026-11-21",
+          "cost": 5.51,
           "grams": 28.2
         }
       ]
@@ -774,7 +798,7 @@
       "t": 1795196210077
     }
   ],
-  "updatedAt": "2026-11-22T01:17:31.969Z",
+  "updatedAt": "2026-11-22T01:17:46.975Z",
   "resetId": "1795147381705",
   "resetFavs": true,
   "resetMixes": true
