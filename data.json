@@ -290,7 +290,18 @@
       "manufacturer": "Subaru/Fuji",
       "imageUrl": "https://colors.autokotesystems.com/apim/frontend/cod/2025.4.0/cod/market-color-id/5dcbd198-85ef-e611-80f0-0050568d4c1c/medium/tube?variantNumber=2",
       "descriptorIcon": "https://colors.autokotesystems.com/assets/images/color-variant-descriptors/b.svg",
-      "url": "https://colors.autokotesystems.com/formula/marketcolor/Automotive/ATK/370/5dcbd198-85ef-e611-80f0-0050568d4c1c/2"
+      "url": "https://colors.autokotesystems.com/formula/marketcolor/Automotive/ATK/370/5dcbd198-85ef-e611-80f0-0050568d4c1c/2",
+      "ozCost": 5.17,
+      "ozGrams": 28.2,
+      "ozAt": 1795310250038,
+      "ozHistory": [
+        {
+          "t": 1795310250038,
+          "day": "2026-11-21",
+          "cost": 5.17,
+          "grams": 28.2
+        }
+      ]
     }
   },
   "mixes": [
@@ -763,7 +774,7 @@
       "t": 1795196210077
     }
   ],
-  "updatedAt": "2026-11-22T01:17:24.309Z",
+  "updatedAt": "2026-11-22T01:17:31.969Z",
   "resetId": "1795147381705",
   "resetFavs": true,
   "resetMixes": true
