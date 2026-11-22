@@ -7,7 +7,7 @@
     "ACU1001 (Phoenix Yellow)": 2,
     "NISGAC (Malbec Black)": 1,
     "CAD15:G1W (Crystal White)": 1,
-    "SUBM1Y(B) (Crimson Red Pearl)": 2
+    "SUBM1Y(B) (Crimson Red Pearl)": 3
   },
   "daily": {
     "2026-11-19": {
@@ -23,7 +23,7 @@
       "CAD15:G1W (Crystal White)": 1
     },
     "2026-11-21": {
-      "SUBM1Y(B) (Crimson Red Pearl)": 2
+      "SUBM1Y(B) (Crimson Red Pearl)": 3
     }
   },
   "favorites": {},
@@ -763,7 +763,7 @@
       "t": 1795196210077
     }
   ],
-  "updatedAt": "2026-11-22T01:16:55.213Z",
+  "updatedAt": "2026-11-22T01:17:24.309Z",
   "resetId": "1795147381705",
   "resetFavs": true,
   "resetMixes": true
