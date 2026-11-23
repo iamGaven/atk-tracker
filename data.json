@@ -343,8 +343,8 @@
       "descriptorIcon": null,
       "url": "https://colors.autokotesystems.com/formula/marketcolor/Automotive/ATK/370/9038298a-50b5-e311-b816-005056945ff1/2",
       "ozCost": 185.35,
-      "ozGrams": 910.91,
-      "ozAt": 1795458245512,
+      "ozGrams": 910.9,
+      "ozAt": 1795458263212,
       "ozHistory": [
         {
           "t": 1795458169774,
@@ -387,6 +387,12 @@
           "day": "2026-11-23",
           "cost": 185.35,
           "grams": 910.91
+        },
+        {
+          "t": 1795458263212,
+          "day": "2026-11-23",
+          "cost": 185.35,
+          "grams": 910.9
         }
       ]
     }
@@ -861,7 +867,7 @@
       "t": 1795196210077
     }
   ],
-  "updatedAt": "2026-11-23T18:24:07.619Z",
+  "updatedAt": "2026-11-23T18:24:25.355Z",
   "resetId": "1795147381705",
   "resetFavs": true,
   "resetMixes": true
