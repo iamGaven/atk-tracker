@@ -9,7 +9,7 @@
     "CAD15:G1W (Crystal White)": 2,
     "SUBM1Y(B) (Crimson Red Pearl)": 3,
     "HON170H (Scarlet Red)": 1,
-    "TOY070 (Blizzard)": 1
+    "TOY070 (Blizzard)": 2
   },
   "daily": {
     "2026-11-19": {
@@ -30,7 +30,7 @@
     },
     "2026-11-23": {
       "CAD15:G1W (Crystal White)": 1,
-      "TOY070 (Blizzard)": 1
+      "TOY070 (Blizzard)": 2
     }
   },
   "favorites": {},
@@ -342,9 +342,9 @@
       "imageUrl": "https://colors.autokotesystems.com/apim/frontend/cod/2025.4.0/cod/market-color-id/9038298a-50b5-e311-b816-005056945ff1/medium/tube?variantNumber=2",
       "descriptorIcon": null,
       "url": "https://colors.autokotesystems.com/formula/marketcolor/Automotive/ATK/370/9038298a-50b5-e311-b816-005056945ff1/2",
-      "ozCost": 88.58,
-      "ozGrams": 1150.9,
-      "ozAt": 1795458199421,
+      "ozCost": 2.59,
+      "ozGrams": 35.1,
+      "ozAt": 1795458213257,
       "ozHistory": [
         {
           "t": 1795458169774,
@@ -369,6 +369,12 @@
           "day": "2026-11-23",
           "cost": 88.58,
           "grams": 1150.9
+        },
+        {
+          "t": 1795458213257,
+          "day": "2026-11-23",
+          "cost": 2.59,
+          "grams": 35.1
         }
       ]
     }
@@ -843,7 +849,7 @@
       "t": 1795196210077
     }
   ],
-  "updatedAt": "2026-11-23T18:23:21.278Z",
+  "updatedAt": "2026-11-23T18:23:35.483Z",
   "resetId": "1795147381705",
   "resetFavs": true,
   "resetMixes": true
