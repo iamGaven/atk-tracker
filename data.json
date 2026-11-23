@@ -342,9 +342,9 @@
       "imageUrl": "https://colors.autokotesystems.com/apim/frontend/cod/2025.4.0/cod/market-color-id/9038298a-50b5-e311-b816-005056945ff1/medium/tube?variantNumber=2",
       "descriptorIcon": null,
       "url": "https://colors.autokotesystems.com/formula/marketcolor/Automotive/ATK/370/9038298a-50b5-e311-b816-005056945ff1/2",
-      "ozCost": 82.86,
-      "ozGrams": 1123.5,
-      "ozAt": 1795458172687,
+      "ozCost": 265.62,
+      "ozGrams": 1999.3,
+      "ozAt": 1795458176832,
       "ozHistory": [
         {
           "t": 1795458169774,
@@ -357,6 +357,12 @@
           "day": "2026-11-23",
           "cost": 82.86,
           "grams": 1123.5
+        },
+        {
+          "t": 1795458176832,
+          "day": "2026-11-23",
+          "cost": 265.62,
+          "grams": 1999.3
         }
       ]
     }
@@ -831,7 +837,7 @@
       "t": 1795196210077
     }
   ],
-  "updatedAt": "2026-11-23T18:22:54.763Z",
+  "updatedAt": "2026-11-23T18:22:59.141Z",
   "resetId": "1795147381705",
   "resetFavs": true,
   "resetMixes": true
